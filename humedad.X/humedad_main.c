@@ -33,6 +33,7 @@
 #include "dht11_h.h"
 #include "LCD8bit.h"
 #include "Oscilator.h"
+#include "timer1.h"
  
 
 uint8_t temp_int, temp_dec, hum_int, hum_dec, check, total,counter;
@@ -53,9 +54,14 @@ void main(void)
     LCD8_set_cursor(1,1);
     LCD8_strWrite("Funciona");
     __delay_ms(100);
+    timer1_begin(OFFSET,PRESCALER); 
+    
    while(1)
     {
        LCD8_clear();
+       if(t1_count == 10)
+       {
+       
        dht11_begin();
        dht11_check();
        hum_int = dht11_read();
@@ -65,7 +71,6 @@ void main(void)
        check = dht11_read();
        total = hum_int+hum_dec+temp_int+temp_dec;
        
-       
        if (check != total){
            LCD8_clear();
            LCD8_set_cursor(1,1);
@@ -73,7 +78,8 @@ void main(void)
            LCD8_set_cursor(2,1);
            LCD8_strWrite("comunicacion");
        }
-       
+       t1_count = 0; 
+       }
        LCD8_set_cursor(1,1);
        sprintf(show, "Humedad: %d",hum_int);
        LCD8_strWrite(show);
@@ -85,7 +91,10 @@ void main(void)
        LCD8_strWrite(show);
        sprintf(show, ".%dC",temp_dec);
        LCD8_strWrite(show);
-       __delay_ms(1500);
+       
+       LCD8_set_cursor(2,14);
+       sprintf(show, "%d",t1_count);
+       LCD8_strWrite(show);
     }
     
     }
