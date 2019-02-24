@@ -39,8 +39,12 @@
 [v _dht11_read dht11_read `(uc  1 e 1 0 ]
 "41 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\humedad.X\humedad_main.c
 [v _main main `(v  1 e 1 0 ]
-"228 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f887.h
+"166 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f887.h
+[v _PORTA PORTA `VEuc  1 e 1 @5 ]
+"228
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"1478
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
 [s S31 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
 `uc 1 HTS 1 0 :1:2 
@@ -55,6 +59,8 @@
 ]
 [u S42 . 1 `S31 1 . 1 0 `S37 1 . 1 0 ]
 [v _OSCCONbits OSCCONbits `VES42  1 e 1 @143 ]
+"3387
+[v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
 "4079
 [v _RA0 RA0 `VEb  1 e 0 @40 ]
 "4082
@@ -63,6 +69,12 @@
 [v _RA2 RA2 `VEb  1 e 0 @42 ]
 "4400
 [v _TRISA0 TRISA0 `VEb  1 e 0 @1064 ]
+"4403
+[v _TRISA1 TRISA1 `VEb  1 e 0 @1065 ]
+"4406
+[v _TRISA2 TRISA2 `VEb  1 e 0 @1066 ]
+"4409
+[v _TRISA3 TRISA3 `VEb  1 e 0 @1067 ]
 "358 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
 [v _dpowers dpowers `DC[5]ui  1 s 10 dpowers ]
 "38 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\humedad.X\humedad_main.c
@@ -77,7 +89,7 @@
 "41
 [v _main main `(v  1 e 1 0 ]
 {
-"78
+"91
 } 0
 "500 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
