@@ -26,7 +26,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdio.h>
-
+#include "dht11_h.h"
 #define _XTAL_FREQ 8000000
 
 
