@@ -22,16 +22,22 @@
 // #pragma config statements should precede project file includes.
 // Use project enums instead of #define for ON and OFF.
 
+#define _XTAL_FREQ 8000000
+#define RS RA1
+#define EN RA2
+
 #include <xc.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include "dht11_h.h"
-#define _XTAL_FREQ 8000000
-
+#include "LCD8bit.h"
+#include "Oscilator.h"
+ 
 
 
 void main(void)
     {
-    return;
+    oscilator_begin(7);
+    
     }

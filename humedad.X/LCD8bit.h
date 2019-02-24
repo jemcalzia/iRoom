@@ -72,4 +72,4 @@ void LCD8_shiftL() {
     {
         __delay_ms(300);
         LCD8_shiftR();
-    }
+    }*/
