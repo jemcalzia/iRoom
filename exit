@@ -1,0 +1,79 @@
+[33mcommit 981761514fb4871de34084366c921ab298715634[m
+Author: María Mercedes Retolaza Reyna <jemcalzia@gmail.com>
+Date:   Sun Feb 24 14:46:16 2019 -0600
+
+    First commit on stepper
+
+[33mcommit 07dee949abdee550f67e19f0cbf10540861815ed[m
+Author: María Mercedes Retolaza Reyna <jemcalzia@gmail.com>
+Date:   Sun Feb 24 13:36:35 2019 -0600
+
+    Modificaciones a sensor de humedad, uso sin interrupciones.
+
+[33mcommit 773c83819d0e7492801f370f9447a87f74cbc3da[m
+Author: María Mercedes Retolaza Reyna <jemcalzia@gmail.com>
+Date:   Sat Feb 23 22:00:07 2019 -0600
+
+    Actualizacion humedad
+
+[33mcommit a4bafbf3120a7b4f8ec45fa5b96ae633c2320425[m
+Merge: 5c56d1c d7f60b0
+Author: jemcalzia <47863901+jemcalzia@users.noreply.github.com>
+Date:   Sat Feb 23 20:52:40 2019 -0600
+
+    Merge pull request #2 from jemcalzia/humedad
+    
+    Humedad
+
+[33mcommit d7f60b0aaf695ed84ab29757664355e74a9562e4[m
+Author: Jose Molina <jemcalzia@gmail.com>
+Date:   Sat Feb 23 20:47:27 2019 -0600
+
+    Test file
+
+[33mcommit cb78bf0ddb13dda29222b521f0f3add4a00877d8[m
+Author: María Mercedes Retolaza Reyna <jemcalzia@gmail.com>
+Date:   Sat Feb 23 19:49:14 2019 -0600
+
+    Librerias auxuliares agregadas
+
+[33mcommit 55964b83fcc3bf443ac296da56351a5d4e3d9182[m
+Author: María Mercedes Retolaza Reyna <jemcalzia@gmail.com>
+Date:   Sat Feb 23 19:26:54 2019 -0600
+
+    Librerias de prueba
+
+[33mcommit a2f664c7516928427ec75edf718b34afe779df2e[m
+Author: Jose Molina <jemcalzia@gmail.com>
+Date:   Sat Feb 23 19:16:33 2019 -0600
+
+    Header & c source file
+
+[33mcommit 6b42666fb9591f8820a85152508489c19d3fb62d[m
+Author: María Mercedes Retolaza Reyna <jemcalzia@gmail.com>
+Date:   Sat Feb 23 18:46:21 2019 -0600
+
+    Header & Main
+
+[33mcommit 5c56d1cd23aa353c87ad29d906fcc94d73076d1c[m
+Merge: 6fbd8a9 e434e72
+Author: jemcalzia <47863901+jemcalzia@users.noreply.github.com>
+Date:   Sat Feb 23 18:30:01 2019 -0600
+
+    Merge pull request #1 from jemcalzia/humedad
+    
+    Código humedad
+
+[33mcommit e434e7244caeaa3d73383be431a12d20ef21a938[m
+Author: Unknown <jemcalzia@gmail.com>
+Date:   Sat Feb 23 18:23:40 2019 -0600
+
+    Código humedad
+    
+    Acá se trabajará el código para leer el sensor DHT11
+
+[33mcommit 6fbd8a9f4cb6d804bb178d57c83157ab6598e8d4[m
+Author: jemcalzia <47863901+jemcalzia@users.noreply.github.com>
+Date:   Thu Feb 21 13:22:29 2019 -0600
+
+    Initial commit
