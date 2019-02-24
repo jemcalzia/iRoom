@@ -2928,29 +2928,9 @@ void oscilator_begin(char freq){
 }
 # 35 "humedad_main.c" 2
 
-# 1 "./timer1.h" 1
 
 
-
-
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 1 3
-# 8 "./timer1.h" 2
-
-
-
-
-
-
-uint8_t t1_count;
-void timer1_begin(uint8_t offset, uint8_t prescaler);
-# 36 "humedad_main.c" 2
-
-
-
-uint8_t temp_int, temp_dec, hum_int, hum_dec, check, total,counter;
+uint8_t temp_int, temp_dec, hum_int, hum_dec, check, total;
 char show[15];
 
 void main(void)
@@ -2958,57 +2938,10 @@ void main(void)
     ANSEL = 0;
     TRISA1 = 0;
     TRISA2 = 0;
-    TRISA3 = 0;
     PORTA = 0;
-    PORTB = 0;
-    TRISB = 0;
     oscilator_begin(7);
     LCD8_begin();
-    LCD8_clear();
-    LCD8_set_cursor(1,1);
+
     LCD8_strWrite("Funciona");
-    _delay((unsigned long)((100)*(8000000/4000.0)));
-    timer1_begin((0),(2));
-
-   while(1)
-    {
-       LCD8_clear();
-       if(t1_count == 10)
-       {
-
-       dht11_begin();
-       dht11_check();
-       hum_int = dht11_read();
-       hum_dec = dht11_read();
-       temp_int = dht11_read();
-       temp_dec = dht11_read();
-       check = dht11_read();
-       total = hum_int+hum_dec+temp_int+temp_dec;
-
-       if (check != total){
-           LCD8_clear();
-           LCD8_set_cursor(1,1);
-           LCD8_strWrite("Error, revisar");
-           LCD8_set_cursor(2,1);
-           LCD8_strWrite("comunicacion");
-       }
-       t1_count = 0;
-       }
-       LCD8_set_cursor(1,1);
-       sprintf(show, "Humedad: %d",hum_int);
-       LCD8_strWrite(show);
-       sprintf(show, ".%d%",hum_dec);
-       LCD8_strWrite(show);
-
-       LCD8_set_cursor(2,1);
-       sprintf(show, "Temp: %d",temp_int);
-       LCD8_strWrite(show);
-       sprintf(show, ".%dC",temp_dec);
-       LCD8_strWrite(show);
-
-       LCD8_set_cursor(2,14);
-       sprintf(show, "%d",t1_count);
-       LCD8_strWrite(show);
-    }
-
+# 83 "humedad_main.c"
     }

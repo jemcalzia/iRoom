@@ -33,18 +33,35 @@
 #include "dht11_h.h"
 #include "LCD8bit.h"
 #include "Oscilator.h"
+#include "timer1.h"
  
 
-uint8_t temp_int, temp_dec, hum_int, hum_dec, check, total;
+uint8_t temp_int, temp_dec, hum_int, hum_dec, check, total,counter;
 char show[15];
 
 void main(void)
     {
+    ANSEL = 0; 
+    TRISA1 = 0; 
+    TRISA2 = 0; 
+    TRISA3 = 0; 
+    PORTA = 0; 
+    PORTB = 0; 
+    TRISB = 0; 
     oscilator_begin(7);
     LCD8_begin();
     LCD8_clear();
-    while(1)
+    LCD8_set_cursor(1,1);
+    LCD8_strWrite("Funciona");
+    __delay_ms(100);
+    timer1_begin(OFFSET,PRESCALER); 
+    
+   while(1)
     {
+       LCD8_clear();
+       if(t1_count == 10)
+       {
+       
        dht11_begin();
        dht11_check();
        hum_int = dht11_read();
@@ -53,6 +70,7 @@ void main(void)
        temp_dec = dht11_read();
        check = dht11_read();
        total = hum_int+hum_dec+temp_int+temp_dec;
+       
        if (check != total){
            LCD8_clear();
            LCD8_set_cursor(1,1);
@@ -60,19 +78,23 @@ void main(void)
            LCD8_set_cursor(2,1);
            LCD8_strWrite("comunicacion");
        }
-       
+       t1_count = 0; 
+       }
        LCD8_set_cursor(1,1);
-       sprintf(show, "%d",hum_int);
+       sprintf(show, "Humedad: %d",hum_int);
        LCD8_strWrite(show);
-       sprintf(show, ".%d",hum_dec);
+       sprintf(show, ".%d%",hum_dec);
        LCD8_strWrite(show);
        
        LCD8_set_cursor(2,1);
-       sprintf(show, "%d",temp_int);
+       sprintf(show, "Temp: %d",temp_int);
        LCD8_strWrite(show);
-       sprintf(show, ".%d",temp_dec);
+       sprintf(show, ".%dC",temp_dec);
        LCD8_strWrite(show);
-       __delay_ms(200);
+       
+       LCD8_set_cursor(2,14);
+       sprintf(show, "%d",t1_count);
+       LCD8_strWrite(show);
     }
     
     }

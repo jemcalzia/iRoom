@@ -7,6 +7,7 @@
       <itemPath>dht11_h.h</itemPath>
       <itemPath>LCD8bit.h</itemPath>
       <itemPath>Oscilator.h</itemPath>
+      <itemPath>timer1.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -17,6 +18,7 @@
                    projectFiles="true">
       <itemPath>humedad_main.c</itemPath>
       <itemPath>dht11_h.c</itemPath>
+      <itemPath>timer1.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -32,7 +34,7 @@
         <targetDevice>PIC16F887</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>PICkit3PlatformTool</platformTool>
+        <platformTool>Simulator</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>2.05</languageToolchainVersion>
         <platform>3</platform>
