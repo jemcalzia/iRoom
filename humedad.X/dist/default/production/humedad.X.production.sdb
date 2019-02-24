@@ -37,14 +37,81 @@
 [v _dht11_check dht11_check `(v  1 e 1 0 ]
 "31
 [v _dht11_read dht11_read `(uc  1 e 1 0 ]
-"41 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\humedad.X\humedad_main.c
+"42 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\humedad.X\humedad_main.c
 [v _main main `(v  1 e 1 0 ]
+"8 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\humedad.X\timer1.c
+[v _timer1_begin timer1_begin `(v  1 e 1 0 ]
+"25
+[v _isr isr `II(v  1 s 1 isr ]
 "166 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
 "228
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
+[s S190 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"482
+[s S199 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 TMR0IE 1 0 :1:5 
+]
+[u S204 . 1 `S190 1 . 1 0 `S199 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES204  1 e 1 @11 ]
+[s S222 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+]
+"553
+[u S230 . 1 `S222 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES230  1 e 1 @12 ]
+"650
+[v _TMR1 TMR1 `VEus  1 e 2 @14 ]
+[s S147 . 1 `uc 1 TMR1ON 1 0 :1:0 
+`uc 1 TMR1CS 1 0 :1:1 
+`uc 1 nT1SYNC 1 0 :1:2 
+`uc 1 T1OSCEN 1 0 :1:3 
+`uc 1 T1CKPS 1 0 :2:4 
+`uc 1 TMR1GE 1 0 :1:6 
+`uc 1 T1GINV 1 0 :1:7 
+]
+"700
+[s S155 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T1INSYNC 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 T1CKPS0 1 0 :1:4 
+`uc 1 T1CKPS1 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 T1GIV 1 0 :1:7 
+]
+[s S163 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T1SYNC 1 0 :1:2 
+]
+[u S166 . 1 `S147 1 . 1 0 `S155 1 . 1 0 `S163 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES166  1 e 1 @16 ]
 "1478
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
+[s S241 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+]
+"1718
+[u S249 . 1 `S241 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES249  1 e 1 @140 ]
 [s S31 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
 `uc 1 HTS 1 0 :1:2 
@@ -77,61 +144,73 @@
 [v _TRISA3 TRISA3 `VEb  1 e 0 @1067 ]
 "358 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
 [v _dpowers dpowers `DC[5]ui  1 s 10 dpowers ]
-"38 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\humedad.X\humedad_main.c
+"39 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\humedad.X\humedad_main.c
 [v _temp_int temp_int `uc  1 e 1 0 ]
 [v _temp_dec temp_dec `uc  1 e 1 0 ]
 [v _hum_int hum_int `uc  1 e 1 0 ]
 [v _hum_dec hum_dec `uc  1 e 1 0 ]
 [v _check check `uc  1 e 1 0 ]
 [v _total total `uc  1 e 1 0 ]
-"39
+"40
 [v _show show `[15]uc  1 e 15 0 ]
-"41
+"6 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\humedad.X\timer1.c
+[v _t1_count t1_count `uc  1 e 1 0 ]
+"42 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\humedad.X\humedad_main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"91
+"100
+} 0
+"8 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\humedad.X\timer1.c
+[v _timer1_begin timer1_begin `(v  1 e 1 0 ]
+{
+[v timer1_begin@offset offset `uc  1 a 1 wreg ]
+[v timer1_begin@offset offset `uc  1 a 1 wreg ]
+[v timer1_begin@prescaler prescaler `uc  1 p 1 3 ]
+"10
+[v timer1_begin@offset offset `uc  1 a 1 6 ]
+"22
 } 0
 "500 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
 [v sprintf@sp sp `*.4uc  1 a 1 wreg ]
 "540
-[v sprintf@val val `ui  1 a 2 9 ]
+[v sprintf@val val `ui  1 a 2 18 ]
 "507
-[v sprintf@c c `uc  1 a 1 12 ]
+[v sprintf@c c `uc  1 a 1 21 ]
 "516
-[v sprintf@prec prec `c  1 a 1 8 ]
+[v sprintf@prec prec `c  1 a 1 17 ]
 "520
-[v sprintf@flag flag `uc  1 a 1 7 ]
+[v sprintf@flag flag `uc  1 a 1 16 ]
 "502
-[v sprintf@ap ap `[1]*.4v  1 a 1 6 ]
+[v sprintf@ap ap `[1]*.4v  1 a 1 15 ]
 "500
 [v sprintf@sp sp `*.4uc  1 a 1 wreg ]
-[v sprintf@f f `*.24DCuc  1 p 1 0 ]
+[v sprintf@f f `*.24DCuc  1 p 1 9 ]
 "545
-[v sprintf@sp sp `*.4uc  1 a 1 11 ]
+[v sprintf@sp sp `*.4uc  1 a 1 20 ]
 "1560
 } 0
 "5 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
 {
 "10
-[v ___lwmod@counter counter `uc  1 a 1 13 ]
+[v ___lwmod@counter counter `uc  1 a 1 8 ]
 "5
-[v ___lwmod@divisor divisor `ui  1 p 2 8 ]
-[v ___lwmod@dividend dividend `ui  1 p 2 10 ]
+[v ___lwmod@divisor divisor `ui  1 p 2 3 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 5 ]
 "25
 } 0
 "5 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 {
 "10
-[v ___lwdiv@quotient quotient `ui  1 a 2 5 ]
+[v ___lwdiv@quotient quotient `ui  1 a 2 1 ]
 "11
-[v ___lwdiv@counter counter `uc  1 a 1 7 ]
+[v ___lwdiv@counter counter `uc  1 a 1 0 ]
 "5
-[v ___lwdiv@divisor divisor `ui  1 p 2 0 ]
-[v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 3 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 5 ]
 "30
 } 0
 "9 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\humedad.X/Oscilator.h
@@ -139,7 +218,7 @@
 {
 [v oscilator_begin@freq freq `uc  1 a 1 wreg ]
 [v oscilator_begin@freq freq `uc  1 a 1 wreg ]
-[v oscilator_begin@freq freq `uc  1 a 1 1 ]
+[v oscilator_begin@freq freq `uc  1 a 1 4 ]
 "13
 } 0
 "31 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\humedad.X\dht11_h.c
@@ -164,9 +243,9 @@
 [v _LCD8_strWrite LCD8_strWrite `(v  1 e 1 0 ]
 {
 "56
-[v LCD8_strWrite@i i `uc  1 a 1 5 ]
+[v LCD8_strWrite@i i `uc  1 a 1 0 ]
 "55
-[v LCD8_strWrite@data data `*.26uc  1 p 2 2 ]
+[v LCD8_strWrite@data data `*.26uc  1 p 2 5 ]
 "59
 } 0
 "4
@@ -174,7 +253,7 @@
 {
 [v LCD8_write@data data `uc  1 a 1 wreg ]
 [v LCD8_write@data data `uc  1 a 1 wreg ]
-[v LCD8_write@data data `uc  1 a 1 1 ]
+[v LCD8_write@data data `uc  1 a 1 4 ]
 "11
 } 0
 "21
@@ -182,12 +261,12 @@
 {
 [v LCD8_set_cursor@row row `uc  1 a 1 wreg ]
 "22
-[v LCD8_set_cursor@cursor cursor `uc  1 a 1 5 ]
+[v LCD8_set_cursor@cursor cursor `uc  1 a 1 0 ]
 "21
 [v LCD8_set_cursor@row row `uc  1 a 1 wreg ]
-[v LCD8_set_cursor@column column `uc  1 p 1 3 ]
+[v LCD8_set_cursor@column column `uc  1 p 1 6 ]
 "24
-[v LCD8_set_cursor@row row `uc  1 a 1 6 ]
+[v LCD8_set_cursor@row row `uc  1 a 1 1 ]
 "30
 } 0
 "32
@@ -205,6 +284,11 @@
 {
 [v LCD8_cmd@data data `uc  1 a 1 wreg ]
 [v LCD8_cmd@data data `uc  1 a 1 wreg ]
-[v LCD8_cmd@data data `uc  1 a 1 2 ]
+[v LCD8_cmd@data data `uc  1 a 1 5 ]
 "19
+} 0
+"25 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\humedad.X\timer1.c
+[v _isr isr `II(v  1 s 1 isr ]
+{
+"32
 } 0

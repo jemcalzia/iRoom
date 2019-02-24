@@ -46,6 +46,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1478
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f887.h: 1478: extern volatile unsigned char TRISB __attribute__((address(0x086)));
 [v _TRISB `Vuc ~T0 @X0 0 e@134 ]
+"15 ./timer1.h
+[; ;./timer1.h: 15: void timer1_begin(uint8_t offset, uint8_t prescaler);
+[v _timer1_begin `(v ~T0 @X0 0 ef2`uc`uc ]
 "17 ./dht11_h.h
 [; ;./dht11_h.h: 17: void dht11_begin(void);
 [v _dht11_begin `(v ~T0 @X0 0 ef ]
@@ -547,8 +550,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./Oscilator.h: 13: }
 [e :UE 157 ]
 }
-"38 humedad_main.c
-[; ;humedad_main.c: 38: uint8_t temp_int, temp_dec, hum_int, hum_dec, check, total,counter;
+"14 ./timer1.h
+[; ;./timer1.h: 14: uint8_t t1_count;
+[v _t1_count `uc ~T0 @X0 1 e ]
+"39 humedad_main.c
+[; ;humedad_main.c: 39: uint8_t temp_int, temp_dec, hum_int, hum_dec, check, total,counter;
 [v _temp_int `uc ~T0 @X0 1 e ]
 [v _temp_dec `uc ~T0 @X0 1 e ]
 [v _hum_int `uc ~T0 @X0 1 e ]
@@ -556,154 +562,176 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _check `uc ~T0 @X0 1 e ]
 [v _total `uc ~T0 @X0 1 e ]
 [v _counter `uc ~T0 @X0 1 e ]
-"39
-[; ;humedad_main.c: 39: char show[15];
+"40
+[; ;humedad_main.c: 40: char show[15];
 [v _show `uc ~T0 @X0 -> 15 `i e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"41
-[; ;humedad_main.c: 41: void main(void)
-[v _main `(v ~T0 @X0 1 ef ]
 "42
-[; ;humedad_main.c: 42:     {
+[; ;humedad_main.c: 42: void main(void)
+[v _main `(v ~T0 @X0 1 ef ]
+"43
+[; ;humedad_main.c: 43:     {
 {
 [e :U _main ]
 [f ]
-"43
-[; ;humedad_main.c: 43:     ANSEL = 0;
-[e = _ANSEL -> -> 0 `i `uc ]
 "44
-[; ;humedad_main.c: 44:     TRISA1 = 0;
-[e = _TRISA1 -> -> 0 `i `b ]
+[; ;humedad_main.c: 44:     ANSEL = 0;
+[e = _ANSEL -> -> 0 `i `uc ]
 "45
-[; ;humedad_main.c: 45:     TRISA2 = 0;
-[e = _TRISA2 -> -> 0 `i `b ]
+[; ;humedad_main.c: 45:     TRISA1 = 0;
+[e = _TRISA1 -> -> 0 `i `b ]
 "46
-[; ;humedad_main.c: 46:     TRISA3 = 0;
-[e = _TRISA3 -> -> 0 `i `b ]
+[; ;humedad_main.c: 46:     TRISA2 = 0;
+[e = _TRISA2 -> -> 0 `i `b ]
 "47
-[; ;humedad_main.c: 47:     PORTA = 0;
-[e = _PORTA -> -> 0 `i `uc ]
+[; ;humedad_main.c: 47:     TRISA3 = 0;
+[e = _TRISA3 -> -> 0 `i `b ]
 "48
-[; ;humedad_main.c: 48:     PORTB = 0;
-[e = _PORTB -> -> 0 `i `uc ]
+[; ;humedad_main.c: 48:     PORTA = 0;
+[e = _PORTA -> -> 0 `i `uc ]
 "49
-[; ;humedad_main.c: 49:     TRISB = 0;
-[e = _TRISB -> -> 0 `i `uc ]
+[; ;humedad_main.c: 49:     PORTB = 0;
+[e = _PORTB -> -> 0 `i `uc ]
 "50
-[; ;humedad_main.c: 50:     oscilator_begin(7);
-[e ( _oscilator_begin (1 -> -> 7 `i `uc ]
+[; ;humedad_main.c: 50:     TRISB = 0;
+[e = _TRISB -> -> 0 `i `uc ]
 "51
-[; ;humedad_main.c: 51:     LCD8_begin();
-[e ( _LCD8_begin ..  ]
+[; ;humedad_main.c: 51:     oscilator_begin(7);
+[e ( _oscilator_begin (1 -> -> 7 `i `uc ]
 "52
-[; ;humedad_main.c: 52:     LCD8_clear();
-[e ( _LCD8_clear ..  ]
+[; ;humedad_main.c: 52:     LCD8_begin();
+[e ( _LCD8_begin ..  ]
 "53
-[; ;humedad_main.c: 53:     LCD8_set_cursor(1,1);
-[e ( _LCD8_set_cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;humedad_main.c: 53:     LCD8_clear();
+[e ( _LCD8_clear ..  ]
 "54
-[; ;humedad_main.c: 54:     LCD8_strWrite("Funciona");
-[e ( _LCD8_strWrite (1 :s 1C ]
-"55
-[; ;humedad_main.c: 55:     _delay((unsigned long)((100)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"56
-[; ;humedad_main.c: 56:    while(1)
-[e :U 160 ]
-"57
-[; ;humedad_main.c: 57:     {
-{
-"58
-[; ;humedad_main.c: 58:        LCD8_clear();
-[e ( _LCD8_clear ..  ]
-"59
-[; ;humedad_main.c: 59:        dht11_begin();
-[e ( _dht11_begin ..  ]
-"60
-[; ;humedad_main.c: 60:        dht11_check();
-[e ( _dht11_check ..  ]
-"61
-[; ;humedad_main.c: 61:        hum_int = dht11_read();
-[e = _hum_int ( _dht11_read ..  ]
-"62
-[; ;humedad_main.c: 62:        hum_dec = dht11_read();
-[e = _hum_dec ( _dht11_read ..  ]
-"63
-[; ;humedad_main.c: 63:        temp_int = dht11_read();
-[e = _temp_int ( _dht11_read ..  ]
-"64
-[; ;humedad_main.c: 64:        temp_dec = dht11_read();
-[e = _temp_dec ( _dht11_read ..  ]
-"65
-[; ;humedad_main.c: 65:        check = dht11_read();
-[e = _check ( _dht11_read ..  ]
-"66
-[; ;humedad_main.c: 66:        total = hum_int+hum_dec+temp_int+temp_dec;
-[e = _total -> + + + -> _hum_int `i -> _hum_dec `i -> _temp_int `i -> _temp_dec `i `uc ]
-"69
-[; ;humedad_main.c: 69:        if (check != total){
-[e $ ! != -> _check `i -> _total `i 162  ]
-{
-"70
-[; ;humedad_main.c: 70:            LCD8_clear();
-[e ( _LCD8_clear ..  ]
-"71
-[; ;humedad_main.c: 71:            LCD8_set_cursor(1,1);
+[; ;humedad_main.c: 54:     LCD8_set_cursor(1,1);
 [e ( _LCD8_set_cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"55
+[; ;humedad_main.c: 55:     LCD8_strWrite("Funciona");
+[e ( _LCD8_strWrite (1 :s 1C ]
+"56
+[; ;humedad_main.c: 56:     _delay((unsigned long)((100)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"57
+[; ;humedad_main.c: 57:     timer1_begin((0),(2));
+[e ( _timer1_begin (2 , -> -> 0 `i `uc -> -> 2 `i `uc ]
+"59
+[; ;humedad_main.c: 59:    while(1)
+[e :U 160 ]
+"60
+[; ;humedad_main.c: 60:     {
+{
+"61
+[; ;humedad_main.c: 61:        LCD8_clear();
+[e ( _LCD8_clear ..  ]
+"62
+[; ;humedad_main.c: 62:        if(t1_count == 10)
+[e $ ! == -> _t1_count `i -> 10 `i 162  ]
+"63
+[; ;humedad_main.c: 63:        {
+{
+"65
+[; ;humedad_main.c: 65:        dht11_begin();
+[e ( _dht11_begin ..  ]
+"66
+[; ;humedad_main.c: 66:        dht11_check();
+[e ( _dht11_check ..  ]
+"67
+[; ;humedad_main.c: 67:        hum_int = dht11_read();
+[e = _hum_int ( _dht11_read ..  ]
+"68
+[; ;humedad_main.c: 68:        hum_dec = dht11_read();
+[e = _hum_dec ( _dht11_read ..  ]
+"69
+[; ;humedad_main.c: 69:        temp_int = dht11_read();
+[e = _temp_int ( _dht11_read ..  ]
+"70
+[; ;humedad_main.c: 70:        temp_dec = dht11_read();
+[e = _temp_dec ( _dht11_read ..  ]
+"71
+[; ;humedad_main.c: 71:        check = dht11_read();
+[e = _check ( _dht11_read ..  ]
 "72
-[; ;humedad_main.c: 72:            LCD8_strWrite("Error, revisar");
-[e ( _LCD8_strWrite (1 :s 2C ]
-"73
-[; ;humedad_main.c: 73:            LCD8_set_cursor(2,1);
-[e ( _LCD8_set_cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+[; ;humedad_main.c: 72:        total = hum_int+hum_dec+temp_int+temp_dec;
+[e = _total -> + + + -> _hum_int `i -> _hum_dec `i -> _temp_int `i -> _temp_dec `i `uc ]
 "74
-[; ;humedad_main.c: 74:            LCD8_strWrite("comunicacion");
-[e ( _LCD8_strWrite (1 :s 3C ]
+[; ;humedad_main.c: 74:        if (check != total){
+[e $ ! != -> _check `i -> _total `i 163  ]
+{
 "75
-[; ;humedad_main.c: 75:        }
+[; ;humedad_main.c: 75:            LCD8_clear();
+[e ( _LCD8_clear ..  ]
+"76
+[; ;humedad_main.c: 76:            LCD8_set_cursor(1,1);
+[e ( _LCD8_set_cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"77
+[; ;humedad_main.c: 77:            LCD8_strWrite("Error, revisar");
+[e ( _LCD8_strWrite (1 :s 2C ]
+"78
+[; ;humedad_main.c: 78:            LCD8_set_cursor(2,1);
+[e ( _LCD8_set_cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"79
+[; ;humedad_main.c: 79:            LCD8_strWrite("comunicacion");
+[e ( _LCD8_strWrite (1 :s 3C ]
+"80
+[; ;humedad_main.c: 80:        }
+}
+[e :U 163 ]
+"81
+[; ;humedad_main.c: 81:        t1_count = 0;
+[e = _t1_count -> -> 0 `i `uc ]
+"82
+[; ;humedad_main.c: 82:        }
 }
 [e :U 162 ]
-"77
-[; ;humedad_main.c: 77:        LCD8_set_cursor(1,1);
-[e ( _LCD8_set_cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"78
-[; ;humedad_main.c: 78:        sprintf(show, "Humedad: %d",hum_int);
-[e ( _sprintf (1 , (. , &U _show :s 4C -> _hum_int `i ]
-"79
-[; ;humedad_main.c: 79:        LCD8_strWrite(show);
-[e ( _LCD8_strWrite (1 &U _show ]
-"80
-[; ;humedad_main.c: 80:        sprintf(show, ".%d%",hum_dec);
-[e ( _sprintf (1 , (. , &U _show :s 5C -> _hum_dec `i ]
-"81
-[; ;humedad_main.c: 81:        LCD8_strWrite(show);
-[e ( _LCD8_strWrite (1 &U _show ]
 "83
-[; ;humedad_main.c: 83:        LCD8_set_cursor(2,1);
-[e ( _LCD8_set_cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+[; ;humedad_main.c: 83:        LCD8_set_cursor(1,1);
+[e ( _LCD8_set_cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "84
-[; ;humedad_main.c: 84:        sprintf(show, "Temp: %d",temp_int);
-[e ( _sprintf (1 , (. , &U _show :s 6C -> _temp_int `i ]
+[; ;humedad_main.c: 84:        sprintf(show, "Humedad: %d",hum_int);
+[e ( _sprintf (1 , (. , &U _show :s 4C -> _hum_int `i ]
 "85
 [; ;humedad_main.c: 85:        LCD8_strWrite(show);
 [e ( _LCD8_strWrite (1 &U _show ]
 "86
-[; ;humedad_main.c: 86:        sprintf(show, ".%dC",temp_dec);
-[e ( _sprintf (1 , (. , &U _show :s 7C -> _temp_dec `i ]
+[; ;humedad_main.c: 86:        sprintf(show, ".%d%",hum_dec);
+[e ( _sprintf (1 , (. , &U _show :s 5C -> _hum_dec `i ]
 "87
 [; ;humedad_main.c: 87:        LCD8_strWrite(show);
 [e ( _LCD8_strWrite (1 &U _show ]
-"88
-[; ;humedad_main.c: 88:        _delay((unsigned long)((1500)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "89
-[; ;humedad_main.c: 89:     }
+[; ;humedad_main.c: 89:        LCD8_set_cursor(2,1);
+[e ( _LCD8_set_cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"90
+[; ;humedad_main.c: 90:        sprintf(show, "Temp: %d",temp_int);
+[e ( _sprintf (1 , (. , &U _show :s 6C -> _temp_int `i ]
+"91
+[; ;humedad_main.c: 91:        LCD8_strWrite(show);
+[e ( _LCD8_strWrite (1 &U _show ]
+"92
+[; ;humedad_main.c: 92:        sprintf(show, ".%dC",temp_dec);
+[e ( _sprintf (1 , (. , &U _show :s 7C -> _temp_dec `i ]
+"93
+[; ;humedad_main.c: 93:        LCD8_strWrite(show);
+[e ( _LCD8_strWrite (1 &U _show ]
+"95
+[; ;humedad_main.c: 95:        LCD8_set_cursor(2,14);
+[e ( _LCD8_set_cursor (2 , -> -> 2 `i `uc -> -> 14 `i `uc ]
+"96
+[; ;humedad_main.c: 96:        sprintf(show, "%d",t1_count);
+[e ( _sprintf (1 , (. , &U _show :s 8C -> _t1_count `i ]
+"97
+[; ;humedad_main.c: 97:        LCD8_strWrite(show);
+[e ( _LCD8_strWrite (1 &U _show ]
+"98
+[; ;humedad_main.c: 98:     }
 }
 [e :U 159 ]
 [e $U 160  ]
 [e :U 161 ]
-"91
-[; ;humedad_main.c: 91:     }
+"100
+[; ;humedad_main.c: 100:     }
 [e :UE 158 ]
 }
 [p f _sprintf 8388736 ]
@@ -711,6 +739,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [a 3C 99 111 109 117 110 105 99 97 99 105 111 110 0 ]
 [a 6C 84 101 109 112 58 32 37 100 0 ]
 [a 4C 72 117 109 101 100 97 100 58 32 37 100 0 ]
+[a 8C 37 100 0 ]
 [a 1C 70 117 110 99 105 111 110 97 0 ]
 [a 7C 46 37 100 67 0 ]
 [a 5C 46 37 100 37 0 ]
