@@ -60,7 +60,7 @@ void LCD8_strWrite(char *data){
 
 void LCD8_shiftR() {
     LCD8_cmd(0x01);
-    LCD4_cmd(0x0C);
+    LCD8_cmd(0x0C);
 }
 
 void LCD8_shiftL() {
