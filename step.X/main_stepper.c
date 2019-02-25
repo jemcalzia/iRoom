@@ -23,20 +23,48 @@
 // Use project enums instead of #define for ON and OFF.
 
 #define _XTAL_FREQ 8000000
+#define EN RA1
+#define RS RA2
 #include <stdint.h>
 #include <xc.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include "ADC.h"
+#include "LCD8bit.h"
+#include "Oscilator.h"
 #include "stepper.h"
-#include 
-
-uint8_t step;
+uint8_t adc_read,i;
+uint16_t step; 
+char show[15];
 void main(void)
     {
-    
-    
+    oscilator_begin(7);
+    ADC_begin(0,2);
+    TRISB = 0; 
+    ANSELbits.ANS1 = 0;
+    ANSELbits.ANS2 = 0;
+    TRISA1 = 0;
+    TRISA2 = 0;
+    PORTA = 0; 
+    PORTB = 0; 
+    TRISD = 0; 
+    PORTD = 0; 
+    LCD8_begin();
+    LCD8_clear();
+    LCD8_set_cursor(1,1);
+    LCD8_strWrite("holaaa");
+    __delay_ms(5000);
     while(1)
     {
-        
+        i++;
+        LCD8_clear();
+        adc_read = ADC_conversion();
+        step = adc_read*4U;
+        sprintf(show," Step = %d",step);
+        LCD8_set_cursor(1,1);
+        LCD8_strWrite(show);
+        if(i>200){
+        wave_step(step);
+        }
     }
     }
