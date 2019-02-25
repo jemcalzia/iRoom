@@ -1,0 +1,369 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F887 ]
+[d frameptr 6 ]
+"2 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\step.X/ADC.h
+[v _ADC_option ADC_option `(v  1 e 1 0 ]
+"67
+[v _ADC_freq ADC_freq `(v  1 e 1 0 ]
+"77
+[v _ADC_channel ADC_channel `(v  1 e 1 0 ]
+"84
+[v _ADC_begin ADC_begin `(v  1 e 1 0 ]
+"117
+[v _ADC_conversion ADC_conversion `(uc  1 e 1 0 ]
+"4 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\step.X/LCD8bit.h
+[v _LCD8_write LCD8_write `(v  1 e 1 0 ]
+"12
+[v _LCD8_cmd LCD8_cmd `(v  1 e 1 0 ]
+"21
+[v _LCD8_set_cursor LCD8_set_cursor `(v  1 e 1 0 ]
+"32
+[v _LCD8_clear LCD8_clear `(v  1 e 1 0 ]
+"37
+[v _LCD8_begin LCD8_begin `(v  1 e 1 0 ]
+"55
+[v _LCD8_strWrite LCD8_strWrite `(v  1 e 1 0 ]
+"9 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\step.X/Oscilator.h
+[v _oscilator_begin oscilator_begin `(v  1 e 1 0 ]
+"500 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"39 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\step.X\main_stepper.c
+[v _main main `(v  1 e 1 0 ]
+"35 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\step.X\stepper.c
+[v _wave_step wave_step `(v  1 e 1 0 ]
+"166 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f887.h
+[v _PORTA PORTA `VEuc  1 e 1 @5 ]
+"228
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"352
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+[s S195 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"482
+[s S204 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 TMR0IE 1 0 :1:5 
+]
+[u S209 . 1 `S195 1 . 1 0 `S204 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES209  1 e 1 @11 ]
+[s S227 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+]
+"553
+[u S235 . 1 `S227 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES235  1 e 1 @12 ]
+"1238
+[v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
+[s S115 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :4:2 
+`uc 1 ADCS 1 0 :2:6 
+]
+"1276
+[s S120 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+`uc 1 ADCS0 1 0 :1:6 
+`uc 1 ADCS1 1 0 :1:7 
+]
+[s S129 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S132 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+]
+[u S135 . 1 `S115 1 . 1 0 `S120 1 . 1 0 `S129 1 . 1 0 `S132 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES135  1 e 1 @31 ]
+[s S43 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+`uc 1 TRISA7 1 0 :1:7 
+]
+"1433
+[u S52 . 1 `S43 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES52  1 e 1 @133 ]
+"1478
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+[s S94 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"1495
+[u S103 . 1 `S94 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES103  1 e 1 @134 ]
+"1602
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+[s S64 . 1 `uc 1 TRISE0 1 0 :1:0 
+`uc 1 TRISE1 1 0 :1:1 
+`uc 1 TRISE2 1 0 :1:2 
+`uc 1 TRISE3 1 0 :1:3 
+]
+"1677
+[u S69 . 1 `S64 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES69  1 e 1 @137 ]
+[s S176 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+]
+"1718
+[u S184 . 1 `S176 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES184  1 e 1 @140 ]
+[s S256 . 1 `uc 1 SCS 1 0 :1:0 
+`uc 1 LTS 1 0 :1:1 
+`uc 1 HTS 1 0 :1:2 
+`uc 1 OSTS 1 0 :1:3 
+`uc 1 IRCF 1 0 :3:4 
+]
+"1882
+[s S262 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 IRCF0 1 0 :1:4 
+`uc 1 IRCF1 1 0 :1:5 
+`uc 1 IRCF2 1 0 :1:6 
+]
+[u S267 . 1 `S256 1 . 1 0 `S262 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES267  1 e 1 @143 ]
+[s S161 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 VCFG0 1 0 :1:4 
+`uc 1 VCFG1 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 ADFM 1 0 :1:7 
+]
+"2991
+[u S167 . 1 `S161 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES167  1 e 1 @159 ]
+[s S22 . 1 `uc 1 ANS0 1 0 :1:0 
+`uc 1 ANS1 1 0 :1:1 
+`uc 1 ANS2 1 0 :1:2 
+`uc 1 ANS3 1 0 :1:3 
+`uc 1 ANS4 1 0 :1:4 
+`uc 1 ANS5 1 0 :1:5 
+`uc 1 ANS6 1 0 :1:6 
+`uc 1 ANS7 1 0 :1:7 
+]
+"3404
+[u S31 . 1 `S22 1 . 1 0 ]
+[v _ANSELbits ANSELbits `VES31  1 e 1 @392 ]
+[s S77 . 1 `uc 1 ANS8 1 0 :1:0 
+`uc 1 ANS9 1 0 :1:1 
+`uc 1 ANS10 1 0 :1:2 
+`uc 1 ANS11 1 0 :1:3 
+`uc 1 ANS12 1 0 :1:4 
+`uc 1 ANS13 1 0 :1:5 
+]
+"3464
+[u S84 . 1 `S77 1 . 1 0 ]
+[v _ANSELHbits ANSELHbits `VES84  1 e 1 @393 ]
+"4082
+[v _RA1 RA1 `VEb  1 e 0 @41 ]
+"4085
+[v _RA2 RA2 `VEb  1 e 0 @42 ]
+"4403
+[v _TRISA1 TRISA1 `VEb  1 e 0 @1065 ]
+"4406
+[v _TRISA2 TRISA2 `VEb  1 e 0 @1066 ]
+"358 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+[v _dpowers dpowers `DC[5]ui  1 s 10 dpowers ]
+"36 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\step.X\main_stepper.c
+[v _adc_read adc_read `uc  1 e 1 0 ]
+[v _i i `uc  1 e 1 0 ]
+"37
+[v _step step `ui  1 e 2 0 ]
+"38
+[v _show show `[15]uc  1 e 15 0 ]
+"39
+[v _main main `(v  1 e 1 0 ]
+{
+"70
+} 0
+"35 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\step.X\stepper.c
+[v _wave_step wave_step `(v  1 e 1 0 ]
+{
+[v wave_step@steps steps `ui  1 p 2 0 ]
+"37
+[v wave_step@i i `ui  1 s 2 i ]
+[v wave_step@a a `ui  1 s 2 a ]
+"60
+} 0
+"500 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+{
+[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
+"540
+[v sprintf@val val `ui  1 a 2 9 ]
+"507
+[v sprintf@c c `uc  1 a 1 12 ]
+"516
+[v sprintf@prec prec `c  1 a 1 8 ]
+"520
+[v sprintf@flag flag `uc  1 a 1 7 ]
+"502
+[v sprintf@ap ap `[1]*.4v  1 a 1 6 ]
+"500
+[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
+[v sprintf@f f `*.24DCuc  1 p 1 0 ]
+"545
+[v sprintf@sp sp `*.4uc  1 a 1 11 ]
+"1560
+} 0
+"5 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwmod@counter counter `uc  1 a 1 13 ]
+"5
+[v ___lwmod@divisor divisor `ui  1 p 2 8 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 10 ]
+"25
+} 0
+"5 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwdiv@quotient quotient `ui  1 a 2 5 ]
+"11
+[v ___lwdiv@counter counter `uc  1 a 1 7 ]
+"5
+[v ___lwdiv@divisor divisor `ui  1 p 2 0 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
+"30
+} 0
+"9 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\step.X/Oscilator.h
+[v _oscilator_begin oscilator_begin `(v  1 e 1 0 ]
+{
+[v oscilator_begin@freq freq `uc  1 a 1 wreg ]
+[v oscilator_begin@freq freq `uc  1 a 1 wreg ]
+[v oscilator_begin@freq freq `uc  1 a 1 1 ]
+"13
+} 0
+"55 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\step.X/LCD8bit.h
+[v _LCD8_strWrite LCD8_strWrite `(v  1 e 1 0 ]
+{
+"56
+[v LCD8_strWrite@i i `uc  1 a 1 5 ]
+"55
+[v LCD8_strWrite@data data `*.26uc  1 p 2 2 ]
+"59
+} 0
+"4
+[v _LCD8_write LCD8_write `(v  1 e 1 0 ]
+{
+[v LCD8_write@data data `uc  1 a 1 wreg ]
+[v LCD8_write@data data `uc  1 a 1 wreg ]
+[v LCD8_write@data data `uc  1 a 1 1 ]
+"11
+} 0
+"21
+[v _LCD8_set_cursor LCD8_set_cursor `(v  1 e 1 0 ]
+{
+[v LCD8_set_cursor@row row `uc  1 a 1 wreg ]
+"22
+[v LCD8_set_cursor@cursor cursor `uc  1 a 1 5 ]
+"21
+[v LCD8_set_cursor@row row `uc  1 a 1 wreg ]
+[v LCD8_set_cursor@column column `uc  1 p 1 3 ]
+"24
+[v LCD8_set_cursor@row row `uc  1 a 1 6 ]
+"30
+} 0
+"32
+[v _LCD8_clear LCD8_clear `(v  1 e 1 0 ]
+{
+"35
+} 0
+"37
+[v _LCD8_begin LCD8_begin `(v  1 e 1 0 ]
+{
+"53
+} 0
+"12
+[v _LCD8_cmd LCD8_cmd `(v  1 e 1 0 ]
+{
+[v LCD8_cmd@data data `uc  1 a 1 wreg ]
+[v LCD8_cmd@data data `uc  1 a 1 wreg ]
+[v LCD8_cmd@data data `uc  1 a 1 2 ]
+"19
+} 0
+"117 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\step.X/ADC.h
+[v _ADC_conversion ADC_conversion `(uc  1 e 1 0 ]
+{
+"122
+} 0
+"84
+[v _ADC_begin ADC_begin `(v  1 e 1 0 ]
+{
+[v ADC_begin@option option `uc  1 a 1 wreg ]
+[v ADC_begin@option option `uc  1 a 1 wreg ]
+[v ADC_begin@freq freq `uc  1 p 1 3 ]
+"88
+[v ADC_begin@option option `uc  1 a 1 4 ]
+"99
+} 0
+"2
+[v _ADC_option ADC_option `(v  1 e 1 0 ]
+{
+[v ADC_option@option option `uc  1 a 1 wreg ]
+[v ADC_option@option option `uc  1 a 1 wreg ]
+[v ADC_option@option option `uc  1 a 1 2 ]
+"65
+} 0
+"67
+[v _ADC_freq ADC_freq `(v  1 e 1 0 ]
+{
+[v ADC_freq@freq freq `uc  1 a 1 wreg ]
+[v ADC_freq@freq freq `uc  1 a 1 wreg ]
+"74
+[v ADC_freq@freq freq `uc  1 a 1 1 ]
+"75
+} 0
+"77
+[v _ADC_channel ADC_channel `(v  1 e 1 0 ]
+{
+[v ADC_channel@channel channel `uc  1 a 1 wreg ]
+[v ADC_channel@channel channel `uc  1 a 1 wreg ]
+"81
+[v ADC_channel@channel channel `uc  1 a 1 1 ]
+"82
+} 0
