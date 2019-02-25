@@ -151,6 +151,8 @@ typedef uint16_t uintptr_t;
 
 void full_step(uint16_t steps);
 void wave_step(uint16_t steps);
+void full_rev(uint16_t steps);
+void wave_rev(uint16_t steps);
 # 2 "stepper.c" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 1 3
@@ -2830,24 +2832,24 @@ extern char * ftoa(float f, int * status);
 void
 full_step(uint16_t steps)
     {
-    static char i;
-    while(i<=steps)
+    static uint16_t i;
+    while(i<steps)
     {
         if ((i % 4) == 1){
             PORTD = 3;
-            _delay((unsigned long)((15)*(8000000/4000.0)));
+            _delay((unsigned long)((5)*(8000000/4000.0)));
         }
         if ((i % 4) == 2){
             PORTD = 6;
-            _delay((unsigned long)((15)*(8000000/4000.0)));
+            _delay((unsigned long)((5)*(8000000/4000.0)));
         }
         if ((i % 4) == 3){
             PORTD = 12;
-            _delay((unsigned long)((15)*(8000000/4000.0)));
+            _delay((unsigned long)((5)*(8000000/4000.0)));
         }
         if ((i % 4) == 0){
             PORTD = 9;
-            _delay((unsigned long)((15)*(8000000/4000.0)));
+            _delay((unsigned long)((5)*(8000000/4000.0)));
         }
         i++;
     }
@@ -2875,6 +2877,61 @@ wave_step(uint16_t steps)
         }
         if (a == 0){
             PORTD = 8;
+            _delay((unsigned long)((5)*(8000000/4000.0)));
+        }
+        i++;
+        }
+    }
+
+void
+full_rev(uint16_t steps)
+    {
+    static char i;
+    while(i<steps)
+    {
+        if ((i % 4) == 1){
+            PORTD = 9;
+            _delay((unsigned long)((5)*(8000000/4000.0)));
+        }
+        if ((i % 4) == 2){
+            PORTD = 12;
+            _delay((unsigned long)((5)*(8000000/4000.0)));
+        }
+        if ((i % 4) == 3){
+            PORTD = 6;
+            _delay((unsigned long)((5)*(8000000/4000.0)));
+        }
+        if ((i % 4) == 0){
+            PORTD = 3;
+            _delay((unsigned long)((5)*(8000000/4000.0)));
+        }
+        i++;
+    }
+    }
+
+
+void
+wave_rev(uint16_t steps)
+    {
+    static uint16_t i, a;
+    i = 0;
+    while(i<steps)
+    {
+        a = i%4;
+        if (a == 1){
+            PORTD = 8;
+            _delay((unsigned long)((5)*(8000000/4000.0)));
+        }
+        if (a == 2){
+            PORTD = 4;
+            _delay((unsigned long)((5)*(8000000/4000.0)));
+        }
+        if (a == 3){
+            PORTD = 2;
+            _delay((unsigned long)((5)*(8000000/4000.0)));
+        }
+        if (a == 0){
+            PORTD = 1;
             _delay((unsigned long)((5)*(8000000/4000.0)));
         }
         i++;

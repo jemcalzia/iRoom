@@ -33,38 +33,53 @@
 #include "LCD8bit.h"
 #include "Oscilator.h"
 #include "stepper.h"
-uint8_t adc_read,i;
-uint16_t step; 
-char show[15];
+uint8_t adc_read, i;
+uint16_t step, theta, step_last, delta;
+char show[15], test[20];
+
 void main(void)
     {
     oscilator_begin(7);
-    ADC_begin(0,2);
-    TRISB = 0; 
+    ADC_begin(0, 2);
+    TRISB = 0;
+    TRISE = 1; 
     ANSELbits.ANS1 = 0;
     ANSELbits.ANS2 = 0;
     TRISA1 = 0;
     TRISA2 = 0;
-    PORTA = 0; 
-    PORTB = 0; 
-    TRISD = 0; 
-    PORTD = 0; 
+    PORTA = 0;
+    PORTB = 0;
+    TRISD = 0;
+    PORTD = 0;
     LCD8_begin();
     LCD8_clear();
-    LCD8_set_cursor(1,1);
+    LCD8_set_cursor(1, 1);
     LCD8_strWrite("holaaa");
     __delay_ms(5000);
-    while(1)
-    {
-        i++;
+    while (1) {
         LCD8_clear();
         adc_read = ADC_conversion();
-        step = adc_read*4U;
-        sprintf(show," Step = %d",step);
-        LCD8_set_cursor(1,1);
+        step = adc_read * 8U;
+        theta = step / 6;
+        sprintf(show, "Theta = %d", theta);
+        sprintf(test, "Moviendo: %d", step);
+        LCD8_set_cursor(1, 1);
         LCD8_strWrite(show);
-        if(i>200){
-        wave_step(step);
+
+        LCD8_set_cursor(2, 1);
+        LCD8_strWrite(test);
+        
+        if(RE3){
+            while(RE3);
+            wave_rev(step);//2048
+            PORTD = 0;
         }
+        if(RE2){
+            while(RE2);
+            wave_step(step);
+            PORTD = 0; 
+        }
+
+
     }
     }

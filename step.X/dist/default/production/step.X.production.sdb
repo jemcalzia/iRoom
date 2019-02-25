@@ -41,10 +41,12 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"39 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\step.X\main_stepper.c
+"40 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\step.X\main_stepper.c
 [v _main main `(v  1 e 1 0 ]
 "35 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\step.X\stepper.c
 [v _wave_step wave_step `(v  1 e 1 0 ]
+"90
+[v _wave_rev wave_rev `(v  1 e 1 0 ]
 "166 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
 "228
@@ -132,6 +134,8 @@
 [v _TRISBbits TRISBbits `VES103  1 e 1 @134 ]
 "1602
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"1664
+[v _TRISE TRISE `VEuc  1 e 1 @137 ]
 [s S64 . 1 `uc 1 TRISE0 1 0 :1:0 
 `uc 1 TRISE1 1 0 :1:1 
 `uc 1 TRISE2 1 0 :1:2 
@@ -200,6 +204,10 @@
 [v _RA1 RA1 `VEb  1 e 0 @41 ]
 "4085
 [v _RA2 RA2 `VEb  1 e 0 @42 ]
+"4211
+[v _RE2 RE2 `VEb  1 e 0 @74 ]
+"4214
+[v _RE3 RE3 `VEb  1 e 0 @75 ]
 "4403
 [v _TRISA1 TRISA1 `VEb  1 e 0 @1065 ]
 "4406
@@ -208,15 +216,16 @@
 [v _dpowers dpowers `DC[5]ui  1 s 10 dpowers ]
 "36 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\step.X\main_stepper.c
 [v _adc_read adc_read `uc  1 e 1 0 ]
-[v _i i `uc  1 e 1 0 ]
 "37
 [v _step step `ui  1 e 2 0 ]
+[v _theta theta `ui  1 e 2 0 ]
 "38
 [v _show show `[15]uc  1 e 15 0 ]
-"39
+[v _test test `[20]uc  1 e 20 0 ]
+"40
 [v _main main `(v  1 e 1 0 ]
 {
-"70
+"85
 } 0
 "35 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\step.X\stepper.c
 [v _wave_step wave_step `(v  1 e 1 0 ]
@@ -226,6 +235,15 @@
 [v wave_step@i i `ui  1 s 2 i ]
 [v wave_step@a a `ui  1 s 2 a ]
 "60
+} 0
+"90
+[v _wave_rev wave_rev `(v  1 e 1 0 ]
+{
+[v wave_rev@steps steps `ui  1 p 2 0 ]
+"92
+[v wave_rev@i i `ui  1 s 2 i ]
+[v wave_rev@a a `ui  1 s 2 a ]
+"115
 } 0
 "500 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
 [v _sprintf sprintf `(i  1 e 2 0 ]

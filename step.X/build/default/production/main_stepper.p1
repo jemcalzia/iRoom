@@ -160,6 +160,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1478
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f887.h: 1478: extern volatile unsigned char TRISB __attribute__((address(0x086)));
 [v _TRISB `Vuc ~T0 @X0 0 e@134 ]
+"1664
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f887.h: 1664: extern volatile unsigned char TRISE __attribute__((address(0x089)));
+[v _TRISE `Vuc ~T0 @X0 0 e@137 ]
 "4403
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f887.h: 4403: extern volatile __bit TRISA1 __attribute__((address(0x429)));
 [v _TRISA1 `Vb ~T0 @X0 0 e@1065 ]
@@ -177,6 +180,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 "194 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdio.h
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"4214 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f887.h: 4214: extern volatile __bit RE3 __attribute__((address(0x4B)));
+[v _RE3 `Vb ~T0 @X0 0 e@75 ]
+"10 ./stepper.h
+[; ;./stepper.h: 10: void wave_rev(uint16_t steps);
+[v _wave_rev `(v ~T0 @X0 0 ef1`ui ]
+"4211 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f887.h: 4211: extern volatile __bit RE2 __attribute__((address(0x4A)));
+[v _RE2 `Vb ~T0 @X0 0 e@74 ]
 "8 ./stepper.h
 [; ;./stepper.h: 8: void wave_step(uint16_t steps);
 [v _wave_step `(v ~T0 @X0 0 ef1`ui ]
@@ -1033,81 +1045,83 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 184 ]
 }
 "36 main_stepper.c
-[; ;main_stepper.c: 36: uint8_t adc_read,i;
+[; ;main_stepper.c: 36: uint8_t adc_read, i;
 [v _adc_read `uc ~T0 @X0 1 e ]
 [v _i `uc ~T0 @X0 1 e ]
 "37
-[; ;main_stepper.c: 37: uint16_t step;
+[; ;main_stepper.c: 37: uint16_t step, theta, step_last, delta;
 [v _step `ui ~T0 @X0 1 e ]
+[v _theta `ui ~T0 @X0 1 e ]
+[v _step_last `ui ~T0 @X0 1 e ]
+[v _delta `ui ~T0 @X0 1 e ]
 "38
-[; ;main_stepper.c: 38: char show[15];
+[; ;main_stepper.c: 38: char show[15], test[20];
 [v _show `uc ~T0 @X0 -> 15 `i e ]
+[v _test `uc ~T0 @X0 -> 20 `i e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"39
-[; ;main_stepper.c: 39: void main(void)
-[v _main `(v ~T0 @X0 1 ef ]
 "40
-[; ;main_stepper.c: 40:     {
+[; ;main_stepper.c: 40: void main(void)
+[v _main `(v ~T0 @X0 1 ef ]
+"41
+[; ;main_stepper.c: 41:     {
 {
 [e :U _main ]
 [f ]
-"41
-[; ;main_stepper.c: 41:     oscilator_begin(7);
-[e ( _oscilator_begin (1 -> -> 7 `i `uc ]
 "42
-[; ;main_stepper.c: 42:     ADC_begin(0,2);
-[e ( _ADC_begin (2 , -> -> 0 `i `uc -> -> 2 `i `uc ]
+[; ;main_stepper.c: 42:     oscilator_begin(7);
+[e ( _oscilator_begin (1 -> -> 7 `i `uc ]
 "43
-[; ;main_stepper.c: 43:     TRISB = 0;
-[e = _TRISB -> -> 0 `i `uc ]
+[; ;main_stepper.c: 43:     ADC_begin(0, 2);
+[e ( _ADC_begin (2 , -> -> 0 `i `uc -> -> 2 `i `uc ]
 "44
-[; ;main_stepper.c: 44:     ANSELbits.ANS1 = 0;
-[e = . . _ANSELbits 0 1 -> -> 0 `i `uc ]
+[; ;main_stepper.c: 44:     TRISB = 0;
+[e = _TRISB -> -> 0 `i `uc ]
 "45
-[; ;main_stepper.c: 45:     ANSELbits.ANS2 = 0;
-[e = . . _ANSELbits 0 2 -> -> 0 `i `uc ]
+[; ;main_stepper.c: 45:     TRISE = 1;
+[e = _TRISE -> -> 1 `i `uc ]
 "46
-[; ;main_stepper.c: 46:     TRISA1 = 0;
-[e = _TRISA1 -> -> 0 `i `b ]
+[; ;main_stepper.c: 46:     ANSELbits.ANS1 = 0;
+[e = . . _ANSELbits 0 1 -> -> 0 `i `uc ]
 "47
-[; ;main_stepper.c: 47:     TRISA2 = 0;
-[e = _TRISA2 -> -> 0 `i `b ]
+[; ;main_stepper.c: 47:     ANSELbits.ANS2 = 0;
+[e = . . _ANSELbits 0 2 -> -> 0 `i `uc ]
 "48
-[; ;main_stepper.c: 48:     PORTA = 0;
-[e = _PORTA -> -> 0 `i `uc ]
+[; ;main_stepper.c: 48:     TRISA1 = 0;
+[e = _TRISA1 -> -> 0 `i `b ]
 "49
-[; ;main_stepper.c: 49:     PORTB = 0;
-[e = _PORTB -> -> 0 `i `uc ]
+[; ;main_stepper.c: 49:     TRISA2 = 0;
+[e = _TRISA2 -> -> 0 `i `b ]
 "50
-[; ;main_stepper.c: 50:     TRISD = 0;
-[e = _TRISD -> -> 0 `i `uc ]
+[; ;main_stepper.c: 50:     PORTA = 0;
+[e = _PORTA -> -> 0 `i `uc ]
 "51
-[; ;main_stepper.c: 51:     PORTD = 0;
-[e = _PORTD -> -> 0 `i `uc ]
+[; ;main_stepper.c: 51:     PORTB = 0;
+[e = _PORTB -> -> 0 `i `uc ]
 "52
-[; ;main_stepper.c: 52:     LCD8_begin();
-[e ( _LCD8_begin ..  ]
+[; ;main_stepper.c: 52:     TRISD = 0;
+[e = _TRISD -> -> 0 `i `uc ]
 "53
-[; ;main_stepper.c: 53:     LCD8_clear();
-[e ( _LCD8_clear ..  ]
+[; ;main_stepper.c: 53:     PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
 "54
-[; ;main_stepper.c: 54:     LCD8_set_cursor(1,1);
-[e ( _LCD8_set_cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;main_stepper.c: 54:     LCD8_begin();
+[e ( _LCD8_begin ..  ]
 "55
-[; ;main_stepper.c: 55:     LCD8_strWrite("holaaa");
-[e ( _LCD8_strWrite (1 :s 1C ]
+[; ;main_stepper.c: 55:     LCD8_clear();
+[e ( _LCD8_clear ..  ]
 "56
-[; ;main_stepper.c: 56:     _delay((unsigned long)((5000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main_stepper.c: 56:     LCD8_set_cursor(1, 1);
+[e ( _LCD8_set_cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "57
-[; ;main_stepper.c: 57:     while(1)
-[e :U 187 ]
+[; ;main_stepper.c: 57:     LCD8_strWrite("holaaa");
+[e ( _LCD8_strWrite (1 :s 1C ]
 "58
-[; ;main_stepper.c: 58:     {
-{
+[; ;main_stepper.c: 58:     _delay((unsigned long)((5000)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "59
-[; ;main_stepper.c: 59:         i++;
-[e ++ _i -> -> 1 `i `uc ]
+[; ;main_stepper.c: 59:     while (1) {
+[e :U 187 ]
+{
 "60
 [; ;main_stepper.c: 60:         LCD8_clear();
 [e ( _LCD8_clear ..  ]
@@ -1115,38 +1129,82 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main_stepper.c: 61:         adc_read = ADC_conversion();
 [e = _adc_read -> ( _ADC_conversion ..  `uc ]
 "62
-[; ;main_stepper.c: 62:         step = adc_read*4U;
-[e = _step * -> _adc_read `ui -> 4 `ui ]
+[; ;main_stepper.c: 62:         step = adc_read * 8U;
+[e = _step * -> _adc_read `ui -> 8 `ui ]
 "63
-[; ;main_stepper.c: 63:         sprintf(show," Step = %d",step);
-[e ( _sprintf (1 , (. , &U _show :s 2C _step ]
+[; ;main_stepper.c: 63:         theta = step / 6;
+[e = _theta / _step -> -> 6 `i `ui ]
 "64
-[; ;main_stepper.c: 64:         LCD8_set_cursor(1,1);
-[e ( _LCD8_set_cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;main_stepper.c: 64:         sprintf(show, "Theta = %d", theta);
+[e ( _sprintf (1 , (. , &U _show :s 2C _theta ]
 "65
-[; ;main_stepper.c: 65:         LCD8_strWrite(show);
-[e ( _LCD8_strWrite (1 &U _show ]
+[; ;main_stepper.c: 65:         sprintf(test, "Moviendo: %d", step);
+[e ( _sprintf (1 , (. , &U _test :s 3C _step ]
 "66
-[; ;main_stepper.c: 66:         if(i>200){
-[e $ ! > -> _i `i -> 200 `i 189  ]
-{
+[; ;main_stepper.c: 66:         LCD8_set_cursor(1, 1);
+[e ( _LCD8_set_cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "67
-[; ;main_stepper.c: 67:         wave_step(step);
-[e ( _wave_step (1 _step ]
-"68
-[; ;main_stepper.c: 68:         }
+[; ;main_stepper.c: 67:         LCD8_strWrite(show);
+[e ( _LCD8_strWrite (1 &U _show ]
+"69
+[; ;main_stepper.c: 69:         LCD8_set_cursor(2, 1);
+[e ( _LCD8_set_cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"70
+[; ;main_stepper.c: 70:         LCD8_strWrite(test);
+[e ( _LCD8_strWrite (1 &U _test ]
+"72
+[; ;main_stepper.c: 72:         if(RE3){
+[e $ ! _RE3 189  ]
+{
+"73
+[; ;main_stepper.c: 73:             while(RE3);
+[e $U 190  ]
+[e :U 191 ]
+[e :U 190 ]
+[e $ _RE3 191  ]
+[e :U 192 ]
+"74
+[; ;main_stepper.c: 74:             wave_rev(step);
+[e ( _wave_rev (1 _step ]
+"75
+[; ;main_stepper.c: 75:             PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
+"76
+[; ;main_stepper.c: 76:         }
 }
 [e :U 189 ]
-"69
-[; ;main_stepper.c: 69:     }
+"77
+[; ;main_stepper.c: 77:         if(RE2){
+[e $ ! _RE2 193  ]
+{
+"78
+[; ;main_stepper.c: 78:             while(RE2);
+[e $U 194  ]
+[e :U 195 ]
+[e :U 194 ]
+[e $ _RE2 195  ]
+[e :U 196 ]
+"79
+[; ;main_stepper.c: 79:             wave_step(step);
+[e ( _wave_step (1 _step ]
+"80
+[; ;main_stepper.c: 80:             PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
+"81
+[; ;main_stepper.c: 81:         }
+}
+[e :U 193 ]
+"84
+[; ;main_stepper.c: 84:     }
 }
 [e :U 186 ]
 [e $U 187  ]
 [e :U 188 ]
-"70
-[; ;main_stepper.c: 70:     }
+"85
+[; ;main_stepper.c: 85:     }
 [e :UE 185 ]
 }
 [p f _sprintf 8388736 ]
-[a 2C 32 83 116 101 112 32 61 32 37 100 0 ]
+[a 2C 84 104 101 116 97 32 61 32 37 100 0 ]
+[a 3C 77 111 118 105 101 110 100 111 58 32 37 100 0 ]
 [a 1C 104 111 108 97 97 97 0 ]

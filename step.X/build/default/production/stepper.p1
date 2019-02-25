@@ -2,9 +2,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "352 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
 [v _PORTD `Vuc ~T0 @X0 0 e@8 ]
-[v F1288 `(v ~T0 @X0 1 tf1`ul ]
+[v F1292 `(v ~T0 @X0 1 tf1`ul ]
 "92 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic.h
-[v __delay `JF1288 ~T0 @X0 0 e ]
+[v __delay `JF1292 ~T0 @X0 0 e ]
 [p i __delay ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f887.h: 54: __asm("INDF equ 00h");
@@ -254,10 +254,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;stepper.c: 10:     {
 [f ]
 "11
-[; ;stepper.c: 11:     static char i;
-[v F1479 `uc ~T0 @X0 1 s i ]
+[; ;stepper.c: 11:     static uint16_t i;
+[v F1483 `ui ~T0 @X0 1 s i ]
 "12
-[; ;stepper.c: 12:     while(i<=steps)
+[; ;stepper.c: 12:     while(i<steps)
 [e $U 144  ]
 [e :U 145 ]
 "13
@@ -265,70 +265,70 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "14
 [; ;stepper.c: 14:         if ((i % 4) == 1){
-[e $ ! == % -> F1479 `i -> 4 `i -> 1 `i 147  ]
+[e $ ! == % F1483 -> -> 4 `i `ui -> -> 1 `i `ui 147  ]
 {
 "15
 [; ;stepper.c: 15:             PORTD = 3;
 [e = _PORTD -> -> 3 `i `uc ]
 "16
-[; ;stepper.c: 16:             _delay((unsigned long)((15)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 15 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;stepper.c: 16:             _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "17
 [; ;stepper.c: 17:         }
 }
 [e :U 147 ]
 "18
 [; ;stepper.c: 18:         if ((i % 4) == 2){
-[e $ ! == % -> F1479 `i -> 4 `i -> 2 `i 148  ]
+[e $ ! == % F1483 -> -> 4 `i `ui -> -> 2 `i `ui 148  ]
 {
 "19
 [; ;stepper.c: 19:             PORTD = 6;
 [e = _PORTD -> -> 6 `i `uc ]
 "20
-[; ;stepper.c: 20:             _delay((unsigned long)((15)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 15 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;stepper.c: 20:             _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "21
 [; ;stepper.c: 21:         }
 }
 [e :U 148 ]
 "22
 [; ;stepper.c: 22:         if ((i % 4) == 3){
-[e $ ! == % -> F1479 `i -> 4 `i -> 3 `i 149  ]
+[e $ ! == % F1483 -> -> 4 `i `ui -> -> 3 `i `ui 149  ]
 {
 "23
 [; ;stepper.c: 23:             PORTD = 12;
 [e = _PORTD -> -> 12 `i `uc ]
 "24
-[; ;stepper.c: 24:             _delay((unsigned long)((15)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 15 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;stepper.c: 24:             _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "25
 [; ;stepper.c: 25:         }
 }
 [e :U 149 ]
 "26
 [; ;stepper.c: 26:         if ((i % 4) == 0){
-[e $ ! == % -> F1479 `i -> 4 `i -> 0 `i 150  ]
+[e $ ! == % F1483 -> -> 4 `i `ui -> -> 0 `i `ui 150  ]
 {
 "27
 [; ;stepper.c: 27:             PORTD = 9;
 [e = _PORTD -> -> 9 `i `uc ]
 "28
-[; ;stepper.c: 28:             _delay((unsigned long)((15)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 15 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;stepper.c: 28:             _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "29
 [; ;stepper.c: 29:         }
 }
 [e :U 150 ]
 "30
 [; ;stepper.c: 30:         i++;
-[e ++ F1479 -> -> 1 `i `uc ]
+[e ++ F1483 -> -> 1 `i `ui ]
 "31
 [; ;stepper.c: 31:     }
 }
 [e :U 144 ]
 "12
-[; ;stepper.c: 12:     while(i<=steps)
-[e $ <= -> F1479 `ui _steps 145  ]
+[; ;stepper.c: 12:     while(i<steps)
+[e $ < F1483 _steps 145  ]
 [e :U 146 ]
 "32
 [; ;stepper.c: 32:     }
@@ -349,11 +349,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "37
 [; ;stepper.c: 37:     static uint16_t i, a;
-[v F1482 `ui ~T0 @X0 1 s i ]
-[v F1483 `ui ~T0 @X0 1 s a ]
+[v F1486 `ui ~T0 @X0 1 s i ]
+[v F1487 `ui ~T0 @X0 1 s a ]
 "38
 [; ;stepper.c: 38:     i = 0;
-[e = F1482 -> -> 0 `i `ui ]
+[e = F1486 -> -> 0 `i `ui ]
 "39
 [; ;stepper.c: 39:     while(i<steps)
 [e $U 152  ]
@@ -363,10 +363,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "41
 [; ;stepper.c: 41:         a = i%4;
-[e = F1483 % F1482 -> -> 4 `i `ui ]
+[e = F1487 % F1486 -> -> 4 `i `ui ]
 "42
 [; ;stepper.c: 42:         if (a == 1){
-[e $ ! == F1483 -> -> 1 `i `ui 155  ]
+[e $ ! == F1487 -> -> 1 `i `ui 155  ]
 {
 "43
 [; ;stepper.c: 43:             PORTD = 1;
@@ -380,7 +380,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 155 ]
 "46
 [; ;stepper.c: 46:         if (a == 2){
-[e $ ! == F1483 -> -> 2 `i `ui 156  ]
+[e $ ! == F1487 -> -> 2 `i `ui 156  ]
 {
 "47
 [; ;stepper.c: 47:             PORTD = 2;
@@ -394,7 +394,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 156 ]
 "50
 [; ;stepper.c: 50:         if (a == 3){
-[e $ ! == F1483 -> -> 3 `i `ui 157  ]
+[e $ ! == F1487 -> -> 3 `i `ui 157  ]
 {
 "51
 [; ;stepper.c: 51:             PORTD = 4;
@@ -408,7 +408,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 157 ]
 "54
 [; ;stepper.c: 54:         if (a == 0){
-[e $ ! == F1483 -> -> 0 `i `ui 158  ]
+[e $ ! == F1487 -> -> 0 `i `ui 158  ]
 {
 "55
 [; ;stepper.c: 55:             PORTD = 8;
@@ -422,16 +422,211 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 158 ]
 "58
 [; ;stepper.c: 58:         i++;
-[e ++ F1482 -> -> 1 `i `ui ]
+[e ++ F1486 -> -> 1 `i `ui ]
 "59
 [; ;stepper.c: 59:         }
 }
 [e :U 152 ]
 "39
 [; ;stepper.c: 39:     while(i<steps)
-[e $ < F1482 _steps 153  ]
+[e $ < F1486 _steps 153  ]
 [e :U 154 ]
 "60
 [; ;stepper.c: 60:     }
 [e :UE 151 ]
+}
+"63
+[; ;stepper.c: 63: full_rev(uint16_t steps)
+[v _full_rev `(v ~T0 @X0 1 ef1`ui ]
+"64
+[; ;stepper.c: 64:     {
+{
+[e :U _full_rev ]
+"63
+[; ;stepper.c: 63: full_rev(uint16_t steps)
+[v _steps `ui ~T0 @X0 1 r1 ]
+"64
+[; ;stepper.c: 64:     {
+[f ]
+"65
+[; ;stepper.c: 65:     static char i;
+[v F1490 `uc ~T0 @X0 1 s i ]
+"66
+[; ;stepper.c: 66:     while(i<steps)
+[e $U 160  ]
+[e :U 161 ]
+"67
+[; ;stepper.c: 67:     {
+{
+"68
+[; ;stepper.c: 68:         if ((i % 4) == 1){
+[e $ ! == % -> F1490 `i -> 4 `i -> 1 `i 163  ]
+{
+"69
+[; ;stepper.c: 69:             PORTD = 9;
+[e = _PORTD -> -> 9 `i `uc ]
+"70
+[; ;stepper.c: 70:             _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"71
+[; ;stepper.c: 71:         }
+}
+[e :U 163 ]
+"72
+[; ;stepper.c: 72:         if ((i % 4) == 2){
+[e $ ! == % -> F1490 `i -> 4 `i -> 2 `i 164  ]
+{
+"73
+[; ;stepper.c: 73:             PORTD = 12;
+[e = _PORTD -> -> 12 `i `uc ]
+"74
+[; ;stepper.c: 74:             _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"75
+[; ;stepper.c: 75:         }
+}
+[e :U 164 ]
+"76
+[; ;stepper.c: 76:         if ((i % 4) == 3){
+[e $ ! == % -> F1490 `i -> 4 `i -> 3 `i 165  ]
+{
+"77
+[; ;stepper.c: 77:             PORTD = 6;
+[e = _PORTD -> -> 6 `i `uc ]
+"78
+[; ;stepper.c: 78:             _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"79
+[; ;stepper.c: 79:         }
+}
+[e :U 165 ]
+"80
+[; ;stepper.c: 80:         if ((i % 4) == 0){
+[e $ ! == % -> F1490 `i -> 4 `i -> 0 `i 166  ]
+{
+"81
+[; ;stepper.c: 81:             PORTD = 3;
+[e = _PORTD -> -> 3 `i `uc ]
+"82
+[; ;stepper.c: 82:             _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"83
+[; ;stepper.c: 83:         }
+}
+[e :U 166 ]
+"84
+[; ;stepper.c: 84:         i++;
+[e ++ F1490 -> -> 1 `i `uc ]
+"85
+[; ;stepper.c: 85:     }
+}
+[e :U 160 ]
+"66
+[; ;stepper.c: 66:     while(i<steps)
+[e $ < -> F1490 `ui _steps 161  ]
+[e :U 162 ]
+"86
+[; ;stepper.c: 86:     }
+[e :UE 159 ]
+}
+"90
+[; ;stepper.c: 90: wave_rev(uint16_t steps)
+[v _wave_rev `(v ~T0 @X0 1 ef1`ui ]
+"91
+[; ;stepper.c: 91:     {
+{
+[e :U _wave_rev ]
+"90
+[; ;stepper.c: 90: wave_rev(uint16_t steps)
+[v _steps `ui ~T0 @X0 1 r1 ]
+"91
+[; ;stepper.c: 91:     {
+[f ]
+"92
+[; ;stepper.c: 92:     static uint16_t i, a;
+[v F1493 `ui ~T0 @X0 1 s i ]
+[v F1494 `ui ~T0 @X0 1 s a ]
+"93
+[; ;stepper.c: 93:     i = 0;
+[e = F1493 -> -> 0 `i `ui ]
+"94
+[; ;stepper.c: 94:     while(i<steps)
+[e $U 168  ]
+[e :U 169 ]
+"95
+[; ;stepper.c: 95:     {
+{
+"96
+[; ;stepper.c: 96:         a = i%4;
+[e = F1494 % F1493 -> -> 4 `i `ui ]
+"97
+[; ;stepper.c: 97:         if (a == 1){
+[e $ ! == F1494 -> -> 1 `i `ui 171  ]
+{
+"98
+[; ;stepper.c: 98:             PORTD = 8;
+[e = _PORTD -> -> 8 `i `uc ]
+"99
+[; ;stepper.c: 99:             _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"100
+[; ;stepper.c: 100:         }
+}
+[e :U 171 ]
+"101
+[; ;stepper.c: 101:         if (a == 2){
+[e $ ! == F1494 -> -> 2 `i `ui 172  ]
+{
+"102
+[; ;stepper.c: 102:             PORTD = 4;
+[e = _PORTD -> -> 4 `i `uc ]
+"103
+[; ;stepper.c: 103:             _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"104
+[; ;stepper.c: 104:         }
+}
+[e :U 172 ]
+"105
+[; ;stepper.c: 105:         if (a == 3){
+[e $ ! == F1494 -> -> 3 `i `ui 173  ]
+{
+"106
+[; ;stepper.c: 106:             PORTD = 2;
+[e = _PORTD -> -> 2 `i `uc ]
+"107
+[; ;stepper.c: 107:             _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"108
+[; ;stepper.c: 108:         }
+}
+[e :U 173 ]
+"109
+[; ;stepper.c: 109:         if (a == 0){
+[e $ ! == F1494 -> -> 0 `i `ui 174  ]
+{
+"110
+[; ;stepper.c: 110:             PORTD = 1;
+[e = _PORTD -> -> 1 `i `uc ]
+"111
+[; ;stepper.c: 111:             _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"112
+[; ;stepper.c: 112:         }
+}
+[e :U 174 ]
+"113
+[; ;stepper.c: 113:         i++;
+[e ++ F1493 -> -> 1 `i `ui ]
+"114
+[; ;stepper.c: 114:         }
+}
+[e :U 168 ]
+"94
+[; ;stepper.c: 94:     while(i<steps)
+[e $ < F1493 _steps 169  ]
+[e :U 170 ]
+"115
+[; ;stepper.c: 115:     }
+[e :UE 167 ]
 }
