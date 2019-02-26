@@ -183,12 +183,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4214 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f887.h: 4214: extern volatile __bit RE3 __attribute__((address(0x4B)));
 [v _RE3 `Vb ~T0 @X0 0 e@75 ]
-"10 ./stepper.h
-[; ;./stepper.h: 10: void wave_rev(uint16_t steps);
-[v _wave_rev `(v ~T0 @X0 0 ef1`ui ]
-"4211 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f887.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f887.h: 4211: extern volatile __bit RE2 __attribute__((address(0x4A)));
-[v _RE2 `Vb ~T0 @X0 0 e@74 ]
 "8 ./stepper.h
 [; ;./stepper.h: 8: void wave_step(uint16_t steps);
 [v _wave_step `(v ~T0 @X0 0 ef1`ui ]
@@ -1152,38 +1146,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "70
 [; ;main_stepper.c: 70:         LCD8_strWrite(test);
 [e ( _LCD8_strWrite (1 &U _test ]
-"72
-[; ;main_stepper.c: 72:         if(RE3){
+"77
+[; ;main_stepper.c: 77:         if(RE3){
 [e $ ! _RE3 189  ]
 {
-"73
-[; ;main_stepper.c: 73:             while(RE3);
+"78
+[; ;main_stepper.c: 78:             while(RE3);
 [e $U 190  ]
 [e :U 191 ]
 [e :U 190 ]
 [e $ _RE3 191  ]
 [e :U 192 ]
-"74
-[; ;main_stepper.c: 74:             wave_rev(step);
-[e ( _wave_rev (1 _step ]
-"75
-[; ;main_stepper.c: 75:             PORTD = 0;
-[e = _PORTD -> -> 0 `i `uc ]
-"76
-[; ;main_stepper.c: 76:         }
-}
-[e :U 189 ]
-"77
-[; ;main_stepper.c: 77:         if(RE2){
-[e $ ! _RE2 193  ]
-{
-"78
-[; ;main_stepper.c: 78:             while(RE2);
-[e $U 194  ]
-[e :U 195 ]
-[e :U 194 ]
-[e $ _RE2 195  ]
-[e :U 196 ]
 "79
 [; ;main_stepper.c: 79:             wave_step(step);
 [e ( _wave_step (1 _step ]
@@ -1193,7 +1166,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "81
 [; ;main_stepper.c: 81:         }
 }
-[e :U 193 ]
+[e :U 189 ]
 "84
 [; ;main_stepper.c: 84:     }
 }
