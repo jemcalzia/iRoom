@@ -6,11 +6,18 @@
             <name>UART</name>
             <creation-uuid>43d66dd3-3b40-461c-9725-a051c46b94ab</creation-uuid>
             <make-project-type>0</make-project-type>
+<<<<<<< HEAD
             <c-extensions>c</c-extensions>
             <cpp-extensions/>
             <header-extensions>h</header-extensions>
             <asminc-extensions/>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
+=======
+            <c-extensions/>
+            <cpp-extensions/>
+            <header-extensions/>
+            <asminc-extensions/>
+>>>>>>> dd6d20245efd64a3ac64ea006c66711e50d3427f
             <make-dep-projects/>
             <sourceRootList/>
             <confList>
@@ -19,6 +26,10 @@
                     <type>2</type>
                 </confElem>
             </confList>
+<<<<<<< HEAD
+=======
+            <sourceEncoding>ISO-8859-1</sourceEncoding>
+>>>>>>> dd6d20245efd64a3ac64ea006c66711e50d3427f
             <formatting>
                 <project-formatting-style>false</project-formatting-style>
             </formatting>

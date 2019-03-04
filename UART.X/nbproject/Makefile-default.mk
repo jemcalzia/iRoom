@@ -57,6 +57,7 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
+<<<<<<< HEAD
 SOURCEFILES_QUOTED_IF_SPACED=uart_main.c
 
 # Object Files Quoted if spaced
@@ -68,6 +69,19 @@ OBJECTFILES=${OBJECTDIR}/uart_main.p1
 
 # Source Files
 SOURCEFILES=uart_main.c
+=======
+SOURCEFILES_QUOTED_IF_SPACED=
+
+# Object Files Quoted if spaced
+OBJECTFILES_QUOTED_IF_SPACED=
+POSSIBLE_DEPFILES=
+
+# Object Files
+OBJECTFILES=
+
+# Source Files
+SOURCEFILES=
+>>>>>>> dd6d20245efd64a3ac64ea006c66711e50d3427f
 
 
 CFLAGS=
@@ -93,6 +107,7 @@ MP_PROCESSOR_OPTION=16F887
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
+<<<<<<< HEAD
 ${OBJECTDIR}/uart_main.p1: uart_main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/uart_main.p1.d 
@@ -110,6 +125,9 @@ ${OBJECTDIR}/uart_main.p1: uart_main.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/uart_main.d ${OBJECTDIR}/uart_main.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/uart_main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+=======
+else
+>>>>>>> dd6d20245efd64a3ac64ea006c66711e50d3427f
 endif
 
 # ------------------------------------------------------------------------------------

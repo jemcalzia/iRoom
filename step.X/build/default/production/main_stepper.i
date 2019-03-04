@@ -3100,13 +3100,13 @@ void main(void)
         LCD8_set_cursor(2, 1);
         LCD8_strWrite(test);
 
+
+
+
+
+
         if(RE3){
             while(RE3);
-            wave_rev(step);
-            PORTD = 0;
-        }
-        if(RE2){
-            while(RE2);
             wave_step(step);
             PORTD = 0;
         }

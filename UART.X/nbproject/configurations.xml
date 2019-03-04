@@ -4,7 +4,10 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+<<<<<<< HEAD
       <itemPath>uart.h</itemPath>
+=======
+>>>>>>> dd6d20245efd64a3ac64ea006c66711e50d3427f
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -13,7 +16,10 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+<<<<<<< HEAD
       <itemPath>uart_main.c</itemPath>
+=======
+>>>>>>> dd6d20245efd64a3ac64ea006c66711e50d3427f
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
