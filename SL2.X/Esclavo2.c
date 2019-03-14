@@ -20,13 +20,15 @@
 #pragma config WRT = OFF        // Flash Program Memory Self Write Enable bits (Write protection off)
 
 #define _XTAL_FREQ 8000000
+#define prueba PORTDbits.RD1
+#define encendido PORTBbits.RB5
 #include <xc.h>
 #include <stdint.h>
 #include "I2C.h"
 #include "Oscilator.h" 
 #include "timer1.h"
 
-uint8_t z, pir, min, hr, alarm, read, flag;
+uint8_t z, pir, min, hr, alarm, read, flag,pres;
 uint16_t timer; 
 
 void __interrupt() isr(void)
@@ -49,12 +51,14 @@ void __interrupt() isr(void)
             PIR1bits.SSPIF = 0; // Limpia bandera de interrupción recepción/transmisión SSP
             SSPCONbits.CKP = 1; // Habilita entrada de pulsos de reloj SCL
             while (!SSPSTATbits.BF); // Esperar a que la recepción se complete
-            if (read == 0) {
+            if (read == 0U) {
                 min = SSPBUF; // Guardar en el PORTD el valor del buffer de recepción
+                //prueba =1;
                 read++;
             }
-            if (read == 1) {
+            if (read == 1U) {
                 hr = SSPBUF;
+                prueba = 1;
                 read = 0;
             }
             __delay_us(250);
@@ -62,7 +66,7 @@ void __interrupt() isr(void)
         } else if (!SSPSTATbits.D_nA && SSPSTATbits.R_nW) {
             z = SSPBUF;
             BF = 0;
-            SSPBUF = pir;
+            SSPBUF = flag;
             SSPCONbits.CKP = 1;
             __delay_us(250);
             while (SSPSTATbits.BF);
@@ -81,13 +85,17 @@ void __interrupt() isr(void)
 void setup()
     {
     oscilator_begin(7);
-    I2C_Slave_Init(4);
+    I2C_Slave_Init(0x30);
     ANSEL = 0;
     TRISA0 = 1;
     TRISA2 = 0;
     TRISA1 = 0;
+    TRISB = 0;
+    TRISD1 = 0;
     timer1_begin(0, 3);
-    read = 0;
+    read = 0U;
+    prueba = 0;
+    encendido = 0;
     }
 
 void main(void)
@@ -96,17 +104,18 @@ void main(void)
     pir = RA0;
     while (1) {
         timer ++;
-                pir = RA0;
+        pir = RA0;
         if (pir == 1) {
-
             RA2 = 1;
             flag = 1;
+            encendido = 1U;
             t1_count = 0;
         }
         if (flag == 1) {
             if (t1_count > 240) {
                 RA2 = 0;
                 flag = 0;
+                encendido = 0U;
             }
         }
 

@@ -27,7 +27,7 @@
 
 #pragma config BOR4V = BOR40V
 #pragma config WRT = OFF
-# 35 "main.c"
+# 30 "main.c"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2512,7 +2512,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 35 "main.c" 2
+# 30 "main.c" 2
 
 # 1 "./I2C.h" 1
 # 15 "./I2C.h"
@@ -2607,7 +2607,7 @@ void I2C_Slave_Init(short address)
     SSPIF = 0;
     SSPIE = 1;
 }
-# 36 "main.c" 2
+# 31 "main.c" 2
 
 # 1 "./Oscilator.h" 1
 
@@ -2623,7 +2623,7 @@ void oscilator_begin(char freq){
     OSCCONbits.SCS = 1;
     OSCCONbits.OSTS = 0;
 }
-# 37 "main.c" 2
+# 32 "main.c" 2
 
 # 1 "./timer1.h" 1
 
@@ -2775,7 +2775,7 @@ typedef uint16_t uintptr_t;
 
 uint8_t t1_count;
 void timer1_begin(uint8_t offset, uint8_t prescaler);
-# 38 "main.c" 2
+# 33 "main.c" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdlib.h" 1 3
 
@@ -2868,7 +2868,7 @@ extern char * ltoa(char * buf, long val, int base);
 extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
-# 39 "main.c" 2
+# 34 "main.c" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdio.h" 1 3
 # 11 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdio.h" 3
@@ -2950,10 +2950,10 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 40 "main.c" 2
+# 35 "main.c" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 1 3
-# 41 "main.c" 2
+# 36 "main.c" 2
 
 # 1 "./rtc.h" 1
 # 17 "./rtc.h"
@@ -3019,7 +3019,7 @@ int BCD2Binary(int a)
    r = t*10 + r;
    return r;
 }
-# 42 "main.c" 2
+# 37 "main.c" 2
 
 # 1 "./LCD8bit.h" 1
 
@@ -3091,7 +3091,7 @@ void LCD8_shiftL() {
     LCD8_cmd(0x01);
     LCD8_cmd(0x08);
 }
-# 43 "main.c" 2
+# 38 "main.c" 2
 
 
 
@@ -3099,10 +3099,14 @@ void LCD8_shiftL() {
 unsigned char variableADC, valor_CONT, a;
 float convertido;
 unsigned char decimal, apoyo_unitario, unitario;
-unsigned char minuto, hora, hr, ap, segundo;
+unsigned char minuto, hora, hr, ap, segundo, cual_dato;
 unsigned char segundoDer, segundoIzq, minutoDer, minutoIzq, horaDer, horaIzq;
-unsigned char puerta, luz,pir,hum,temperatura;
+uint8_t puerta, luz,pir,hum,temperatura,counter;
 char show[20];
+
+unsigned char humedad = 62U;
+unsigned char temperatura = 27U;
+
 
 void setup(void)
     {
@@ -3110,116 +3114,256 @@ void setup(void)
     I2C_Master_Init(100000);
 
     TRISA = 0;
+    TRISB = 0;
+    TRISD = 0;
+    TRISCbits.TRISC7 = 1;
     ANSEL = 0;
+    ANSELH = 0;
+    PORTA = 0;
+    PORTB = 0;
+    PORTDbits.RD2 = 0;
 
     LCD8_begin();
-
+    LCD8_clear();
     timer1_begin(0,3);
-    LCD8_set_cursor(1,1);
-            LCD8_strWrite("Si pudo");
-            _delay((unsigned long)((1000)*(8000000/4000.0)));
-            write_ds1307(0, 0x0);
-    write_ds1307(1, 0x6);
-    write_ds1307(2, 0x11);
+
+
+    BAUDCTLbits.BRG16 = 0;
+    TXSTAbits.BRGH = 1;
+    SPBRGH = 0x0;
+    SPBRGH = 0x51;
+    TXSTAbits.SYNC = 0;
+    RCSTAbits.SPEN = 1;
+    TXSTAbits.TX9 = 0;
+    TXSTAbits.TXEN = 1;
+    CREN = 1;
+
+
+
+
+    write_ds1307(0, 0U);
+    write_ds1307(1, 1U);
+    write_ds1307(2, 4U);
+
     }
+
+
+void UART_Tx(unsigned char val)
+{
+    while(TXIF == 0);
+    TXIF = 0;
+    TXREG = val;
+    PORTDbits.RD2 = 1;
+}
+
+
+unsigned char UART_Rx()
+{
+    while(RCIF == 0);
+    RCIF = 0;
+    return(RCREG);
+}
 
 void main(void)
     {
     setup();
+
     while (1){
-        LCD8_clear();
+        PORTDbits.RD2 =0;
+
+        counter++;
 
             I2C_Master_Start();
-            I2C_Master_Write(2);
-            I2C_Master_Write(1);
+            I2C_Master_Write(0x20);
+            I2C_Master_Write(0x1);
             I2C_Master_Stop();
+            _delay((unsigned long)((10)*(8000000/4000.0)));
+
+
 
             I2C_Master_Start();
-            I2C_Master_Write(3);
+            I2C_Master_Write(0x21);
             puerta = I2C_Master_Read(0);
             I2C_Master_Stop();
+           _delay((unsigned long)((10)*(8000000/4000.0)));
+
+
 
             I2C_Master_Start();
-            I2C_Master_Write(2);
-            I2C_Master_Write(2);
+            I2C_Master_Write(0x20);
+            I2C_Master_Write(0x2);
             I2C_Master_Stop();
+            _delay((unsigned long)((10)*(8000000/4000.0)));
+
+
 
             I2C_Master_Start();
-            I2C_Master_Write(3);
+            I2C_Master_Write(0x21);
             luz = I2C_Master_Read(0);
             I2C_Master_Stop();
+            _delay((unsigned long)((10)*(8000000/4000.0)));
+
 
 
 
 
             segundo = read_DS1307(0);
+            _delay((unsigned long)((10)*(8000000/4000.0)));
             minuto = read_DS1307(1);
+            _delay((unsigned long)((10)*(8000000/4000.0)));
             hora = read_DS1307(2);
+            _delay((unsigned long)((10)*(8000000/4000.0)));
             hr = hora & 0b00011111;
+            _delay((unsigned long)((10)*(8000000/4000.0)));
             ap = hora & 0b00100000;
-            I2C_Master_Start();
-            I2C_Master_Write(5);
-            pir = I2C_Master_Read(0);
-            I2C_Master_Stop();
+            _delay((unsigned long)((10)*(8000000/4000.0)));
+
+
 
             I2C_Master_Start();
-            I2C_Master_Write(4);
+            I2C_Master_Write(0x30);
             I2C_Master_Write(minuto);
             I2C_Master_Stop();
+            _delay((unsigned long)((10)*(8000000/4000.0)));
+
+
 
             I2C_Master_Start();
-            I2C_Master_Write(4);
+            I2C_Master_Write(0x31);
+            pir = I2C_Master_Read(0);
+            I2C_Master_Stop();
+            _delay((unsigned long)((10)*(8000000/4000.0)));
+
+
+
+
+
+
+
+            I2C_Master_Start();
+            I2C_Master_Write(0x30);
             I2C_Master_Write(hr);
             I2C_Master_Stop();
-
-
+            _delay((unsigned long)((10)*(8000000/4000.0)));
+# 199 "main.c"
             I2C_Master_Start();
-            I2C_Master_Write(6);
-            I2C_Master_Write(1);
+            I2C_Master_Write(0x40);
+            I2C_Master_Write(0x1);
             I2C_Master_Stop();
+           _delay((unsigned long)((10)*(8000000/4000.0)));
 
             I2C_Master_Start();
-            I2C_Master_Write(7);
+            I2C_Master_Write(0x41);
             hum = I2C_Master_Read(0);
             I2C_Master_Stop();
+            _delay((unsigned long)((10)*(8000000/4000.0)));
+
+
 
             I2C_Master_Start();
-            I2C_Master_Write(6);
-            I2C_Master_Write(2);
+            I2C_Master_Write(0x40);
+            I2C_Master_Write(0x2);
             I2C_Master_Stop();
+            _delay((unsigned long)((10)*(8000000/4000.0)));
+
 
             I2C_Master_Start();
-            I2C_Master_Write(7);
+            I2C_Master_Write(0x41);
             temperatura = I2C_Master_Read(0);
             I2C_Master_Stop();
+            _delay((unsigned long)((10)*(8000000/4000.0)));
+# 255 "main.c"
+            PORTDbits.RD7 = 1;
+            cual_dato = UART_Rx();
 
-
-            if (t1_count<150){
-                sprintf(show,"%d",hr);
-                LCD8_set_cursor(2,1);
-                LCD8_strWrite(show);
-                sprintf(show,":%d",minuto);
-                LCD8_strWrite(show);
-                sprintf(show," H%d",hum);
-                LCD8_strWrite(show);
-                sprintf(show," T%d",temperatura);
-                LCD8_strWrite(show);
+        if(cual_dato == 1U){
+            UART_Tx(hum);
+        }else if(cual_dato == 2U){
+            UART_Tx(puerta);
+        }else if(cual_dato == 3U){
+            UART_Tx(temperatura);
+        }else if(cual_dato == 4U){
+            UART_Tx(pir);
+        }else if(cual_dato == 5U){
+            UART_Tx(hr);
+        }else if(cual_dato == 6U){
+            UART_Tx(minuto);
+        }else if(cual_dato == 7U){
+            UART_Tx(luz);
+        }
+            PORTDbits.RD7 = 0;
+            if(luz<100){
+            sprintf(show,"%d ",luz);
+            LCD8_set_cursor(2,1);
+            LCD8_strWrite(show);
             }
-            if (t1_count > 150){
 
-                sprintf(show,"D%d",puerta);
-                LCD8_set_cursor(2,1);
-                LCD8_strWrite(show);
-                sprintf(show,"%d",luz);
-                LCD8_strWrite(show);
-                if(pir ==1){
-                    sprintf(show,"SI");
-                }
-                else{
-                    sprintf(show,"NO");
-                }
-                LCD8_strWrite(show);
-
+            if(luz>99){
+            sprintf(show,"%d",luz);
+            LCD8_set_cursor(2,1);
+            LCD8_strWrite(show);
             }
+
+            sprintf (show,"%d",puerta);
+            LCD8_set_cursor(1,1);
+            LCD8_strWrite(show);
+
+
+
+             if(puerta <100){
+            sprintf(show,"%d ",puerta);
+            LCD8_set_cursor(1,1);
+            LCD8_strWrite(show);
+            }
+
+            if(puerta>99){
+            sprintf(show,"%d",puerta);
+            LCD8_set_cursor(1,1);
+            LCD8_strWrite(show);
+            }
+
+
+
+            sprintf (show,"%d",pir);
+            LCD8_set_cursor(1,6);
+            LCD8_strWrite(show);
+
+            sprintf (show,"%d",hr);
+            LCD8_set_cursor(1,10);
+            LCD8_strWrite(show);
+
+            sprintf (show,":%d",minuto);
+            LCD8_set_cursor(1,11);
+            LCD8_strWrite(show);
+
+            sprintf (show,"%d",hum);
+            LCD8_set_cursor(2,6);
+            LCD8_strWrite(show);
+
+            if(hum <100){
+            sprintf(show,"%d ",hum);
+            LCD8_set_cursor(2,6);
+            LCD8_strWrite(show);
+            }
+
+            if(hum>99){
+            sprintf(show,"%d",hum);
+            LCD8_set_cursor(2,6);
+            LCD8_strWrite(show);
+            }
+
+            if(temperatura <100){
+            sprintf(show,"%d ",temperatura);
+            LCD8_set_cursor(2,11);
+            LCD8_strWrite(show);
+            }
+
+            if(temperatura>99){
+            sprintf(show,"%d",temperatura);
+            LCD8_set_cursor(2,11);
+            LCD8_strWrite(show);
+            }
+
+
     }
 }

@@ -19,6 +19,7 @@
 #pragma config BOR4V = BOR40V   // Brown-out Reset Selection bit (Brown-out Reset set to 4.0V)
 #pragma config WRT = OFF        // Flash Program Memory Self Write Enable bits (Write protection off)
 #define _XTAL_FREQ 8000000
+#define prueba PORTAbits.RA1
 #include <xc.h>
 #include <stdint.h>
 #include "Oscilator.h"
@@ -32,7 +33,6 @@ uint8_t temp_int, temp_dec, hum_int, hum_dec, check, total, z, var, state;
 void __interrupt() isr(void)
     {
     if (PIR1bits.SSPIF == 1) {
-
         SSPCONbits.CKP = 0;
 
         if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)) {
@@ -50,17 +50,23 @@ void __interrupt() isr(void)
             SSPCONbits.CKP = 1; // Habilita entrada de pulsos de reloj SCL
             while (!SSPSTATbits.BF); // Esperar a que la recepción se complete
             var = SSPBUF;
+            //prueba = 1;
             __delay_us(250);
+            
 
-        } else if (!SSPSTATbits.D_nA && SSPSTATbits.R_nW) {
+        } if (!SSPSTATbits.D_nA && SSPSTATbits.R_nW) {
+           
             z = SSPBUF;
             BF = 0;
             if (var == 1) {
                 SSPBUF = hum_int;
+          
             }
             if (var == 2) {
                 SSPBUF = temp_int;
             }
+            
+            //prueba =1; 
             SSPCONbits.CKP = 1;
             __delay_us(250);
             while (SSPSTATbits.BF);
@@ -84,13 +90,17 @@ void main(void)
     TRISA1 = 0;
     ANSEL = 0;
     state = 0;
+    
+    hum_int = 0U;
+    prueba = 0;
 
     timer1_begin(OFFSET, PRESCALER);
-    I2C_Slave_Init(6);
+    I2C_Slave_Init(0x40);
     PORTD = 0;
     while (1) {
+        prueba = 0; 
         if (t1_count >= 10) {
-
+            prueba = 1; 
             dht11_begin();
             dht11_check();
             hum_int = dht11_read();
@@ -99,8 +109,8 @@ void main(void)
             temp_dec = dht11_read();
             check = dht11_read();
             total = hum_int + hum_dec + temp_int + temp_dec;
-            t1_count = 0;
-            if (hum_int > 25) {
+           
+            if (hum_int > 45) {
                 if (state == 0) {
                     full_rev(1605U);
                     state = 1U;
@@ -110,12 +120,13 @@ void main(void)
                     PORTD = 0;
                 }
             }
-            if (hum_int < 25 && state) {
+            if (state) {
                 full_step(1605U);
                 state = 0;
                 PORTD = 0;
 
             }
+             t1_count = 0;
 
         }
 

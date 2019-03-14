@@ -29,6 +29,7 @@
 #pragma config WRT = OFF
 
 
+
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2513,7 +2514,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 22 "Esclavo3.c" 2
+# 23 "Esclavo3.c" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 3
@@ -2648,7 +2649,7 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 23 "Esclavo3.c" 2
+# 24 "Esclavo3.c" 2
 
 # 1 "./Oscilator.h" 1
 
@@ -2664,7 +2665,7 @@ void oscilator_begin(char freq){
     OSCCONbits.SCS = 1;
     OSCCONbits.OSTS = 0;
 }
-# 24 "Esclavo3.c" 2
+# 25 "Esclavo3.c" 2
 
 # 1 "./stepper.h" 1
 
@@ -2679,7 +2680,7 @@ void full_step(uint16_t steps);
 void wave_step(uint16_t steps);
 void full_rev(uint16_t steps);
 void wave_rev(uint16_t steps);
-# 25 "Esclavo3.c" 2
+# 26 "Esclavo3.c" 2
 
 # 1 "./dht11_h.h" 1
 
@@ -2692,7 +2693,7 @@ void wave_rev(uint16_t steps);
 void dht11_begin(void);
 void dht11_check(void);
 uint8_t dht11_read(void);
-# 26 "Esclavo3.c" 2
+# 27 "Esclavo3.c" 2
 
 # 1 "./timer1.h" 1
 
@@ -2712,7 +2713,7 @@ uint8_t dht11_read(void);
 
 uint8_t t1_count;
 void timer1_begin(uint8_t offset, uint8_t prescaler);
-# 27 "Esclavo3.c" 2
+# 28 "Esclavo3.c" 2
 
 # 1 "./I2C.h" 1
 # 15 "./I2C.h"
@@ -2807,7 +2808,7 @@ void I2C_Slave_Init(short address)
     SSPIF = 0;
     SSPIE = 1;
 }
-# 28 "Esclavo3.c" 2
+# 29 "Esclavo3.c" 2
 
 
 uint8_t temp_int, temp_dec, hum_int, hum_dec, check, total, z, var, state;
@@ -2815,7 +2816,6 @@ uint8_t temp_int, temp_dec, hum_int, hum_dec, check, total, z, var, state;
 void __attribute__((picinterrupt(("")))) isr(void)
     {
     if (PIR1bits.SSPIF == 1) {
-
         SSPCONbits.CKP = 0;
 
         if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)) {
@@ -2833,17 +2833,23 @@ void __attribute__((picinterrupt(("")))) isr(void)
             SSPCONbits.CKP = 1;
             while (!SSPSTATbits.BF);
             var = SSPBUF;
+
             _delay((unsigned long)((250)*(8000000/4000000.0)));
 
-        } else if (!SSPSTATbits.D_nA && SSPSTATbits.R_nW) {
+
+        } if (!SSPSTATbits.D_nA && SSPSTATbits.R_nW) {
+
             z = SSPBUF;
             BF = 0;
             if (var == 1) {
                 SSPBUF = hum_int;
+
             }
             if (var == 2) {
                 SSPBUF = temp_int;
             }
+
+
             SSPCONbits.CKP = 1;
             _delay((unsigned long)((250)*(8000000/4000000.0)));
             while (SSPSTATbits.BF);
@@ -2868,12 +2874,16 @@ void main(void)
     ANSEL = 0;
     state = 0;
 
+    hum_int = 0U;
+    PORTAbits.RA1 = 0;
+
     timer1_begin((0), (3));
-    I2C_Slave_Init(6);
+    I2C_Slave_Init(0x40);
     PORTD = 0;
     while (1) {
+        PORTAbits.RA1 = 0;
         if (t1_count >= 10) {
-
+            PORTAbits.RA1 = 1;
             dht11_begin();
             dht11_check();
             hum_int = dht11_read();
@@ -2882,8 +2892,8 @@ void main(void)
             temp_dec = dht11_read();
             check = dht11_read();
             total = hum_int + hum_dec + temp_int + temp_dec;
-            t1_count = 0;
-            if (hum_int > 25) {
+
+            if (hum_int > 45) {
                 if (state == 0) {
                     full_rev(1605U);
                     state = 1U;
@@ -2893,12 +2903,13 @@ void main(void)
                     PORTD = 0;
                 }
             }
-            if (hum_int < 25 && state) {
+            if (state) {
                 full_step(1605U);
                 state = 0;
                 PORTD = 0;
 
             }
+             t1_count = 0;
 
         }
 

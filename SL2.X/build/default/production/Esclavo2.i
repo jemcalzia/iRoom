@@ -30,6 +30,8 @@
 
 
 
+
+
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2514,7 +2516,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 23 "Esclavo2.c" 2
+# 25 "Esclavo2.c" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 3
@@ -2649,7 +2651,7 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 24 "Esclavo2.c" 2
+# 26 "Esclavo2.c" 2
 
 # 1 "./I2C.h" 1
 # 15 "./I2C.h"
@@ -2744,7 +2746,7 @@ void I2C_Slave_Init(short address)
     SSPIF = 0;
     SSPIE = 1;
 }
-# 25 "Esclavo2.c" 2
+# 27 "Esclavo2.c" 2
 
 # 1 "./Oscilator.h" 1
 
@@ -2760,7 +2762,7 @@ void oscilator_begin(char freq){
     OSCCONbits.SCS = 1;
     OSCCONbits.OSTS = 0;
 }
-# 26 "Esclavo2.c" 2
+# 28 "Esclavo2.c" 2
 
 # 1 "./timer1.h" 1
 
@@ -2780,10 +2782,10 @@ void oscilator_begin(char freq){
 
 uint16_t t1_count;
 void timer1_begin(uint8_t offset, uint8_t prescaler);
-# 27 "Esclavo2.c" 2
+# 29 "Esclavo2.c" 2
 
 
-uint8_t z, pir, min, hr, alarm, read, flag;
+uint8_t z, pir, min, hr, alarm, read, flag,pres;
 uint16_t timer;
 
 void __attribute__((picinterrupt(("")))) isr(void)
@@ -2806,12 +2808,14 @@ void __attribute__((picinterrupt(("")))) isr(void)
             PIR1bits.SSPIF = 0;
             SSPCONbits.CKP = 1;
             while (!SSPSTATbits.BF);
-            if (read == 0) {
+            if (read == 0U) {
                 min = SSPBUF;
+
                 read++;
             }
-            if (read == 1) {
+            if (read == 1U) {
                 hr = SSPBUF;
+                PORTDbits.RD1 = 1;
                 read = 0;
             }
             _delay((unsigned long)((250)*(8000000/4000000.0)));
@@ -2819,7 +2823,7 @@ void __attribute__((picinterrupt(("")))) isr(void)
         } else if (!SSPSTATbits.D_nA && SSPSTATbits.R_nW) {
             z = SSPBUF;
             BF = 0;
-            SSPBUF = pir;
+            SSPBUF = flag;
             SSPCONbits.CKP = 1;
             _delay((unsigned long)((250)*(8000000/4000000.0)));
             while (SSPSTATbits.BF);
@@ -2838,13 +2842,17 @@ void __attribute__((picinterrupt(("")))) isr(void)
 void setup()
     {
     oscilator_begin(7);
-    I2C_Slave_Init(4);
+    I2C_Slave_Init(0x30);
     ANSEL = 0;
     TRISA0 = 1;
     TRISA2 = 0;
     TRISA1 = 0;
+    TRISB = 0;
+    TRISD1 = 0;
     timer1_begin(0, 3);
-    read = 0;
+    read = 0U;
+    PORTDbits.RD1 = 0;
+    PORTBbits.RB5 = 0;
     }
 
 void main(void)
@@ -2853,17 +2861,18 @@ void main(void)
     pir = RA0;
     while (1) {
         timer ++;
-                pir = RA0;
+        pir = RA0;
         if (pir == 1) {
-
             RA2 = 1;
             flag = 1;
+            PORTBbits.RB5 = 1U;
             t1_count = 0;
         }
         if (flag == 1) {
             if (t1_count > 240) {
                 RA2 = 0;
                 flag = 0;
+                PORTBbits.RB5 = 0U;
             }
         }
 

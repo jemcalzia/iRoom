@@ -19,17 +19,41 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"32 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL2.X\Esclavo2.c
+"34 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL2.X\Esclavo2.c
 [v _isr isr `II(v  1 e 1 0 ]
-"81
+"85
 [v _setup setup `(v  1 e 1 0 ]
-"93
+"101
 [v _main main `(v  1 e 1 0 ]
 "8 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL2.X\timer1.c
 [v _timer1_begin timer1_begin `(v  1 e 1 0 ]
 "14 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL2.X/timer1.h
 [v _t1_count t1_count `ui  1 e 2 0 ]
-[s S351 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S256 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"245 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f887.h
+[u S265 . 1 `S256 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES265  1 e 1 @6 ]
+[s S215 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+"369
+[u S224 . 1 `S215 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES224  1 e 1 @8 ]
+[s S412 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -38,14 +62,14 @@
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-"482 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f887.h
-[s S360 . 1 `uc 1 . 1 0 :2:0 
+"482
+[s S421 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 TMR0IE 1 0 :1:5 
 ]
-[u S365 . 1 `S351 1 . 1 0 `S360 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES365  1 e 1 @11 ]
+[u S426 . 1 `S412 1 . 1 0 `S421 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES426  1 e 1 @11 ]
 [s S81 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
@@ -59,7 +83,7 @@
 [v _PIR1bits PIR1bits `VES89  1 e 1 @12 ]
 "650
 [v _TMR1 TMR1 `VEus  1 e 2 @14 ]
-[s S308 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S369 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 TMR1CS 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 T1OSCEN 1 0 :1:3 
@@ -68,7 +92,7 @@
 `uc 1 T1GINV 1 0 :1:7 
 ]
 "700
-[s S316 . 1 `uc 1 . 1 0 :2:0 
+[s S377 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1INSYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T1CKPS0 1 0 :1:4 
@@ -76,11 +100,11 @@
 `uc 1 . 1 0 :1:6 
 `uc 1 T1GIV 1 0 :1:7 
 ]
-[s S324 . 1 `uc 1 . 1 0 :2:0 
+[s S385 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1SYNC 1 0 :1:2 
 ]
-[u S327 . 1 `S308 1 . 1 0 `S316 1 . 1 0 `S324 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES327  1 e 1 @16 ]
+[u S388 . 1 `S369 1 . 1 0 `S377 1 . 1 0 `S385 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES388  1 e 1 @16 ]
 "843
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 "850
@@ -99,7 +123,9 @@
 ]
 [u S111 . 1 `S100 1 . 1 0 `S106 1 . 1 0 ]
 [v _SSPCONbits SSPCONbits `VES111  1 e 1 @20 ]
-[s S394 . 1 `uc 1 TMR1IE 1 0 :1:0 
+"1478
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+[s S455 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -108,8 +134,8 @@
 `uc 1 ADIE 1 0 :1:6 
 ]
 "1718
-[u S402 . 1 `S394 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES402  1 e 1 @140 ]
+[u S463 . 1 `S455 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES463  1 e 1 @140 ]
 [s S55 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
 `uc 1 HTS 1 0 :1:2 
@@ -215,7 +241,9 @@
 [v _TRISC3 TRISC3 `VEb  1 e 0 @1083 ]
 "4460
 [v _TRISC4 TRISC4 `VEb  1 e 0 @1084 ]
-"29 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL2.X\Esclavo2.c
+"4475
+[v _TRISD1 TRISD1 `VEb  1 e 0 @1089 ]
+"31 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL2.X\Esclavo2.c
 [v _z z `uc  1 e 1 0 ]
 [v _pir pir `uc  1 e 1 0 ]
 [v _min min `uc  1 e 1 0 ]
@@ -223,17 +251,17 @@
 [v _alarm alarm `uc  1 e 1 0 ]
 [v _read read `uc  1 e 1 0 ]
 [v _flag flag `uc  1 e 1 0 ]
-"30
+"32
 [v _timer timer `ui  1 e 2 0 ]
-"93
+"101
 [v _main main `(v  1 e 1 0 ]
 {
-"125
+"134
 } 0
-"81
+"85
 [v _setup setup `(v  1 e 1 0 ]
 {
-"91
+"99
 } 0
 "8 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL2.X\timer1.c
 [v _timer1_begin timer1_begin `(v  1 e 1 0 ]
@@ -259,8 +287,8 @@
 [v I2C_Slave_Init@address address `s  1 p 2 3 ]
 "105
 } 0
-"32 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL2.X\Esclavo2.c
+"34 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL2.X\Esclavo2.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"79
+"83
 } 0

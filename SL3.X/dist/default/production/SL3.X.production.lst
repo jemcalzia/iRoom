@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.05 build -831301201 
-                                                                                               Mon Mar 11 08:28:37 2019
+                                                                                               Wed Mar 13 13:26:38 2019
 
 Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1 
      1                           	processor	16F887
@@ -505,7 +505,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    491  0014  3020               	movlw	low __pbssBANK0
    492  0015  0084               	movwf	4
    493  0016  3036               	movlw	low (__pbssBANK0+22)
-   494  0017  120A  118A  2282   	fcall	clear_ram0
+   494  0017  120A  118A  2283   	fcall	clear_ram0
    495  001A                     end_of_initialization:	
    496                           ;End of C runtime variable initialization code
    497                           
@@ -558,19 +558,19 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    544  0035                     	ds	1
    545                           
    546                           	psect	clrtext
-   547  0282                     clear_ram0:	
+   547  0283                     clear_ram0:	
    548                           ;	Called with FSR containing the base address, and
    549                           ;	W with the last address+1
    550                           
-   551  0282  0064               	clrwdt	;clear the watchdog before getting into this loop
-   552  0283                     clrloop0:	
-   553  0283  0180               	clrf	0	;clear RAM location pointed to by FSR
-   554  0284  0A84               	incf	4,f	;increment pointer
-   555  0285  0604               	xorwf	4,w	;XOR with final address
-   556  0286  1903               	btfsc	3,2	;have we reached the end yet?
-   557  0287  3400               	retlw	0	;all done for this memory range, return
-   558  0288  0604               	xorwf	4,w	;XOR again to restore value
-   559  0289  2A83               	goto	clrloop0	;do the next byte
+   551  0283  0064               	clrwdt	;clear the watchdog before getting into this loop
+   552  0284                     clrloop0:	
+   553  0284  0180               	clrf	0	;clear RAM location pointed to by FSR
+   554  0285  0A84               	incf	4,f	;increment pointer
+   555  0286  0604               	xorwf	4,w	;XOR with final address
+   556  0287  1903               	btfsc	3,2	;have we reached the end yet?
+   557  0288  3400               	retlw	0	;all done for this memory range, return
+   558  0289  0604               	xorwf	4,w	;XOR again to restore value
+   559  028A  2A84               	goto	clrloop0	;do the next byte
    560                           
    561                           	psect	cstackCOMMON
    562  0070                     __pcstackCOMMON:	
@@ -669,7 +669,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    655 ;;
    656 ;; *************** function _main *****************
    657 ;; Defined at:
-   658 ;;		line 79 in file "Esclavo3.c"
+   658 ;;		line 85 in file "Esclavo3.c"
    659 ;; Parameters:    Size  Location     Type
    660 ;;		None
    661 ;; Auto vars:     Size  Location     Type
@@ -707,1271 +707,1281 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    693                           ;psect for function _main
    694  001E                     _main:	
    695                           
-   696                           ;Esclavo3.c: 81:     oscilator_begin(7);
+   696                           ;Esclavo3.c: 87:     oscilator_begin(7);
    697                           
    698                           ;incstack = 0
    699                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
    700  001E  3007               	movlw	7
-   701  001F  120A  118A  226B  120A  118A  	fcall	_oscilator_begin
+   701  001F  120A  118A  226C  120A  118A  	fcall	_oscilator_begin
    702                           
-   703                           ;Esclavo3.c: 82:     TRISD = 0;
+   703                           ;Esclavo3.c: 88:     TRISD = 0;
    704  0024  1683               	bsf	3,5	;RP0=1, select bank1
    705  0025  1303               	bcf	3,6	;RP1=0, select bank1
    706  0026  0188               	clrf	8	;volatile
    707                           
-   708                           ;Esclavo3.c: 83:     PORTD = 0;
+   708                           ;Esclavo3.c: 89:     PORTD = 0;
    709  0027  1283               	bcf	3,5	;RP0=0, select bank0
    710  0028  1303               	bcf	3,6	;RP1=0, select bank0
    711  0029  0188               	clrf	8	;volatile
    712                           
-   713                           ;Esclavo3.c: 84:     TRISA1 = 0;
+   713                           ;Esclavo3.c: 90:     TRISA1 = 0;
    714  002A  1683               	bsf	3,5	;RP0=1, select bank1
    715  002B  1303               	bcf	3,6	;RP1=0, select bank1
    716  002C  1085               	bcf	5,1	;volatile
    717                           
-   718                           ;Esclavo3.c: 85:     ANSEL = 0;
+   718                           ;Esclavo3.c: 91:     ANSEL = 0;
    719  002D  1683               	bsf	3,5	;RP0=1, select bank3
    720  002E  1703               	bsf	3,6	;RP1=1, select bank3
    721  002F  0188               	clrf	8	;volatile
    722                           
-   723                           ;Esclavo3.c: 86:     state = 0;
+   723                           ;Esclavo3.c: 92:     state = 0;
    724  0030  1283               	bcf	3,5	;RP0=0, select bank0
    725  0031  1303               	bcf	3,6	;RP1=0, select bank0
    726  0032  01AE               	clrf	_state
    727                           
-   728                           ;Esclavo3.c: 88:     timer1_begin((0), (3));
-   729  0033  3003               	movlw	3
-   730  0034  00B6               	movwf	??_main
-   731  0035  0836               	movf	??_main,w
-   732  0036  00F3               	movwf	timer1_begin@prescaler
-   733  0037  3000               	movlw	0
-   734  0038  120A  118A  2218  120A  118A  	fcall	_timer1_begin
-   735                           
-   736                           ;Esclavo3.c: 89:     I2C_Slave_Init(6);
-   737  003D  3006               	movlw	6
-   738  003E  00F3               	movwf	I2C_Slave_Init@address
-   739  003F  3000               	movlw	0
-   740  0040  00F4               	movwf	I2C_Slave_Init@address+1
-   741  0041  120A  118A  2252  120A  118A  	fcall	_I2C_Slave_Init
-   742                           
-   743                           ;Esclavo3.c: 90:     PORTD = 0;
-   744  0046  1283               	bcf	3,5	;RP0=0, select bank0
-   745  0047  1303               	bcf	3,6	;RP1=0, select bank0
-   746  0048  0188               	clrf	8	;volatile
-   747  0049                     l1465:	
+   728                           ;Esclavo3.c: 94:     hum_int = 0U;
+   729  0033  01F9               	clrf	_hum_int
+   730                           
+   731                           ;Esclavo3.c: 95:     PORTAbits.RA1 = 0;
+   732  0034  1085               	bcf	5,1	;volatile
+   733                           
+   734                           ;Esclavo3.c: 97:     timer1_begin((0), (3));
+   735  0035  3003               	movlw	3
+   736  0036  00B6               	movwf	??_main
+   737  0037  0836               	movf	??_main,w
+   738  0038  00F3               	movwf	timer1_begin@prescaler
+   739  0039  3000               	movlw	0
+   740  003A  120A  118A  2219  120A  118A  	fcall	_timer1_begin
+   741                           
+   742                           ;Esclavo3.c: 98:     I2C_Slave_Init(0x40);
+   743  003F  3040               	movlw	64
+   744  0040  00F3               	movwf	I2C_Slave_Init@address
+   745  0041  3000               	movlw	0
+   746  0042  00F4               	movwf	I2C_Slave_Init@address+1
+   747  0043  120A  118A  2253  120A  118A  	fcall	_I2C_Slave_Init
    748                           
-   749                           ;Esclavo3.c: 92:         if (t1_count >= 10) {
-   750  0049  300A               	movlw	10
-   751  004A  0235               	subwf	_t1_count,w
-   752  004B  1C03               	skipc
-   753  004C  28BE               	goto	l1507
+   749                           ;Esclavo3.c: 99:     PORTD = 0;
+   750  0048  1283               	bcf	3,5	;RP0=0, select bank0
+   751  0049  1303               	bcf	3,6	;RP1=0, select bank0
+   752  004A  0188               	clrf	8	;volatile
+   753  004B                     l1498:	
    754                           
-   755                           ;Esclavo3.c: 94:             dht11_begin();
-   756  004D  120A  118A  2238  120A  118A  	fcall	_dht11_begin
+   755                           ;Esclavo3.c: 101:         PORTAbits.RA1 = 0;
+   756  004B  1085               	bcf	5,1	;volatile
    757                           
-   758                           ;Esclavo3.c: 95:             dht11_check();
-   759  0052  120A  118A  2279  120A  118A  	fcall	_dht11_check
-   760                           
-   761                           ;Esclavo3.c: 96:             hum_int = dht11_read();
-   762  0057  120A  118A  21F5  120A  118A  	fcall	_dht11_read
-   763  005C  1283               	bcf	3,5	;RP0=0, select bank0
-   764  005D  1303               	bcf	3,6	;RP1=0, select bank0
-   765  005E  00B6               	movwf	??_main
-   766  005F  0836               	movf	??_main,w
-   767  0060  00F9               	movwf	_hum_int
-   768                           
-   769                           ;Esclavo3.c: 97:             hum_dec = dht11_read();
-   770  0061  120A  118A  21F5  120A  118A  	fcall	_dht11_read
-   771  0066  1283               	bcf	3,5	;RP0=0, select bank0
-   772  0067  1303               	bcf	3,6	;RP1=0, select bank0
-   773  0068  00B6               	movwf	??_main
-   774  0069  0836               	movf	??_main,w
-   775  006A  00B3               	movwf	_hum_dec
-   776                           
-   777                           ;Esclavo3.c: 98:             temp_int = dht11_read();
-   778  006B  120A  118A  21F5  120A  118A  	fcall	_dht11_read
-   779  0070  1283               	bcf	3,5	;RP0=0, select bank0
-   780  0071  1303               	bcf	3,6	;RP1=0, select bank0
-   781  0072  00B6               	movwf	??_main
-   782  0073  0836               	movf	??_main,w
-   783  0074  00FA               	movwf	_temp_int
-   784                           
-   785                           ;Esclavo3.c: 99:             temp_dec = dht11_read();
-   786  0075  120A  118A  21F5  120A  118A  	fcall	_dht11_read
-   787  007A  1283               	bcf	3,5	;RP0=0, select bank0
-   788  007B  1303               	bcf	3,6	;RP1=0, select bank0
-   789  007C  00B6               	movwf	??_main
-   790  007D  0836               	movf	??_main,w
-   791  007E  00B4               	movwf	_temp_dec
-   792                           
-   793                           ;Esclavo3.c: 100:             check = dht11_read();
-   794  007F  120A  118A  21F5  120A  118A  	fcall	_dht11_read
-   795  0084  1283               	bcf	3,5	;RP0=0, select bank0
-   796  0085  1303               	bcf	3,6	;RP1=0, select bank0
-   797  0086  00B6               	movwf	??_main
-   798  0087  0836               	movf	??_main,w
-   799  0088  00B2               	movwf	_check
-   800                           
-   801                           ;Esclavo3.c: 101:             total = hum_int + hum_dec + temp_int + temp_dec;
-   802  0089  0833               	movf	_hum_dec,w
-   803  008A  0779               	addwf	_hum_int,w
-   804  008B  00B6               	movwf	??_main
-   805  008C  087A               	movf	_temp_int,w
-   806  008D  0736               	addwf	??_main,w
-   807  008E  00B7               	movwf	??_main+1
-   808  008F  0834               	movf	_temp_dec,w
-   809  0090  0737               	addwf	??_main+1,w
-   810  0091  00B8               	movwf	??_main+2
-   811  0092  0838               	movf	??_main+2,w
-   812  0093  00B1               	movwf	_total
-   813                           
-   814                           ;Esclavo3.c: 102:             t1_count = 0;
-   815  0094  01B5               	clrf	_t1_count
-   816                           
-   817                           ;Esclavo3.c: 103:             if (hum_int > 25) {
-   818  0095  301A               	movlw	26
-   819  0096  0279               	subwf	_hum_int,w
-   820  0097  1C03               	skipc
-   821  0098  28AA               	goto	l1497
-   822                           
-   823                           ;Esclavo3.c: 104:                 if (state == 0) {
-   824  0099  082E               	movf	_state,w
-   825  009A  1D03               	btfss	3,2
-   826  009B  28A9               	goto	l1493
-   827                           
-   828                           ;Esclavo3.c: 105:                     full_rev(1605U);
-   829  009C  3045               	movlw	69
-   830  009D  00F3               	movwf	full_rev@steps
-   831  009E  3006               	movlw	6
-   832  009F  00F4               	movwf	full_rev@steps+1
-   833  00A0  120A  118A  2196  120A  118A  	fcall	_full_rev
-   834                           
-   835                           ;Esclavo3.c: 106:                     state = 1U;
-   836  00A5  1283               	bcf	3,5	;RP0=0, select bank0
-   837  00A6  1303               	bcf	3,6	;RP1=0, select bank0
-   838  00A7  01AE               	clrf	_state
-   839  00A8  0AAE               	incf	_state,f
-   840  00A9                     l1493:	
-   841                           
-   842                           ;Esclavo3.c: 107:                     PORTD = 0;
-   843  00A9  0188               	clrf	8	;volatile
-   844  00AA                     l1497:	
-   845                           ;Esclavo3.c: 108:                 }
-   846                           
-   847                           
-   848                           ;Esclavo3.c: 113:             if (hum_int < 25 && state) {
-   849  00AA  3019               	movlw	25
-   850  00AB  0279               	subwf	_hum_int,w
-   851  00AC  1803               	skipnc
-   852  00AD  28BE               	goto	l1507
-   853  00AE  082E               	movf	_state,w
-   854  00AF  1903               	btfsc	3,2
-   855  00B0  28BE               	goto	l1507
+   758                           ;Esclavo3.c: 102:         if (t1_count >= 10) {
+   759  004C  300A               	movlw	10
+   760  004D  0235               	subwf	_t1_count,w
+   761  004E  1C03               	skipc
+   762  004F  28BE               	goto	l1542
+   763                           
+   764                           ;Esclavo3.c: 103:             PORTAbits.RA1 = 1;
+   765  0050  1485               	bsf	5,1	;volatile
+   766                           
+   767                           ;Esclavo3.c: 104:             dht11_begin();
+   768  0051  120A  118A  2239  120A  118A  	fcall	_dht11_begin
+   769                           
+   770                           ;Esclavo3.c: 105:             dht11_check();
+   771  0056  120A  118A  227A  120A  118A  	fcall	_dht11_check
+   772                           
+   773                           ;Esclavo3.c: 106:             hum_int = dht11_read();
+   774  005B  120A  118A  21F6  120A  118A  	fcall	_dht11_read
+   775  0060  1283               	bcf	3,5	;RP0=0, select bank0
+   776  0061  1303               	bcf	3,6	;RP1=0, select bank0
+   777  0062  00B6               	movwf	??_main
+   778  0063  0836               	movf	??_main,w
+   779  0064  00F9               	movwf	_hum_int
+   780                           
+   781                           ;Esclavo3.c: 107:             hum_dec = dht11_read();
+   782  0065  120A  118A  21F6  120A  118A  	fcall	_dht11_read
+   783  006A  1283               	bcf	3,5	;RP0=0, select bank0
+   784  006B  1303               	bcf	3,6	;RP1=0, select bank0
+   785  006C  00B6               	movwf	??_main
+   786  006D  0836               	movf	??_main,w
+   787  006E  00B3               	movwf	_hum_dec
+   788                           
+   789                           ;Esclavo3.c: 108:             temp_int = dht11_read();
+   790  006F  120A  118A  21F6  120A  118A  	fcall	_dht11_read
+   791  0074  1283               	bcf	3,5	;RP0=0, select bank0
+   792  0075  1303               	bcf	3,6	;RP1=0, select bank0
+   793  0076  00B6               	movwf	??_main
+   794  0077  0836               	movf	??_main,w
+   795  0078  00FA               	movwf	_temp_int
+   796                           
+   797                           ;Esclavo3.c: 109:             temp_dec = dht11_read();
+   798  0079  120A  118A  21F6  120A  118A  	fcall	_dht11_read
+   799  007E  1283               	bcf	3,5	;RP0=0, select bank0
+   800  007F  1303               	bcf	3,6	;RP1=0, select bank0
+   801  0080  00B6               	movwf	??_main
+   802  0081  0836               	movf	??_main,w
+   803  0082  00B4               	movwf	_temp_dec
+   804                           
+   805                           ;Esclavo3.c: 110:             check = dht11_read();
+   806  0083  120A  118A  21F6  120A  118A  	fcall	_dht11_read
+   807  0088  1283               	bcf	3,5	;RP0=0, select bank0
+   808  0089  1303               	bcf	3,6	;RP1=0, select bank0
+   809  008A  00B6               	movwf	??_main
+   810  008B  0836               	movf	??_main,w
+   811  008C  00B2               	movwf	_check
+   812                           
+   813                           ;Esclavo3.c: 111:             total = hum_int + hum_dec + temp_int + temp_dec;
+   814  008D  0833               	movf	_hum_dec,w
+   815  008E  0779               	addwf	_hum_int,w
+   816  008F  00B6               	movwf	??_main
+   817  0090  087A               	movf	_temp_int,w
+   818  0091  0736               	addwf	??_main,w
+   819  0092  00B7               	movwf	??_main+1
+   820  0093  0834               	movf	_temp_dec,w
+   821  0094  0737               	addwf	??_main+1,w
+   822  0095  00B8               	movwf	??_main+2
+   823  0096  0838               	movf	??_main+2,w
+   824  0097  00B1               	movwf	_total
+   825                           
+   826                           ;Esclavo3.c: 113:             if (hum_int > 45) {
+   827  0098  302E               	movlw	46
+   828  0099  0279               	subwf	_hum_int,w
+   829  009A  1C03               	skipc
+   830  009B  28AD               	goto	l1532
+   831                           
+   832                           ;Esclavo3.c: 114:                 if (state == 0) {
+   833  009C  082E               	movf	_state,w
+   834  009D  1D03               	btfss	3,2
+   835  009E  28AC               	goto	l1528
+   836                           
+   837                           ;Esclavo3.c: 115:                     full_rev(1605U);
+   838  009F  3045               	movlw	69
+   839  00A0  00F3               	movwf	full_rev@steps
+   840  00A1  3006               	movlw	6
+   841  00A2  00F4               	movwf	full_rev@steps+1
+   842  00A3  120A  118A  2197  120A  118A  	fcall	_full_rev
+   843                           
+   844                           ;Esclavo3.c: 116:                     state = 1U;
+   845  00A8  1283               	bcf	3,5	;RP0=0, select bank0
+   846  00A9  1303               	bcf	3,6	;RP1=0, select bank0
+   847  00AA  01AE               	clrf	_state
+   848  00AB  0AAE               	incf	_state,f
+   849  00AC                     l1528:	
+   850                           
+   851                           ;Esclavo3.c: 117:                     PORTD = 0;
+   852  00AC  0188               	clrf	8	;volatile
+   853  00AD                     l1532:	
+   854                           ;Esclavo3.c: 118:                 }
+   855                           
    856                           
-   857                           ;Esclavo3.c: 114:                 full_step(1605U);
-   858  00B1  3045               	movlw	69
-   859  00B2  00F3               	movwf	full_step@steps
-   860  00B3  3006               	movlw	6
-   861  00B4  00F4               	movwf	full_step@steps+1
-   862  00B5  120A  118A  20C6  120A  118A  	fcall	_full_step
-   863                           
-   864                           ;Esclavo3.c: 115:                 state = 0;
-   865  00BA  1283               	bcf	3,5	;RP0=0, select bank0
-   866  00BB  1303               	bcf	3,6	;RP1=0, select bank0
-   867  00BC  01AE               	clrf	_state
+   857                           ;Esclavo3.c: 123:             if (state) {
+   858  00AD  082E               	movf	_state,w
+   859  00AE  1903               	btfsc	3,2
+   860  00AF  28BD               	goto	l1540
+   861                           
+   862                           ;Esclavo3.c: 124:                 full_step(1605U);
+   863  00B0  3045               	movlw	69
+   864  00B1  00F3               	movwf	full_step@steps
+   865  00B2  3006               	movlw	6
+   866  00B3  00F4               	movwf	full_step@steps+1
+   867  00B4  120A  118A  20C6  120A  118A  	fcall	_full_step
    868                           
-   869                           ;Esclavo3.c: 116:                 PORTD = 0;
-   870  00BD  0188               	clrf	8	;volatile
-   871  00BE                     l1507:	
-   872                           
-   873                           ;Esclavo3.c: 122:         if (temp_int > 25) {
-   874  00BE  301A               	movlw	26
-   875  00BF  027A               	subwf	_temp_int,w
-   876  00C0  1C03               	skipc
-   877  00C1  28C4               	goto	l146
-   878                           
-   879                           ;Esclavo3.c: 123:             RE0 = 1;
-   880  00C2  1409               	bsf	9,0	;volatile
+   869                           ;Esclavo3.c: 125:                 state = 0;
+   870  00B9  1283               	bcf	3,5	;RP0=0, select bank0
+   871  00BA  1303               	bcf	3,6	;RP1=0, select bank0
+   872  00BB  01AE               	clrf	_state
+   873                           
+   874                           ;Esclavo3.c: 126:                 PORTD = 0;
+   875  00BC  0188               	clrf	8	;volatile
+   876  00BD                     l1540:	
+   877                           
+   878                           ;Esclavo3.c: 129:              t1_count = 0;
+   879  00BD  01B5               	clrf	_t1_count
+   880  00BE                     l1542:	
    881                           
-   882                           ;Esclavo3.c: 124:         } else {
-   883  00C3  2849               	goto	l1465
-   884  00C4                     l146:	
-   885                           
-   886                           ;Esclavo3.c: 125:             RE0 = 0;
-   887  00C4  1009               	bcf	9,0	;volatile
-   888  00C5  2849               	goto	l1465
-   889  00C6                     __end_of_main:	
+   882                           ;Esclavo3.c: 133:         if (temp_int > 25) {
+   883  00BE  301A               	movlw	26
+   884  00BF  027A               	subwf	_temp_int,w
+   885  00C0  1C03               	skipc
+   886  00C1  28C4               	goto	l147
+   887                           
+   888                           ;Esclavo3.c: 134:             RE0 = 1;
+   889  00C2  1409               	bsf	9,0	;volatile
    890                           
-   891                           	psect	text1
-   892  0218                     __ptext1:	
-   893 ;; *************** function _timer1_begin *****************
-   894 ;; Defined at:
-   895 ;;		line 8 in file "timer1.c"
-   896 ;; Parameters:    Size  Location     Type
-   897 ;;  offset          1    wreg     unsigned char 
-   898 ;;  prescaler       1    3[COMMON] unsigned char 
-   899 ;; Auto vars:     Size  Location     Type
-   900 ;;  offset          1    6[COMMON] unsigned char 
-   901 ;; Return value:  Size  Location     Type
-   902 ;;                  1    wreg      void 
-   903 ;; Registers used:
-   904 ;;		wreg, status,2, status,0
-   905 ;; Tracked objects:
-   906 ;;		On entry : 0/0
-   907 ;;		On exit  : 0/0
-   908 ;;		Unchanged: 0/0
-   909 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   910 ;;      Params:         1       0       0       0       0
-   911 ;;      Locals:         1       0       0       0       0
-   912 ;;      Temps:          2       0       0       0       0
-   913 ;;      Totals:         4       0       0       0       0
-   914 ;;Total ram usage:        4 bytes
-   915 ;; Hardware stack levels used:    1
-   916 ;; Hardware stack levels required when called:    1
-   917 ;; This function calls:
-   918 ;;		Nothing
-   919 ;; This function is called by:
-   920 ;;		_main
-   921 ;; This function uses a non-reentrant model
-   922 ;;
-   923                           
-   924                           
-   925                           ;psect for function _timer1_begin
-   926  0218                     _timer1_begin:	
-   927                           
-   928                           ;incstack = 0
-   929                           ; Regs used in _timer1_begin: [wreg+status,2+status,0]
-   930                           ;timer1_begin@offset stored from wreg
-   931  0218  00F6               	movwf	timer1_begin@offset
+   891                           ;Esclavo3.c: 135:         } else {
+   892  00C3  284B               	goto	l1498
+   893  00C4                     l147:	
+   894                           
+   895                           ;Esclavo3.c: 136:             RE0 = 0;
+   896  00C4  1009               	bcf	9,0	;volatile
+   897  00C5  284B               	goto	l1498
+   898  00C6                     __end_of_main:	
+   899                           
+   900                           	psect	text1
+   901  0219                     __ptext1:	
+   902 ;; *************** function _timer1_begin *****************
+   903 ;; Defined at:
+   904 ;;		line 8 in file "timer1.c"
+   905 ;; Parameters:    Size  Location     Type
+   906 ;;  offset          1    wreg     unsigned char 
+   907 ;;  prescaler       1    3[COMMON] unsigned char 
+   908 ;; Auto vars:     Size  Location     Type
+   909 ;;  offset          1    6[COMMON] unsigned char 
+   910 ;; Return value:  Size  Location     Type
+   911 ;;                  1    wreg      void 
+   912 ;; Registers used:
+   913 ;;		wreg, status,2, status,0
+   914 ;; Tracked objects:
+   915 ;;		On entry : 0/0
+   916 ;;		On exit  : 0/0
+   917 ;;		Unchanged: 0/0
+   918 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   919 ;;      Params:         1       0       0       0       0
+   920 ;;      Locals:         1       0       0       0       0
+   921 ;;      Temps:          2       0       0       0       0
+   922 ;;      Totals:         4       0       0       0       0
+   923 ;;Total ram usage:        4 bytes
+   924 ;; Hardware stack levels used:    1
+   925 ;; Hardware stack levels required when called:    1
+   926 ;; This function calls:
+   927 ;;		Nothing
+   928 ;; This function is called by:
+   929 ;;		_main
+   930 ;; This function uses a non-reentrant model
+   931 ;;
    932                           
-   933                           ;timer1.c: 8: timer1_begin(uint8_t offset, uint8_t prescaler);timer1.c: 9:     {;timer1.
+   933                           
+   934                           ;psect for function _timer1_begin
+   935  0219                     _timer1_begin:	
+   936                           
+   937                           ;incstack = 0
+   938                           ; Regs used in _timer1_begin: [wreg+status,2+status,0]
+   939                           ;timer1_begin@offset stored from wreg
+   940  0219  00F6               	movwf	timer1_begin@offset
+   941                           
+   942                           ;timer1.c: 8: timer1_begin(uint8_t offset, uint8_t prescaler);timer1.c: 9:     {;timer1.
       +                          c: 10:     T1CONbits.T1GINV = 0;
-   934  0219  1283               	bcf	3,5	;RP0=0, select bank0
-   935  021A  1303               	bcf	3,6	;RP1=0, select bank0
-   936  021B  1390               	bcf	16,7	;volatile
-   937                           
-   938                           ;timer1.c: 11:     T1CONbits.TMR1GE = 0;
-   939  021C  1310               	bcf	16,6	;volatile
-   940                           
-   941                           ;timer1.c: 12:     T1CONbits.T1CKPS = prescaler;
-   942  021D  0873               	movf	timer1_begin@prescaler,w
-   943  021E  00F4               	movwf	??_timer1_begin
-   944  021F  0EF4               	swapf	??_timer1_begin,f
-   945  0220  0810               	movf	16,w	;volatile
-   946  0221  0674               	xorwf	??_timer1_begin,w
-   947  0222  39CF               	andlw	-49
-   948  0223  0674               	xorwf	??_timer1_begin,w
-   949  0224  0090               	movwf	16	;volatile
-   950                           
-   951                           ;timer1.c: 13:     T1CONbits.T1OSCEN = 0;
-   952  0225  1190               	bcf	16,3	;volatile
-   953                           
-   954                           ;timer1.c: 14:     T1CONbits.TMR1CS = 0;
-   955  0226  1090               	bcf	16,1	;volatile
-   956                           
-   957                           ;timer1.c: 15:     T1CONbits.TMR1ON = 1;
-   958  0227  1410               	bsf	16,0	;volatile
+   943  021A  1283               	bcf	3,5	;RP0=0, select bank0
+   944  021B  1303               	bcf	3,6	;RP1=0, select bank0
+   945  021C  1390               	bcf	16,7	;volatile
+   946                           
+   947                           ;timer1.c: 11:     T1CONbits.TMR1GE = 0;
+   948  021D  1310               	bcf	16,6	;volatile
+   949                           
+   950                           ;timer1.c: 12:     T1CONbits.T1CKPS = prescaler;
+   951  021E  0873               	movf	timer1_begin@prescaler,w
+   952  021F  00F4               	movwf	??_timer1_begin
+   953  0220  0EF4               	swapf	??_timer1_begin,f
+   954  0221  0810               	movf	16,w	;volatile
+   955  0222  0674               	xorwf	??_timer1_begin,w
+   956  0223  39CF               	andlw	-49
+   957  0224  0674               	xorwf	??_timer1_begin,w
+   958  0225  0090               	movwf	16	;volatile
    959                           
-   960                           ;timer1.c: 17:     INTCONbits.PEIE = 1;
-   961  0228  170B               	bsf	11,6	;volatile
+   960                           ;timer1.c: 13:     T1CONbits.T1OSCEN = 0;
+   961  0226  1190               	bcf	16,3	;volatile
    962                           
-   963                           ;timer1.c: 18:     PIR1bits.TMR1IF = 0;
-   964  0229  100C               	bcf	12,0	;volatile
+   963                           ;timer1.c: 14:     T1CONbits.TMR1CS = 0;
+   964  0227  1090               	bcf	16,1	;volatile
    965                           
-   966                           ;timer1.c: 19:     PIE1bits.TMR1IE = 1;
-   967  022A  1683               	bsf	3,5	;RP0=1, select bank1
-   968  022B  1303               	bcf	3,6	;RP1=0, select bank1
-   969  022C  140C               	bsf	12,0	;volatile
-   970                           
-   971                           ;timer1.c: 20:     INTCONbits.GIE = 1;
-   972  022D  178B               	bsf	11,7	;volatile
-   973                           
-   974                           ;timer1.c: 21:     TMR1 = offset;
-   975  022E  0876               	movf	timer1_begin@offset,w
-   976  022F  00F4               	movwf	??_timer1_begin
-   977  0230  01F5               	clrf	??_timer1_begin+1
-   978  0231  0874               	movf	??_timer1_begin,w
-   979  0232  1283               	bcf	3,5	;RP0=0, select bank0
-   980  0233  1303               	bcf	3,6	;RP1=0, select bank0
-   981  0234  008E               	movwf	14	;volatile
-   982  0235  0875               	movf	??_timer1_begin+1,w
-   983  0236  008F               	movwf	15	;volatile
-   984  0237  0008               	return
-   985  0238                     __end_of_timer1_begin:	
-   986                           
-   987                           	psect	text2
-   988  026B                     __ptext2:	
-   989 ;; *************** function _oscilator_begin *****************
-   990 ;; Defined at:
-   991 ;;		line 9 in file "./Oscilator.h"
-   992 ;; Parameters:    Size  Location     Type
-   993 ;;  freq            1    wreg     unsigned char 
-   994 ;; Auto vars:     Size  Location     Type
-   995 ;;  freq            1    4[COMMON] unsigned char 
-   996 ;; Return value:  Size  Location     Type
-   997 ;;                  1    wreg      void 
-   998 ;; Registers used:
-   999 ;;		wreg, status,2, status,0
-  1000 ;; Tracked objects:
-  1001 ;;		On entry : 0/0
-  1002 ;;		On exit  : 0/0
-  1003 ;;		Unchanged: 0/0
-  1004 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1005 ;;      Params:         0       0       0       0       0
-  1006 ;;      Locals:         1       0       0       0       0
-  1007 ;;      Temps:          1       0       0       0       0
-  1008 ;;      Totals:         2       0       0       0       0
-  1009 ;;Total ram usage:        2 bytes
-  1010 ;; Hardware stack levels used:    1
-  1011 ;; Hardware stack levels required when called:    1
-  1012 ;; This function calls:
-  1013 ;;		Nothing
-  1014 ;; This function is called by:
-  1015 ;;		_main
-  1016 ;; This function uses a non-reentrant model
-  1017 ;;
-  1018                           
-  1019                           
-  1020                           ;psect for function _oscilator_begin
-  1021  026B                     _oscilator_begin:	
-  1022                           
-  1023                           ;incstack = 0
-  1024                           ; Regs used in _oscilator_begin: [wreg+status,2+status,0]
-  1025                           ;oscilator_begin@freq stored from wreg
-  1026  026B  00F4               	movwf	oscilator_begin@freq
+   966                           ;timer1.c: 15:     T1CONbits.TMR1ON = 1;
+   967  0228  1410               	bsf	16,0	;volatile
+   968                           
+   969                           ;timer1.c: 17:     INTCONbits.PEIE = 1;
+   970  0229  170B               	bsf	11,6	;volatile
+   971                           
+   972                           ;timer1.c: 18:     PIR1bits.TMR1IF = 0;
+   973  022A  100C               	bcf	12,0	;volatile
+   974                           
+   975                           ;timer1.c: 19:     PIE1bits.TMR1IE = 1;
+   976  022B  1683               	bsf	3,5	;RP0=1, select bank1
+   977  022C  1303               	bcf	3,6	;RP1=0, select bank1
+   978  022D  140C               	bsf	12,0	;volatile
+   979                           
+   980                           ;timer1.c: 20:     INTCONbits.GIE = 1;
+   981  022E  178B               	bsf	11,7	;volatile
+   982                           
+   983                           ;timer1.c: 21:     TMR1 = offset;
+   984  022F  0876               	movf	timer1_begin@offset,w
+   985  0230  00F4               	movwf	??_timer1_begin
+   986  0231  01F5               	clrf	??_timer1_begin+1
+   987  0232  0874               	movf	??_timer1_begin,w
+   988  0233  1283               	bcf	3,5	;RP0=0, select bank0
+   989  0234  1303               	bcf	3,6	;RP1=0, select bank0
+   990  0235  008E               	movwf	14	;volatile
+   991  0236  0875               	movf	??_timer1_begin+1,w
+   992  0237  008F               	movwf	15	;volatile
+   993  0238  0008               	return
+   994  0239                     __end_of_timer1_begin:	
+   995                           
+   996                           	psect	text2
+   997  026C                     __ptext2:	
+   998 ;; *************** function _oscilator_begin *****************
+   999 ;; Defined at:
+  1000 ;;		line 9 in file "./Oscilator.h"
+  1001 ;; Parameters:    Size  Location     Type
+  1002 ;;  freq            1    wreg     unsigned char 
+  1003 ;; Auto vars:     Size  Location     Type
+  1004 ;;  freq            1    4[COMMON] unsigned char 
+  1005 ;; Return value:  Size  Location     Type
+  1006 ;;                  1    wreg      void 
+  1007 ;; Registers used:
+  1008 ;;		wreg, status,2, status,0
+  1009 ;; Tracked objects:
+  1010 ;;		On entry : 0/0
+  1011 ;;		On exit  : 0/0
+  1012 ;;		Unchanged: 0/0
+  1013 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1014 ;;      Params:         0       0       0       0       0
+  1015 ;;      Locals:         1       0       0       0       0
+  1016 ;;      Temps:          1       0       0       0       0
+  1017 ;;      Totals:         2       0       0       0       0
+  1018 ;;Total ram usage:        2 bytes
+  1019 ;; Hardware stack levels used:    1
+  1020 ;; Hardware stack levels required when called:    1
+  1021 ;; This function calls:
+  1022 ;;		Nothing
+  1023 ;; This function is called by:
+  1024 ;;		_main
+  1025 ;; This function uses a non-reentrant model
+  1026 ;;
   1027                           
-  1028                           ;./Oscilator.h: 10:     OSCCONbits.IRCF = freq;
-  1029  026C  0874               	movf	oscilator_begin@freq,w
-  1030  026D  00F3               	movwf	??_oscilator_begin
-  1031  026E  0EF3               	swapf	??_oscilator_begin,f
-  1032  026F  1683               	bsf	3,5	;RP0=1, select bank1
-  1033  0270  1303               	bcf	3,6	;RP1=0, select bank1
-  1034  0271  080F               	movf	15,w	;volatile
-  1035  0272  0673               	xorwf	??_oscilator_begin,w
-  1036  0273  398F               	andlw	-113
-  1037  0274  0673               	xorwf	??_oscilator_begin,w
-  1038  0275  008F               	movwf	15	;volatile
-  1039                           
-  1040                           ;./Oscilator.h: 11:     OSCCONbits.SCS = 1;
-  1041  0276  140F               	bsf	15,0	;volatile
-  1042                           
-  1043                           ;./Oscilator.h: 12:     OSCCONbits.OSTS = 0;
-  1044  0277  118F               	bcf	15,3	;volatile
-  1045  0278  0008               	return
-  1046  0279                     __end_of_oscilator_begin:	
-  1047                           
-  1048                           	psect	text3
-  1049  00C6                     __ptext3:	
-  1050 ;; *************** function _full_step *****************
-  1051 ;; Defined at:
-  1052 ;;		line 9 in file "stepper.c"
-  1053 ;; Parameters:    Size  Location     Type
-  1054 ;;  steps           2    3[COMMON] unsigned int 
-  1055 ;; Auto vars:     Size  Location     Type
-  1056 ;;		None
-  1057 ;; Return value:  Size  Location     Type
-  1058 ;;                  1    wreg      void 
-  1059 ;; Registers used:
-  1060 ;;		wreg, status,2, status,0
-  1061 ;; Tracked objects:
-  1062 ;;		On entry : 0/0
-  1063 ;;		On exit  : 0/0
-  1064 ;;		Unchanged: 0/0
-  1065 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1066 ;;      Params:         2       0       0       0       0
-  1067 ;;      Locals:         0       0       0       0       0
-  1068 ;;      Temps:          2       0       0       0       0
-  1069 ;;      Totals:         4       0       0       0       0
-  1070 ;;Total ram usage:        4 bytes
-  1071 ;; Hardware stack levels used:    1
-  1072 ;; Hardware stack levels required when called:    1
-  1073 ;; This function calls:
-  1074 ;;		Nothing
-  1075 ;; This function is called by:
-  1076 ;;		_main
-  1077 ;; This function uses a non-reentrant model
-  1078 ;;
-  1079                           
-  1080                           
-  1081                           ;psect for function _full_step
-  1082  00C6                     _full_step:	
-  1083  00C6                     l1293:	
-  1084                           ;stepper.c: 9: full_step(uint16_t steps);stepper.c: 10:     {;stepper.c: 11:     static 
-      +                          uint16_t i;;stepper.c: 12:     while(i<steps)
-  1085                           
-  1086                           ;incstack = 0
-  1087                           ; Regs used in _full_step: [wreg+status,2+status,0]
+  1028                           
+  1029                           ;psect for function _oscilator_begin
+  1030  026C                     _oscilator_begin:	
+  1031                           
+  1032                           ;incstack = 0
+  1033                           ; Regs used in _oscilator_begin: [wreg+status,2+status,0]
+  1034                           ;oscilator_begin@freq stored from wreg
+  1035  026C  00F4               	movwf	oscilator_begin@freq
+  1036                           
+  1037                           ;./Oscilator.h: 10:     OSCCONbits.IRCF = freq;
+  1038  026D  0874               	movf	oscilator_begin@freq,w
+  1039  026E  00F3               	movwf	??_oscilator_begin
+  1040  026F  0EF3               	swapf	??_oscilator_begin,f
+  1041  0270  1683               	bsf	3,5	;RP0=1, select bank1
+  1042  0271  1303               	bcf	3,6	;RP1=0, select bank1
+  1043  0272  080F               	movf	15,w	;volatile
+  1044  0273  0673               	xorwf	??_oscilator_begin,w
+  1045  0274  398F               	andlw	-113
+  1046  0275  0673               	xorwf	??_oscilator_begin,w
+  1047  0276  008F               	movwf	15	;volatile
+  1048                           
+  1049                           ;./Oscilator.h: 11:     OSCCONbits.SCS = 1;
+  1050  0277  140F               	bsf	15,0	;volatile
+  1051                           
+  1052                           ;./Oscilator.h: 12:     OSCCONbits.OSTS = 0;
+  1053  0278  118F               	bcf	15,3	;volatile
+  1054  0279  0008               	return
+  1055  027A                     __end_of_oscilator_begin:	
+  1056                           
+  1057                           	psect	text3
+  1058  00C6                     __ptext3:	
+  1059 ;; *************** function _full_step *****************
+  1060 ;; Defined at:
+  1061 ;;		line 9 in file "stepper.c"
+  1062 ;; Parameters:    Size  Location     Type
+  1063 ;;  steps           2    3[COMMON] unsigned int 
+  1064 ;; Auto vars:     Size  Location     Type
+  1065 ;;		None
+  1066 ;; Return value:  Size  Location     Type
+  1067 ;;                  1    wreg      void 
+  1068 ;; Registers used:
+  1069 ;;		wreg, status,2, status,0
+  1070 ;; Tracked objects:
+  1071 ;;		On entry : 0/0
+  1072 ;;		On exit  : 0/0
+  1073 ;;		Unchanged: 0/0
+  1074 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1075 ;;      Params:         2       0       0       0       0
+  1076 ;;      Locals:         0       0       0       0       0
+  1077 ;;      Temps:          2       0       0       0       0
+  1078 ;;      Totals:         4       0       0       0       0
+  1079 ;;Total ram usage:        4 bytes
+  1080 ;; Hardware stack levels used:    1
+  1081 ;; Hardware stack levels required when called:    1
+  1082 ;; This function calls:
+  1083 ;;		Nothing
+  1084 ;; This function is called by:
+  1085 ;;		_main
+  1086 ;; This function uses a non-reentrant model
+  1087 ;;
   1088                           
   1089                           
-  1090                           ;stepper.c: 12:     while(i<steps)
-  1091  00C6  0874               	movf	full_step@steps+1,w
-  1092  00C7  0278               	subwf	full_step@i+1,w
-  1093  00C8  1D03               	skipz
-  1094  00C9  28CC               	goto	u665
-  1095  00CA  0873               	movf	full_step@steps,w
-  1096  00CB  0277               	subwf	full_step@i,w
-  1097  00CC                     u665:	
-  1098  00CC  1803               	btfsc	3,0
-  1099  00CD  0008               	return
-  1100                           
-  1101                           ;stepper.c: 13:     {;stepper.c: 14:         if ((i % 4) == 1){
-  1102  00CE  3003               	movlw	3
-  1103  00CF  0577               	andwf	full_step@i,w
-  1104  00D0  00F5               	movwf	??_full_step
-  1105  00D1  3000               	movlw	0
-  1106  00D2  0578               	andwf	full_step@i+1,w
-  1107  00D3  00F6               	movwf	??_full_step+1
-  1108  00D4  0375               	decf	??_full_step,w
-  1109  00D5  0476               	iorwf	??_full_step+1,w
-  1110  00D6  1D03               	btfss	3,2
-  1111  00D7  28E5               	goto	l1279
-  1112                           
-  1113                           ;stepper.c: 15:             PORTD = 3;
-  1114  00D8  3003               	movlw	3
-  1115  00D9  1283               	bcf	3,5	;RP0=0, select bank0
-  1116  00DA  1303               	bcf	3,6	;RP1=0, select bank0
-  1117  00DB  0088               	movwf	8	;volatile
-  1118                           
-  1119                           ;stepper.c: 16:             _delay((unsigned long)((10)*(8000000/4000.0)));
-  1120  00DC  301A               	movlw	26
-  1121  00DD  00F6               	movwf	??_full_step+1
-  1122  00DE  30F8               	movlw	248
-  1123  00DF  00F5               	movwf	??_full_step
-  1124  00E0                     u1017:	
-  1125  00E0  0BF5               	decfsz	??_full_step,f
-  1126  00E1  28E0               	goto	u1017
-  1127  00E2  0BF6               	decfsz	??_full_step+1,f
-  1128  00E3  28E0               	goto	u1017
-  1129  00E4  0000               	nop
-  1130  00E5                     l1279:	
-  1131                           
-  1132                           ;stepper.c: 18:         if ((i % 4) == 2){
-  1133  00E5  3003               	movlw	3
-  1134  00E6  0577               	andwf	full_step@i,w
-  1135  00E7  00F5               	movwf	??_full_step
-  1136  00E8  3000               	movlw	0
-  1137  00E9  0578               	andwf	full_step@i+1,w
-  1138  00EA  00F6               	movwf	??_full_step+1
-  1139  00EB  3002               	movlw	2
-  1140  00EC  0675               	xorwf	??_full_step,w
-  1141  00ED  0476               	iorwf	??_full_step+1,w
-  1142  00EE  1D03               	btfss	3,2
-  1143  00EF  28FD               	goto	l1283
-  1144                           
-  1145                           ;stepper.c: 19:             PORTD = 6;
-  1146  00F0  3006               	movlw	6
-  1147  00F1  1283               	bcf	3,5	;RP0=0, select bank0
-  1148  00F2  1303               	bcf	3,6	;RP1=0, select bank0
-  1149  00F3  0088               	movwf	8	;volatile
-  1150                           
-  1151                           ;stepper.c: 20:             _delay((unsigned long)((10)*(8000000/4000.0)));
-  1152  00F4  301A               	movlw	26
-  1153  00F5  00F6               	movwf	??_full_step+1
-  1154  00F6  30F8               	movlw	248
-  1155  00F7  00F5               	movwf	??_full_step
-  1156  00F8                     u1027:	
-  1157  00F8  0BF5               	decfsz	??_full_step,f
-  1158  00F9  28F8               	goto	u1027
-  1159  00FA  0BF6               	decfsz	??_full_step+1,f
-  1160  00FB  28F8               	goto	u1027
-  1161  00FC  0000               	nop
-  1162  00FD                     l1283:	
-  1163                           
-  1164                           ;stepper.c: 22:         if ((i % 4) == 3){
-  1165  00FD  3003               	movlw	3
-  1166  00FE  0577               	andwf	full_step@i,w
-  1167  00FF  00F5               	movwf	??_full_step
-  1168  0100  3000               	movlw	0
-  1169  0101  0578               	andwf	full_step@i+1,w
-  1170  0102  00F6               	movwf	??_full_step+1
-  1171  0103  3003               	movlw	3
-  1172  0104  0675               	xorwf	??_full_step,w
-  1173  0105  0476               	iorwf	??_full_step+1,w
-  1174  0106  1D03               	btfss	3,2
-  1175  0107  2915               	goto	l1287
-  1176                           
-  1177                           ;stepper.c: 23:             PORTD = 12;
-  1178  0108  300C               	movlw	12
-  1179  0109  1283               	bcf	3,5	;RP0=0, select bank0
-  1180  010A  1303               	bcf	3,6	;RP1=0, select bank0
-  1181  010B  0088               	movwf	8	;volatile
-  1182                           
-  1183                           ;stepper.c: 24:             _delay((unsigned long)((10)*(8000000/4000.0)));
-  1184  010C  301A               	movlw	26
-  1185  010D  00F6               	movwf	??_full_step+1
-  1186  010E  30F8               	movlw	248
-  1187  010F  00F5               	movwf	??_full_step
-  1188  0110                     u1037:	
-  1189  0110  0BF5               	decfsz	??_full_step,f
-  1190  0111  2910               	goto	u1037
-  1191  0112  0BF6               	decfsz	??_full_step+1,f
-  1192  0113  2910               	goto	u1037
-  1193  0114  0000               	nop
-  1194  0115                     l1287:	
-  1195                           
-  1196                           ;stepper.c: 26:         if ((i % 4) == 0){
-  1197  0115  3003               	movlw	3
-  1198  0116  0577               	andwf	full_step@i,w
-  1199  0117  00F5               	movwf	??_full_step
-  1200  0118  3000               	movlw	0
-  1201  0119  0578               	andwf	full_step@i+1,w
-  1202  011A  00F6               	movwf	??_full_step+1
-  1203  011B  0875               	movf	??_full_step,w
-  1204  011C  0476               	iorwf	??_full_step+1,w
-  1205  011D  1D03               	btfss	3,2
-  1206  011E  292C               	goto	l202
-  1207                           
-  1208                           ;stepper.c: 27:             PORTD = 9;
-  1209  011F  3009               	movlw	9
-  1210  0120  1283               	bcf	3,5	;RP0=0, select bank0
-  1211  0121  1303               	bcf	3,6	;RP1=0, select bank0
-  1212  0122  0088               	movwf	8	;volatile
-  1213                           
-  1214                           ;stepper.c: 28:             _delay((unsigned long)((10)*(8000000/4000.0)));
-  1215  0123  301A               	movlw	26
-  1216  0124  00F6               	movwf	??_full_step+1
-  1217  0125  30F8               	movlw	248
-  1218  0126  00F5               	movwf	??_full_step
-  1219  0127                     u1047:	
-  1220  0127  0BF5               	decfsz	??_full_step,f
-  1221  0128  2927               	goto	u1047
-  1222  0129  0BF6               	decfsz	??_full_step+1,f
-  1223  012A  2927               	goto	u1047
-  1224  012B  0000               	nop
-  1225  012C                     l202:	
-  1226                           ;stepper.c: 29:         }
-  1227                           
-  1228                           
-  1229                           ;stepper.c: 30:         i++;
-  1230  012C  3001               	movlw	1
-  1231  012D  07F7               	addwf	full_step@i,f
-  1232  012E  1803               	skipnc
-  1233  012F  0AF8               	incf	full_step@i+1,f
-  1234  0130  3000               	movlw	0
-  1235  0131  07F8               	addwf	full_step@i+1,f
-  1236  0132  28C6               	goto	l1293
-  1237  0133                     __end_of_full_step:	
-  1238                           
-  1239                           	psect	text4
-  1240  0196                     __ptext4:	
-  1241 ;; *************** function _full_rev *****************
-  1242 ;; Defined at:
-  1243 ;;		line 69 in file "stepper.c"
-  1244 ;; Parameters:    Size  Location     Type
-  1245 ;;  steps           2    3[COMMON] unsigned int 
-  1246 ;; Auto vars:     Size  Location     Type
-  1247 ;;		None
-  1248 ;; Return value:  Size  Location     Type
-  1249 ;;                  1    wreg      void 
-  1250 ;; Registers used:
-  1251 ;;		wreg, status,2, status,0
-  1252 ;; Tracked objects:
-  1253 ;;		On entry : 0/0
-  1254 ;;		On exit  : 0/0
-  1255 ;;		Unchanged: 0/0
-  1256 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1257 ;;      Params:         2       0       0       0       0
-  1258 ;;      Locals:         0       0       0       0       0
-  1259 ;;      Temps:          2       0       0       0       0
-  1260 ;;      Totals:         4       0       0       0       0
-  1261 ;;Total ram usage:        4 bytes
-  1262 ;; Hardware stack levels used:    1
-  1263 ;; Hardware stack levels required when called:    1
-  1264 ;; This function calls:
-  1265 ;;		Nothing
-  1266 ;; This function is called by:
-  1267 ;;		_main
-  1268 ;; This function uses a non-reentrant model
-  1269 ;;
-  1270                           
-  1271                           
-  1272                           ;psect for function _full_rev
-  1273  0196                     _full_rev:	
-  1274                           
-  1275                           ;stepper.c: 69: full_rev(uint16_t steps);stepper.c: 70:     {;stepper.c: 71:     static 
+  1090                           ;psect for function _full_step
+  1091  00C6                     _full_step:	
+  1092  00C6                     l1306:	
+  1093                           ;stepper.c: 9: full_step(uint16_t steps);stepper.c: 10:     {;stepper.c: 11:     static 
+      +                          uint16_t i;;stepper.c: 12:     while(i<steps)
+  1094                           
+  1095                           ;incstack = 0
+  1096                           ; Regs used in _full_step: [wreg+status,2+status,0]
+  1097                           
+  1098                           
+  1099                           ;stepper.c: 12:     while(i<steps)
+  1100  00C6  0874               	movf	full_step@steps+1,w
+  1101  00C7  0278               	subwf	full_step@i+1,w
+  1102  00C8  1D03               	skipz
+  1103  00C9  28CC               	goto	u655
+  1104  00CA  0873               	movf	full_step@steps,w
+  1105  00CB  0277               	subwf	full_step@i,w
+  1106  00CC                     u655:	
+  1107  00CC  1803               	btfsc	3,0
+  1108  00CD  0008               	return
+  1109                           
+  1110                           ;stepper.c: 13:     {;stepper.c: 14:         if ((i % 4) == 1){
+  1111  00CE  3003               	movlw	3
+  1112  00CF  0577               	andwf	full_step@i,w
+  1113  00D0  00F5               	movwf	??_full_step
+  1114  00D1  3000               	movlw	0
+  1115  00D2  0578               	andwf	full_step@i+1,w
+  1116  00D3  00F6               	movwf	??_full_step+1
+  1117  00D4  0375               	decf	??_full_step,w
+  1118  00D5  0476               	iorwf	??_full_step+1,w
+  1119  00D6  1D03               	btfss	3,2
+  1120  00D7  28E5               	goto	l1292
+  1121                           
+  1122                           ;stepper.c: 15:             PORTD = 3;
+  1123  00D8  3003               	movlw	3
+  1124  00D9  1283               	bcf	3,5	;RP0=0, select bank0
+  1125  00DA  1303               	bcf	3,6	;RP1=0, select bank0
+  1126  00DB  0088               	movwf	8	;volatile
+  1127                           
+  1128                           ;stepper.c: 16:             _delay((unsigned long)((10)*(8000000/4000.0)));
+  1129  00DC  301A               	movlw	26
+  1130  00DD  00F6               	movwf	??_full_step+1
+  1131  00DE  30F8               	movlw	248
+  1132  00DF  00F5               	movwf	??_full_step
+  1133  00E0                     u987:	
+  1134  00E0  0BF5               	decfsz	??_full_step,f
+  1135  00E1  28E0               	goto	u987
+  1136  00E2  0BF6               	decfsz	??_full_step+1,f
+  1137  00E3  28E0               	goto	u987
+  1138  00E4  0000               	nop
+  1139  00E5                     l1292:	
+  1140                           
+  1141                           ;stepper.c: 18:         if ((i % 4) == 2){
+  1142  00E5  3003               	movlw	3
+  1143  00E6  0577               	andwf	full_step@i,w
+  1144  00E7  00F5               	movwf	??_full_step
+  1145  00E8  3000               	movlw	0
+  1146  00E9  0578               	andwf	full_step@i+1,w
+  1147  00EA  00F6               	movwf	??_full_step+1
+  1148  00EB  3002               	movlw	2
+  1149  00EC  0675               	xorwf	??_full_step,w
+  1150  00ED  0476               	iorwf	??_full_step+1,w
+  1151  00EE  1D03               	btfss	3,2
+  1152  00EF  28FD               	goto	l1296
+  1153                           
+  1154                           ;stepper.c: 19:             PORTD = 6;
+  1155  00F0  3006               	movlw	6
+  1156  00F1  1283               	bcf	3,5	;RP0=0, select bank0
+  1157  00F2  1303               	bcf	3,6	;RP1=0, select bank0
+  1158  00F3  0088               	movwf	8	;volatile
+  1159                           
+  1160                           ;stepper.c: 20:             _delay((unsigned long)((10)*(8000000/4000.0)));
+  1161  00F4  301A               	movlw	26
+  1162  00F5  00F6               	movwf	??_full_step+1
+  1163  00F6  30F8               	movlw	248
+  1164  00F7  00F5               	movwf	??_full_step
+  1165  00F8                     u997:	
+  1166  00F8  0BF5               	decfsz	??_full_step,f
+  1167  00F9  28F8               	goto	u997
+  1168  00FA  0BF6               	decfsz	??_full_step+1,f
+  1169  00FB  28F8               	goto	u997
+  1170  00FC  0000               	nop
+  1171  00FD                     l1296:	
+  1172                           
+  1173                           ;stepper.c: 22:         if ((i % 4) == 3){
+  1174  00FD  3003               	movlw	3
+  1175  00FE  0577               	andwf	full_step@i,w
+  1176  00FF  00F5               	movwf	??_full_step
+  1177  0100  3000               	movlw	0
+  1178  0101  0578               	andwf	full_step@i+1,w
+  1179  0102  00F6               	movwf	??_full_step+1
+  1180  0103  3003               	movlw	3
+  1181  0104  0675               	xorwf	??_full_step,w
+  1182  0105  0476               	iorwf	??_full_step+1,w
+  1183  0106  1D03               	btfss	3,2
+  1184  0107  2915               	goto	l1300
+  1185                           
+  1186                           ;stepper.c: 23:             PORTD = 12;
+  1187  0108  300C               	movlw	12
+  1188  0109  1283               	bcf	3,5	;RP0=0, select bank0
+  1189  010A  1303               	bcf	3,6	;RP1=0, select bank0
+  1190  010B  0088               	movwf	8	;volatile
+  1191                           
+  1192                           ;stepper.c: 24:             _delay((unsigned long)((10)*(8000000/4000.0)));
+  1193  010C  301A               	movlw	26
+  1194  010D  00F6               	movwf	??_full_step+1
+  1195  010E  30F8               	movlw	248
+  1196  010F  00F5               	movwf	??_full_step
+  1197  0110                     u1007:	
+  1198  0110  0BF5               	decfsz	??_full_step,f
+  1199  0111  2910               	goto	u1007
+  1200  0112  0BF6               	decfsz	??_full_step+1,f
+  1201  0113  2910               	goto	u1007
+  1202  0114  0000               	nop
+  1203  0115                     l1300:	
+  1204                           
+  1205                           ;stepper.c: 26:         if ((i % 4) == 0){
+  1206  0115  3003               	movlw	3
+  1207  0116  0577               	andwf	full_step@i,w
+  1208  0117  00F5               	movwf	??_full_step
+  1209  0118  3000               	movlw	0
+  1210  0119  0578               	andwf	full_step@i+1,w
+  1211  011A  00F6               	movwf	??_full_step+1
+  1212  011B  0875               	movf	??_full_step,w
+  1213  011C  0476               	iorwf	??_full_step+1,w
+  1214  011D  1D03               	btfss	3,2
+  1215  011E  292C               	goto	l203
+  1216                           
+  1217                           ;stepper.c: 27:             PORTD = 9;
+  1218  011F  3009               	movlw	9
+  1219  0120  1283               	bcf	3,5	;RP0=0, select bank0
+  1220  0121  1303               	bcf	3,6	;RP1=0, select bank0
+  1221  0122  0088               	movwf	8	;volatile
+  1222                           
+  1223                           ;stepper.c: 28:             _delay((unsigned long)((10)*(8000000/4000.0)));
+  1224  0123  301A               	movlw	26
+  1225  0124  00F6               	movwf	??_full_step+1
+  1226  0125  30F8               	movlw	248
+  1227  0126  00F5               	movwf	??_full_step
+  1228  0127                     u1017:	
+  1229  0127  0BF5               	decfsz	??_full_step,f
+  1230  0128  2927               	goto	u1017
+  1231  0129  0BF6               	decfsz	??_full_step+1,f
+  1232  012A  2927               	goto	u1017
+  1233  012B  0000               	nop
+  1234  012C                     l203:	
+  1235                           ;stepper.c: 29:         }
+  1236                           
+  1237                           
+  1238                           ;stepper.c: 30:         i++;
+  1239  012C  3001               	movlw	1
+  1240  012D  07F7               	addwf	full_step@i,f
+  1241  012E  1803               	skipnc
+  1242  012F  0AF8               	incf	full_step@i+1,f
+  1243  0130  3000               	movlw	0
+  1244  0131  07F8               	addwf	full_step@i+1,f
+  1245  0132  28C6               	goto	l1306
+  1246  0133                     __end_of_full_step:	
+  1247                           
+  1248                           	psect	text4
+  1249  0197                     __ptext4:	
+  1250 ;; *************** function _full_rev *****************
+  1251 ;; Defined at:
+  1252 ;;		line 69 in file "stepper.c"
+  1253 ;; Parameters:    Size  Location     Type
+  1254 ;;  steps           2    3[COMMON] unsigned int 
+  1255 ;; Auto vars:     Size  Location     Type
+  1256 ;;		None
+  1257 ;; Return value:  Size  Location     Type
+  1258 ;;                  1    wreg      void 
+  1259 ;; Registers used:
+  1260 ;;		wreg, status,2, status,0
+  1261 ;; Tracked objects:
+  1262 ;;		On entry : 0/0
+  1263 ;;		On exit  : 0/0
+  1264 ;;		Unchanged: 0/0
+  1265 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1266 ;;      Params:         2       0       0       0       0
+  1267 ;;      Locals:         0       0       0       0       0
+  1268 ;;      Temps:          2       0       0       0       0
+  1269 ;;      Totals:         4       0       0       0       0
+  1270 ;;Total ram usage:        4 bytes
+  1271 ;; Hardware stack levels used:    1
+  1272 ;; Hardware stack levels required when called:    1
+  1273 ;; This function calls:
+  1274 ;;		Nothing
+  1275 ;; This function is called by:
+  1276 ;;		_main
+  1277 ;; This function uses a non-reentrant model
+  1278 ;;
+  1279                           
+  1280                           
+  1281                           ;psect for function _full_rev
+  1282  0197                     _full_rev:	
+  1283                           
+  1284                           ;stepper.c: 69: full_rev(uint16_t steps);stepper.c: 70:     {;stepper.c: 71:     static 
       +                          uint16_t i,a;;stepper.c: 72:     i=0;
-  1276                           
-  1277                           ;incstack = 0
-  1278                           ; Regs used in _full_rev: [wreg+status,2+status,0]
-  1279  0196  1283               	bcf	3,5	;RP0=0, select bank0
-  1280  0197  1303               	bcf	3,6	;RP1=0, select bank0
-  1281  0198  01A6               	clrf	full_rev@i
-  1282  0199  01A7               	clrf	full_rev@i+1
-  1283  019A                     l1271:	
-  1284                           ;stepper.c: 73:     while(i<steps)
   1285                           
-  1286                           
-  1287                           ;stepper.c: 73:     while(i<steps)
-  1288  019A  0874               	movf	full_rev@steps+1,w
-  1289  019B  0227               	subwf	full_rev@i+1,w
-  1290  019C  1D03               	skipz
-  1291  019D  29A0               	goto	u615
-  1292  019E  0873               	movf	full_rev@steps,w
-  1293  019F  0226               	subwf	full_rev@i,w
-  1294  01A0                     u615:	
-  1295  01A0  1803               	btfsc	3,0
-  1296  01A1  0008               	return
-  1297                           
-  1298                           ;stepper.c: 74:     {;stepper.c: 75:         a = i%4;
-  1299  01A2  3003               	movlw	3
-  1300  01A3  0526               	andwf	full_rev@i,w
-  1301  01A4  00A4               	movwf	full_rev@a
-  1302  01A5  3000               	movlw	0
-  1303  01A6  0527               	andwf	full_rev@i+1,w
-  1304  01A7  00A5               	movwf	full_rev@a+1
-  1305                           
-  1306                           ;stepper.c: 76:         if ((a) == 1){
-  1307  01A8  0324               	decf	full_rev@a,w
-  1308  01A9  0425               	iorwf	full_rev@a+1,w
-  1309  01AA  1D03               	btfss	3,2
-  1310  01AB  29B7               	goto	l1257
-  1311                           
-  1312                           ;stepper.c: 77:             PORTD = 9;
-  1313  01AC  3009               	movlw	9
-  1314  01AD  0088               	movwf	8	;volatile
-  1315                           
-  1316                           ;stepper.c: 78:             _delay((unsigned long)((10)*(8000000/4000.0)));
-  1317  01AE  301A               	movlw	26
-  1318  01AF  00F6               	movwf	??_full_rev+1
-  1319  01B0  30F8               	movlw	248
-  1320  01B1  00F5               	movwf	??_full_rev
-  1321  01B2                     u1057:	
-  1322  01B2  0BF5               	decfsz	??_full_rev,f
-  1323  01B3  29B2               	goto	u1057
-  1324  01B4  0BF6               	decfsz	??_full_rev+1,f
-  1325  01B5  29B2               	goto	u1057
-  1326  01B6  0000               	nop
-  1327  01B7                     l1257:	
-  1328                           
-  1329                           ;stepper.c: 80:         if ((a) == 2){
-  1330  01B7  3002               	movlw	2
-  1331  01B8  1283               	bcf	3,5	;RP0=0, select bank0
-  1332  01B9  1303               	bcf	3,6	;RP1=0, select bank0
-  1333  01BA  0624               	xorwf	full_rev@a,w
-  1334  01BB  0425               	iorwf	full_rev@a+1,w
-  1335  01BC  1D03               	btfss	3,2
-  1336  01BD  29C9               	goto	l1261
+  1286                           ;incstack = 0
+  1287                           ; Regs used in _full_rev: [wreg+status,2+status,0]
+  1288  0197  1283               	bcf	3,5	;RP0=0, select bank0
+  1289  0198  1303               	bcf	3,6	;RP1=0, select bank0
+  1290  0199  01A6               	clrf	full_rev@i
+  1291  019A  01A7               	clrf	full_rev@i+1
+  1292  019B                     l1284:	
+  1293                           ;stepper.c: 73:     while(i<steps)
+  1294                           
+  1295                           
+  1296                           ;stepper.c: 73:     while(i<steps)
+  1297  019B  0874               	movf	full_rev@steps+1,w
+  1298  019C  0227               	subwf	full_rev@i+1,w
+  1299  019D  1D03               	skipz
+  1300  019E  29A1               	goto	u605
+  1301  019F  0873               	movf	full_rev@steps,w
+  1302  01A0  0226               	subwf	full_rev@i,w
+  1303  01A1                     u605:	
+  1304  01A1  1803               	btfsc	3,0
+  1305  01A2  0008               	return
+  1306                           
+  1307                           ;stepper.c: 74:     {;stepper.c: 75:         a = i%4;
+  1308  01A3  3003               	movlw	3
+  1309  01A4  0526               	andwf	full_rev@i,w
+  1310  01A5  00A4               	movwf	full_rev@a
+  1311  01A6  3000               	movlw	0
+  1312  01A7  0527               	andwf	full_rev@i+1,w
+  1313  01A8  00A5               	movwf	full_rev@a+1
+  1314                           
+  1315                           ;stepper.c: 76:         if ((a) == 1){
+  1316  01A9  0324               	decf	full_rev@a,w
+  1317  01AA  0425               	iorwf	full_rev@a+1,w
+  1318  01AB  1D03               	btfss	3,2
+  1319  01AC  29B8               	goto	l1270
+  1320                           
+  1321                           ;stepper.c: 77:             PORTD = 9;
+  1322  01AD  3009               	movlw	9
+  1323  01AE  0088               	movwf	8	;volatile
+  1324                           
+  1325                           ;stepper.c: 78:             _delay((unsigned long)((10)*(8000000/4000.0)));
+  1326  01AF  301A               	movlw	26
+  1327  01B0  00F6               	movwf	??_full_rev+1
+  1328  01B1  30F8               	movlw	248
+  1329  01B2  00F5               	movwf	??_full_rev
+  1330  01B3                     u1027:	
+  1331  01B3  0BF5               	decfsz	??_full_rev,f
+  1332  01B4  29B3               	goto	u1027
+  1333  01B5  0BF6               	decfsz	??_full_rev+1,f
+  1334  01B6  29B3               	goto	u1027
+  1335  01B7  0000               	nop
+  1336  01B8                     l1270:	
   1337                           
-  1338                           ;stepper.c: 81:             PORTD = 12;
-  1339  01BE  300C               	movlw	12
-  1340  01BF  0088               	movwf	8	;volatile
-  1341                           
-  1342                           ;stepper.c: 82:             _delay((unsigned long)((10)*(8000000/4000.0)));
-  1343  01C0  301A               	movlw	26
-  1344  01C1  00F6               	movwf	??_full_rev+1
-  1345  01C2  30F8               	movlw	248
-  1346  01C3  00F5               	movwf	??_full_rev
-  1347  01C4                     u1067:	
-  1348  01C4  0BF5               	decfsz	??_full_rev,f
-  1349  01C5  29C4               	goto	u1067
-  1350  01C6  0BF6               	decfsz	??_full_rev+1,f
-  1351  01C7  29C4               	goto	u1067
-  1352  01C8  0000               	nop
-  1353  01C9                     l1261:	
-  1354                           
-  1355                           ;stepper.c: 84:         if ((a) == 3){
-  1356  01C9  3003               	movlw	3
-  1357  01CA  1283               	bcf	3,5	;RP0=0, select bank0
-  1358  01CB  1303               	bcf	3,6	;RP1=0, select bank0
-  1359  01CC  0624               	xorwf	full_rev@a,w
-  1360  01CD  0425               	iorwf	full_rev@a+1,w
-  1361  01CE  1D03               	btfss	3,2
-  1362  01CF  29DB               	goto	l1265
+  1338                           ;stepper.c: 80:         if ((a) == 2){
+  1339  01B8  3002               	movlw	2
+  1340  01B9  1283               	bcf	3,5	;RP0=0, select bank0
+  1341  01BA  1303               	bcf	3,6	;RP1=0, select bank0
+  1342  01BB  0624               	xorwf	full_rev@a,w
+  1343  01BC  0425               	iorwf	full_rev@a+1,w
+  1344  01BD  1D03               	btfss	3,2
+  1345  01BE  29CA               	goto	l1274
+  1346                           
+  1347                           ;stepper.c: 81:             PORTD = 12;
+  1348  01BF  300C               	movlw	12
+  1349  01C0  0088               	movwf	8	;volatile
+  1350                           
+  1351                           ;stepper.c: 82:             _delay((unsigned long)((10)*(8000000/4000.0)));
+  1352  01C1  301A               	movlw	26
+  1353  01C2  00F6               	movwf	??_full_rev+1
+  1354  01C3  30F8               	movlw	248
+  1355  01C4  00F5               	movwf	??_full_rev
+  1356  01C5                     u1037:	
+  1357  01C5  0BF5               	decfsz	??_full_rev,f
+  1358  01C6  29C5               	goto	u1037
+  1359  01C7  0BF6               	decfsz	??_full_rev+1,f
+  1360  01C8  29C5               	goto	u1037
+  1361  01C9  0000               	nop
+  1362  01CA                     l1274:	
   1363                           
-  1364                           ;stepper.c: 85:             PORTD = 6;
-  1365  01D0  3006               	movlw	6
-  1366  01D1  0088               	movwf	8	;volatile
-  1367                           
-  1368                           ;stepper.c: 86:             _delay((unsigned long)((10)*(8000000/4000.0)));
-  1369  01D2  301A               	movlw	26
-  1370  01D3  00F6               	movwf	??_full_rev+1
-  1371  01D4  30F8               	movlw	248
-  1372  01D5  00F5               	movwf	??_full_rev
-  1373  01D6                     u1077:	
-  1374  01D6  0BF5               	decfsz	??_full_rev,f
-  1375  01D7  29D6               	goto	u1077
-  1376  01D8  0BF6               	decfsz	??_full_rev+1,f
-  1377  01D9  29D6               	goto	u1077
-  1378  01DA  0000               	nop
-  1379  01DB                     l1265:	
-  1380                           
-  1381                           ;stepper.c: 88:         if ((a) == 0){
-  1382  01DB  1283               	bcf	3,5	;RP0=0, select bank0
-  1383  01DC  1303               	bcf	3,6	;RP1=0, select bank0
-  1384  01DD  0824               	movf	full_rev@a,w
-  1385  01DE  0425               	iorwf	full_rev@a+1,w
-  1386  01DF  1D03               	btfss	3,2
-  1387  01E0  29EC               	goto	l232
-  1388                           
-  1389                           ;stepper.c: 89:             PORTD = 3;
-  1390  01E1  3003               	movlw	3
-  1391  01E2  0088               	movwf	8	;volatile
-  1392                           
-  1393                           ;stepper.c: 90:             _delay((unsigned long)((10)*(8000000/4000.0)));
-  1394  01E3  301A               	movlw	26
-  1395  01E4  00F6               	movwf	??_full_rev+1
-  1396  01E5  30F8               	movlw	248
-  1397  01E6  00F5               	movwf	??_full_rev
-  1398  01E7                     u1087:	
-  1399  01E7  0BF5               	decfsz	??_full_rev,f
-  1400  01E8  29E7               	goto	u1087
-  1401  01E9  0BF6               	decfsz	??_full_rev+1,f
-  1402  01EA  29E7               	goto	u1087
-  1403  01EB  0000               	nop
-  1404  01EC                     l232:	
-  1405                           ;stepper.c: 91:         }
-  1406                           
-  1407                           
-  1408                           ;stepper.c: 92:         i++;
-  1409  01EC  3001               	movlw	1
-  1410  01ED  1283               	bcf	3,5	;RP0=0, select bank0
-  1411  01EE  1303               	bcf	3,6	;RP1=0, select bank0
-  1412  01EF  07A6               	addwf	full_rev@i,f
-  1413  01F0  1803               	skipnc
-  1414  01F1  0AA7               	incf	full_rev@i+1,f
-  1415  01F2  3000               	movlw	0
-  1416  01F3  07A7               	addwf	full_rev@i+1,f
-  1417  01F4  299A               	goto	l1271
-  1418  01F5                     __end_of_full_rev:	
-  1419                           
-  1420                           	psect	text5
-  1421  01F5                     __ptext5:	
-  1422 ;; *************** function _dht11_read *****************
-  1423 ;; Defined at:
-  1424 ;;		line 30 in file "dht11_h.c"
-  1425 ;; Parameters:    Size  Location     Type
-  1426 ;;		None
-  1427 ;; Auto vars:     Size  Location     Type
-  1428 ;;		None
-  1429 ;; Return value:  Size  Location     Type
-  1430 ;;                  1    wreg      unsigned char 
-  1431 ;; Registers used:
-  1432 ;;		wreg, status,2, status,0
-  1433 ;; Tracked objects:
-  1434 ;;		On entry : 0/0
-  1435 ;;		On exit  : 0/0
-  1436 ;;		Unchanged: 0/0
-  1437 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1438 ;;      Params:         0       0       0       0       0
-  1439 ;;      Locals:         0       0       0       0       0
-  1440 ;;      Temps:          2       0       0       0       0
-  1441 ;;      Totals:         2       0       0       0       0
-  1442 ;;Total ram usage:        2 bytes
-  1443 ;; Hardware stack levels used:    1
-  1444 ;; Hardware stack levels required when called:    1
-  1445 ;; This function calls:
-  1446 ;;		Nothing
-  1447 ;; This function is called by:
-  1448 ;;		_main
-  1449 ;; This function uses a non-reentrant model
-  1450 ;;
-  1451                           
-  1452                           
-  1453                           ;psect for function _dht11_read
-  1454  01F5                     _dht11_read:	
-  1455                           
-  1456                           ;dht11_h.c: 32:     static uint8_t i = 0, temp = 0;;dht11_h.c: 33:     for(i = 0; i < 8 
+  1364                           ;stepper.c: 84:         if ((a) == 3){
+  1365  01CA  3003               	movlw	3
+  1366  01CB  1283               	bcf	3,5	;RP0=0, select bank0
+  1367  01CC  1303               	bcf	3,6	;RP1=0, select bank0
+  1368  01CD  0624               	xorwf	full_rev@a,w
+  1369  01CE  0425               	iorwf	full_rev@a+1,w
+  1370  01CF  1D03               	btfss	3,2
+  1371  01D0  29DC               	goto	l1278
+  1372                           
+  1373                           ;stepper.c: 85:             PORTD = 6;
+  1374  01D1  3006               	movlw	6
+  1375  01D2  0088               	movwf	8	;volatile
+  1376                           
+  1377                           ;stepper.c: 86:             _delay((unsigned long)((10)*(8000000/4000.0)));
+  1378  01D3  301A               	movlw	26
+  1379  01D4  00F6               	movwf	??_full_rev+1
+  1380  01D5  30F8               	movlw	248
+  1381  01D6  00F5               	movwf	??_full_rev
+  1382  01D7                     u1047:	
+  1383  01D7  0BF5               	decfsz	??_full_rev,f
+  1384  01D8  29D7               	goto	u1047
+  1385  01D9  0BF6               	decfsz	??_full_rev+1,f
+  1386  01DA  29D7               	goto	u1047
+  1387  01DB  0000               	nop
+  1388  01DC                     l1278:	
+  1389                           
+  1390                           ;stepper.c: 88:         if ((a) == 0){
+  1391  01DC  1283               	bcf	3,5	;RP0=0, select bank0
+  1392  01DD  1303               	bcf	3,6	;RP1=0, select bank0
+  1393  01DE  0824               	movf	full_rev@a,w
+  1394  01DF  0425               	iorwf	full_rev@a+1,w
+  1395  01E0  1D03               	btfss	3,2
+  1396  01E1  29ED               	goto	l233
+  1397                           
+  1398                           ;stepper.c: 89:             PORTD = 3;
+  1399  01E2  3003               	movlw	3
+  1400  01E3  0088               	movwf	8	;volatile
+  1401                           
+  1402                           ;stepper.c: 90:             _delay((unsigned long)((10)*(8000000/4000.0)));
+  1403  01E4  301A               	movlw	26
+  1404  01E5  00F6               	movwf	??_full_rev+1
+  1405  01E6  30F8               	movlw	248
+  1406  01E7  00F5               	movwf	??_full_rev
+  1407  01E8                     u1057:	
+  1408  01E8  0BF5               	decfsz	??_full_rev,f
+  1409  01E9  29E8               	goto	u1057
+  1410  01EA  0BF6               	decfsz	??_full_rev+1,f
+  1411  01EB  29E8               	goto	u1057
+  1412  01EC  0000               	nop
+  1413  01ED                     l233:	
+  1414                           ;stepper.c: 91:         }
+  1415                           
+  1416                           
+  1417                           ;stepper.c: 92:         i++;
+  1418  01ED  3001               	movlw	1
+  1419  01EE  1283               	bcf	3,5	;RP0=0, select bank0
+  1420  01EF  1303               	bcf	3,6	;RP1=0, select bank0
+  1421  01F0  07A6               	addwf	full_rev@i,f
+  1422  01F1  1803               	skipnc
+  1423  01F2  0AA7               	incf	full_rev@i+1,f
+  1424  01F3  3000               	movlw	0
+  1425  01F4  07A7               	addwf	full_rev@i+1,f
+  1426  01F5  299B               	goto	l1284
+  1427  01F6                     __end_of_full_rev:	
+  1428                           
+  1429                           	psect	text5
+  1430  01F6                     __ptext5:	
+  1431 ;; *************** function _dht11_read *****************
+  1432 ;; Defined at:
+  1433 ;;		line 30 in file "dht11_h.c"
+  1434 ;; Parameters:    Size  Location     Type
+  1435 ;;		None
+  1436 ;; Auto vars:     Size  Location     Type
+  1437 ;;		None
+  1438 ;; Return value:  Size  Location     Type
+  1439 ;;                  1    wreg      unsigned char 
+  1440 ;; Registers used:
+  1441 ;;		wreg, status,2, status,0
+  1442 ;; Tracked objects:
+  1443 ;;		On entry : 0/0
+  1444 ;;		On exit  : 0/0
+  1445 ;;		Unchanged: 0/0
+  1446 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1447 ;;      Params:         0       0       0       0       0
+  1448 ;;      Locals:         0       0       0       0       0
+  1449 ;;      Temps:          2       0       0       0       0
+  1450 ;;      Totals:         2       0       0       0       0
+  1451 ;;Total ram usage:        2 bytes
+  1452 ;; Hardware stack levels used:    1
+  1453 ;; Hardware stack levels required when called:    1
+  1454 ;; This function calls:
+  1455 ;;		Nothing
+  1456 ;; This function is called by:
+  1457 ;;		_main
+  1458 ;; This function uses a non-reentrant model
+  1459 ;;
+  1460                           
+  1461                           
+  1462                           ;psect for function _dht11_read
+  1463  01F6                     _dht11_read:	
+  1464                           
+  1465                           ;dht11_h.c: 32:     static uint8_t i = 0, temp = 0;;dht11_h.c: 33:     for(i = 0; i < 8 
       +                          ; i++)
-  1457                           
-  1458                           ;incstack = 0
-  1459                           ; Regs used in _dht11_read: [wreg+status,2+status,0]
-  1460  01F5  1283               	bcf	3,5	;RP0=0, select bank0
-  1461  01F6  1303               	bcf	3,6	;RP1=0, select bank0
-  1462  01F7  01AD               	clrf	dht11_read@i
-  1463  01F8                     l180:	
-  1464  01F8  1C05               	btfss	5,0	;volatile
-  1465  01F9  29F8               	goto	l180
   1466                           
-  1467                           ;dht11_h.c: 36:         _delay((unsigned long)((30)*(8000000/4000000.0)));
-  1468  01FA  3013               	movlw	19
-  1469  01FB  00F3               	movwf	??_dht11_read
-  1470  01FC                     u1097:	
-  1471  01FC  0BF3               	decfsz	??_dht11_read,f
-  1472  01FD  29FC               	goto	u1097
-  1473  01FE  29FF               	nop2
-  1474                           
-  1475                           ;dht11_h.c: 37:         if (PORTAbits.RA0)
-  1476  01FF  1283               	bcf	3,5	;RP0=0, select bank0
-  1477  0200  1303               	bcf	3,6	;RP1=0, select bank0
-  1478  0201  1C05               	btfss	5,0	;volatile
-  1479  0202  2A06               	goto	l1239
-  1480                           
-  1481                           ;dht11_h.c: 38:         {;dht11_h.c: 39:             temp = ((temp<<1) | 1);
-  1482  0203  1403               	setc
-  1483  0204  0DAC               	rlf	dht11_read@temp,f
-  1484                           
-  1485                           ;dht11_h.c: 40:         }
-  1486  0205  2A0C               	goto	l185
-  1487  0206                     l1239:	
-  1488                           
-  1489                           ;dht11_h.c: 42:           temp = (temp<<1);
-  1490  0206  082C               	movf	dht11_read@temp,w
-  1491  0207  00F3               	movwf	??_dht11_read
-  1492  0208  0773               	addwf	??_dht11_read,w
-  1493  0209  00F4               	movwf	??_dht11_read+1
-  1494  020A  0874               	movf	??_dht11_read+1,w
-  1495  020B  00AC               	movwf	dht11_read@temp
-  1496  020C                     l185:	
-  1497  020C  1805               	btfsc	5,0	;volatile
-  1498  020D  2A0C               	goto	l185
-  1499                           
-  1500                           ;dht11_h.c: 44:     }
-  1501  020E  3001               	movlw	1
-  1502  020F  00F3               	movwf	??_dht11_read
-  1503  0210  0873               	movf	??_dht11_read,w
-  1504  0211  07AD               	addwf	dht11_read@i,f
-  1505  0212  3008               	movlw	8
-  1506  0213  022D               	subwf	dht11_read@i,w
-  1507  0214  1C03               	skipc
-  1508  0215  29F8               	goto	l180
-  1509                           
-  1510                           ;dht11_h.c: 45:     return temp;
-  1511  0216  082C               	movf	dht11_read@temp,w
-  1512  0217  0008               	return
-  1513  0218                     __end_of_dht11_read:	
-  1514                           
-  1515                           	psect	text6
-  1516  0279                     __ptext6:	
-  1517 ;; *************** function _dht11_check *****************
-  1518 ;; Defined at:
-  1519 ;;		line 23 in file "dht11_h.c"
-  1520 ;; Parameters:    Size  Location     Type
-  1521 ;;		None
-  1522 ;; Auto vars:     Size  Location     Type
-  1523 ;;		None
-  1524 ;; Return value:  Size  Location     Type
-  1525 ;;                  1    wreg      void 
-  1526 ;; Registers used:
-  1527 ;;		None
-  1528 ;; Tracked objects:
-  1529 ;;		On entry : 0/0
-  1530 ;;		On exit  : 0/0
-  1531 ;;		Unchanged: 0/0
-  1532 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1533 ;;      Params:         0       0       0       0       0
-  1534 ;;      Locals:         0       0       0       0       0
-  1535 ;;      Temps:          0       0       0       0       0
-  1536 ;;      Totals:         0       0       0       0       0
-  1537 ;;Total ram usage:        0 bytes
-  1538 ;; Hardware stack levels used:    1
-  1539 ;; Hardware stack levels required when called:    1
-  1540 ;; This function calls:
-  1541 ;;		Nothing
-  1542 ;; This function is called by:
-  1543 ;;		_main
-  1544 ;; This function uses a non-reentrant model
-  1545 ;;
-  1546                           
-  1547                           
-  1548                           ;psect for function _dht11_check
-  1549  0279                     _dht11_check:	
-  1550  0279                     l162:	
-  1551                           ;dht11_h.c: 25:     while(PORTAbits.RA0);
-  1552                           
-  1553                           ;incstack = 0
-  1554                           ; Regs used in _dht11_check: []
+  1467                           ;incstack = 0
+  1468                           ; Regs used in _dht11_read: [wreg+status,2+status,0]
+  1469  01F6  1283               	bcf	3,5	;RP0=0, select bank0
+  1470  01F7  1303               	bcf	3,6	;RP1=0, select bank0
+  1471  01F8  01AD               	clrf	dht11_read@i
+  1472  01F9                     l181:	
+  1473  01F9  1C05               	btfss	5,0	;volatile
+  1474  01FA  29F9               	goto	l181
+  1475                           
+  1476                           ;dht11_h.c: 36:         _delay((unsigned long)((30)*(8000000/4000000.0)));
+  1477  01FB  3013               	movlw	19
+  1478  01FC  00F3               	movwf	??_dht11_read
+  1479  01FD                     u1067:	
+  1480  01FD  0BF3               	decfsz	??_dht11_read,f
+  1481  01FE  29FD               	goto	u1067
+  1482  01FF  2A00               	nop2
+  1483                           
+  1484                           ;dht11_h.c: 37:         if (PORTAbits.RA0)
+  1485  0200  1283               	bcf	3,5	;RP0=0, select bank0
+  1486  0201  1303               	bcf	3,6	;RP1=0, select bank0
+  1487  0202  1C05               	btfss	5,0	;volatile
+  1488  0203  2A07               	goto	l1252
+  1489                           
+  1490                           ;dht11_h.c: 38:         {;dht11_h.c: 39:             temp = ((temp<<1) | 1);
+  1491  0204  1403               	setc
+  1492  0205  0DAC               	rlf	dht11_read@temp,f
+  1493                           
+  1494                           ;dht11_h.c: 40:         }
+  1495  0206  2A0D               	goto	l186
+  1496  0207                     l1252:	
+  1497                           
+  1498                           ;dht11_h.c: 42:           temp = (temp<<1);
+  1499  0207  082C               	movf	dht11_read@temp,w
+  1500  0208  00F3               	movwf	??_dht11_read
+  1501  0209  0773               	addwf	??_dht11_read,w
+  1502  020A  00F4               	movwf	??_dht11_read+1
+  1503  020B  0874               	movf	??_dht11_read+1,w
+  1504  020C  00AC               	movwf	dht11_read@temp
+  1505  020D                     l186:	
+  1506  020D  1805               	btfsc	5,0	;volatile
+  1507  020E  2A0D               	goto	l186
+  1508                           
+  1509                           ;dht11_h.c: 44:     }
+  1510  020F  3001               	movlw	1
+  1511  0210  00F3               	movwf	??_dht11_read
+  1512  0211  0873               	movf	??_dht11_read,w
+  1513  0212  07AD               	addwf	dht11_read@i,f
+  1514  0213  3008               	movlw	8
+  1515  0214  022D               	subwf	dht11_read@i,w
+  1516  0215  1C03               	skipc
+  1517  0216  29F9               	goto	l181
+  1518                           
+  1519                           ;dht11_h.c: 45:     return temp;
+  1520  0217  082C               	movf	dht11_read@temp,w
+  1521  0218  0008               	return
+  1522  0219                     __end_of_dht11_read:	
+  1523                           
+  1524                           	psect	text6
+  1525  027A                     __ptext6:	
+  1526 ;; *************** function _dht11_check *****************
+  1527 ;; Defined at:
+  1528 ;;		line 23 in file "dht11_h.c"
+  1529 ;; Parameters:    Size  Location     Type
+  1530 ;;		None
+  1531 ;; Auto vars:     Size  Location     Type
+  1532 ;;		None
+  1533 ;; Return value:  Size  Location     Type
+  1534 ;;                  1    wreg      void 
+  1535 ;; Registers used:
+  1536 ;;		None
+  1537 ;; Tracked objects:
+  1538 ;;		On entry : 0/0
+  1539 ;;		On exit  : 0/0
+  1540 ;;		Unchanged: 0/0
+  1541 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1542 ;;      Params:         0       0       0       0       0
+  1543 ;;      Locals:         0       0       0       0       0
+  1544 ;;      Temps:          0       0       0       0       0
+  1545 ;;      Totals:         0       0       0       0       0
+  1546 ;;Total ram usage:        0 bytes
+  1547 ;; Hardware stack levels used:    1
+  1548 ;; Hardware stack levels required when called:    1
+  1549 ;; This function calls:
+  1550 ;;		Nothing
+  1551 ;; This function is called by:
+  1552 ;;		_main
+  1553 ;; This function uses a non-reentrant model
+  1554 ;;
   1555                           
-  1556  0279  1283               	bcf	3,5	;RP0=0, select bank0
-  1557  027A  1303               	bcf	3,6	;RP1=0, select bank0
-  1558  027B  1805               	btfsc	5,0	;volatile
-  1559  027C  2A79               	goto	l162
-  1560  027D                     l165:	
-  1561  027D  1C05               	btfss	5,0	;volatile
-  1562  027E  2A7D               	goto	l165
-  1563  027F                     l168:	
-  1564  027F  1C05               	btfss	5,0	;volatile
-  1565  0280  0008               	return
-  1566  0281  2A7F               	goto	l168
-  1567  0282                     __end_of_dht11_check:	
-  1568                           
-  1569                           	psect	text7
-  1570  0238                     __ptext7:	
-  1571 ;; *************** function _dht11_begin *****************
-  1572 ;; Defined at:
-  1573 ;;		line 12 in file "dht11_h.c"
-  1574 ;; Parameters:    Size  Location     Type
-  1575 ;;		None
-  1576 ;; Auto vars:     Size  Location     Type
-  1577 ;;		None
-  1578 ;; Return value:  Size  Location     Type
-  1579 ;;                  1    wreg      void 
-  1580 ;; Registers used:
-  1581 ;;		wreg
-  1582 ;; Tracked objects:
-  1583 ;;		On entry : 0/0
-  1584 ;;		On exit  : 0/0
-  1585 ;;		Unchanged: 0/0
-  1586 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1587 ;;      Params:         0       0       0       0       0
-  1588 ;;      Locals:         0       0       0       0       0
-  1589 ;;      Temps:          2       0       0       0       0
-  1590 ;;      Totals:         2       0       0       0       0
-  1591 ;;Total ram usage:        2 bytes
-  1592 ;; Hardware stack levels used:    1
-  1593 ;; Hardware stack levels required when called:    1
-  1594 ;; This function calls:
-  1595 ;;		Nothing
-  1596 ;; This function is called by:
-  1597 ;;		_main
-  1598 ;; This function uses a non-reentrant model
-  1599 ;;
-  1600                           
-  1601                           
-  1602                           ;psect for function _dht11_begin
-  1603  0238                     _dht11_begin:	
-  1604                           
-  1605                           ;dht11_h.c: 14:     TRISA0 = 0;
-  1606                           
-  1607                           ;incstack = 0
-  1608                           ; Regs used in _dht11_begin: [wreg]
-  1609  0238  1683               	bsf	3,5	;RP0=1, select bank1
-  1610  0239  1303               	bcf	3,6	;RP1=0, select bank1
-  1611  023A  1005               	bcf	5,0	;volatile
-  1612                           
-  1613                           ;dht11_h.c: 15:     PORTAbits.RA0 = 0;
-  1614  023B  1283               	bcf	3,5	;RP0=0, select bank0
-  1615  023C  1303               	bcf	3,6	;RP1=0, select bank0
-  1616  023D  1005               	bcf	5,0	;volatile
-  1617                           
-  1618                           ;dht11_h.c: 16:     _delay((unsigned long)((18)*(8000000/4000.0)));
-  1619  023E  302F               	movlw	47
-  1620  023F  00F4               	movwf	??_dht11_begin+1
-  1621  0240  30BF               	movlw	191
-  1622  0241  00F3               	movwf	??_dht11_begin
-  1623  0242                     u1107:	
-  1624  0242  0BF3               	decfsz	??_dht11_begin,f
-  1625  0243  2A42               	goto	u1107
-  1626  0244  0BF4               	decfsz	??_dht11_begin+1,f
-  1627  0245  2A42               	goto	u1107
-  1628  0246  2A47               	nop2
-  1629                           
-  1630                           ;dht11_h.c: 17:     PORTAbits.RA0 = 1;
-  1631  0247  1283               	bcf	3,5	;RP0=0, select bank0
-  1632  0248  1303               	bcf	3,6	;RP1=0, select bank0
-  1633  0249  1405               	bsf	5,0	;volatile
-  1634                           
-  1635                           ;dht11_h.c: 18:     _delay((unsigned long)((20)*(8000000/4000000.0)));
-  1636  024A  300D               	movlw	13
-  1637  024B  00F3               	movwf	??_dht11_begin
-  1638  024C                     u1117:	
-  1639  024C  0BF3               	decfsz	??_dht11_begin,f
-  1640  024D  2A4C               	goto	u1117
-  1641                           
-  1642                           ;dht11_h.c: 19:     TRISA0 = 1;
-  1643  024E  1683               	bsf	3,5	;RP0=1, select bank1
-  1644  024F  1303               	bcf	3,6	;RP1=0, select bank1
-  1645  0250  1405               	bsf	5,0	;volatile
-  1646  0251  0008               	return
-  1647  0252                     __end_of_dht11_begin:	
-  1648                           
-  1649                           	psect	text8
-  1650  0252                     __ptext8:	
-  1651 ;; *************** function _I2C_Slave_Init *****************
-  1652 ;; Defined at:
-  1653 ;;		line 93 in file "./I2C.h"
-  1654 ;; Parameters:    Size  Location     Type
-  1655 ;;  address         2    3[COMMON] short 
-  1656 ;; Auto vars:     Size  Location     Type
-  1657 ;;		None
-  1658 ;; Return value:  Size  Location     Type
-  1659 ;;                  1    wreg      void 
-  1660 ;; Registers used:
-  1661 ;;		wreg
-  1662 ;; Tracked objects:
-  1663 ;;		On entry : 0/0
-  1664 ;;		On exit  : 0/0
-  1665 ;;		Unchanged: 0/0
-  1666 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1667 ;;      Params:         2       0       0       0       0
-  1668 ;;      Locals:         0       0       0       0       0
-  1669 ;;      Temps:          0       0       0       0       0
-  1670 ;;      Totals:         2       0       0       0       0
-  1671 ;;Total ram usage:        2 bytes
-  1672 ;; Hardware stack levels used:    1
-  1673 ;; Hardware stack levels required when called:    1
-  1674 ;; This function calls:
-  1675 ;;		Nothing
-  1676 ;; This function is called by:
-  1677 ;;		_main
-  1678 ;; This function uses a non-reentrant model
-  1679 ;;
-  1680                           
-  1681                           
-  1682                           ;psect for function _I2C_Slave_Init
-  1683  0252                     _I2C_Slave_Init:	
-  1684                           
-  1685                           ;./I2C.h: 93: void I2C_Slave_Init(short address);./I2C.h: 94: {;./I2C.h: 95:     SSPADD 
-      +                          = address;
-  1686                           
-  1687                           ;incstack = 0
-  1688                           ; Regs used in _I2C_Slave_Init: [wreg]
-  1689  0252  0873               	movf	I2C_Slave_Init@address,w
-  1690  0253  1683               	bsf	3,5	;RP0=1, select bank1
-  1691  0254  1303               	bcf	3,6	;RP1=0, select bank1
-  1692  0255  0093               	movwf	19	;volatile
+  1556                           
+  1557                           ;psect for function _dht11_check
+  1558  027A                     _dht11_check:	
+  1559  027A                     l163:	
+  1560                           ;dht11_h.c: 25:     while(PORTAbits.RA0);
+  1561                           
+  1562                           ;incstack = 0
+  1563                           ; Regs used in _dht11_check: []
+  1564                           
+  1565  027A  1283               	bcf	3,5	;RP0=0, select bank0
+  1566  027B  1303               	bcf	3,6	;RP1=0, select bank0
+  1567  027C  1805               	btfsc	5,0	;volatile
+  1568  027D  2A7A               	goto	l163
+  1569  027E                     l166:	
+  1570  027E  1C05               	btfss	5,0	;volatile
+  1571  027F  2A7E               	goto	l166
+  1572  0280                     l169:	
+  1573  0280  1C05               	btfss	5,0	;volatile
+  1574  0281  0008               	return
+  1575  0282  2A80               	goto	l169
+  1576  0283                     __end_of_dht11_check:	
+  1577                           
+  1578                           	psect	text7
+  1579  0239                     __ptext7:	
+  1580 ;; *************** function _dht11_begin *****************
+  1581 ;; Defined at:
+  1582 ;;		line 12 in file "dht11_h.c"
+  1583 ;; Parameters:    Size  Location     Type
+  1584 ;;		None
+  1585 ;; Auto vars:     Size  Location     Type
+  1586 ;;		None
+  1587 ;; Return value:  Size  Location     Type
+  1588 ;;                  1    wreg      void 
+  1589 ;; Registers used:
+  1590 ;;		wreg
+  1591 ;; Tracked objects:
+  1592 ;;		On entry : 0/0
+  1593 ;;		On exit  : 0/0
+  1594 ;;		Unchanged: 0/0
+  1595 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1596 ;;      Params:         0       0       0       0       0
+  1597 ;;      Locals:         0       0       0       0       0
+  1598 ;;      Temps:          2       0       0       0       0
+  1599 ;;      Totals:         2       0       0       0       0
+  1600 ;;Total ram usage:        2 bytes
+  1601 ;; Hardware stack levels used:    1
+  1602 ;; Hardware stack levels required when called:    1
+  1603 ;; This function calls:
+  1604 ;;		Nothing
+  1605 ;; This function is called by:
+  1606 ;;		_main
+  1607 ;; This function uses a non-reentrant model
+  1608 ;;
+  1609                           
+  1610                           
+  1611                           ;psect for function _dht11_begin
+  1612  0239                     _dht11_begin:	
+  1613                           
+  1614                           ;dht11_h.c: 14:     TRISA0 = 0;
+  1615                           
+  1616                           ;incstack = 0
+  1617                           ; Regs used in _dht11_begin: [wreg]
+  1618  0239  1683               	bsf	3,5	;RP0=1, select bank1
+  1619  023A  1303               	bcf	3,6	;RP1=0, select bank1
+  1620  023B  1005               	bcf	5,0	;volatile
+  1621                           
+  1622                           ;dht11_h.c: 15:     PORTAbits.RA0 = 0;
+  1623  023C  1283               	bcf	3,5	;RP0=0, select bank0
+  1624  023D  1303               	bcf	3,6	;RP1=0, select bank0
+  1625  023E  1005               	bcf	5,0	;volatile
+  1626                           
+  1627                           ;dht11_h.c: 16:     _delay((unsigned long)((18)*(8000000/4000.0)));
+  1628  023F  302F               	movlw	47
+  1629  0240  00F4               	movwf	??_dht11_begin+1
+  1630  0241  30BF               	movlw	191
+  1631  0242  00F3               	movwf	??_dht11_begin
+  1632  0243                     u1077:	
+  1633  0243  0BF3               	decfsz	??_dht11_begin,f
+  1634  0244  2A43               	goto	u1077
+  1635  0245  0BF4               	decfsz	??_dht11_begin+1,f
+  1636  0246  2A43               	goto	u1077
+  1637  0247  2A48               	nop2
+  1638                           
+  1639                           ;dht11_h.c: 17:     PORTAbits.RA0 = 1;
+  1640  0248  1283               	bcf	3,5	;RP0=0, select bank0
+  1641  0249  1303               	bcf	3,6	;RP1=0, select bank0
+  1642  024A  1405               	bsf	5,0	;volatile
+  1643                           
+  1644                           ;dht11_h.c: 18:     _delay((unsigned long)((20)*(8000000/4000000.0)));
+  1645  024B  300D               	movlw	13
+  1646  024C  00F3               	movwf	??_dht11_begin
+  1647  024D                     u1087:	
+  1648  024D  0BF3               	decfsz	??_dht11_begin,f
+  1649  024E  2A4D               	goto	u1087
+  1650                           
+  1651                           ;dht11_h.c: 19:     TRISA0 = 1;
+  1652  024F  1683               	bsf	3,5	;RP0=1, select bank1
+  1653  0250  1303               	bcf	3,6	;RP1=0, select bank1
+  1654  0251  1405               	bsf	5,0	;volatile
+  1655  0252  0008               	return
+  1656  0253                     __end_of_dht11_begin:	
+  1657                           
+  1658                           	psect	text8
+  1659  0253                     __ptext8:	
+  1660 ;; *************** function _I2C_Slave_Init *****************
+  1661 ;; Defined at:
+  1662 ;;		line 93 in file "./I2C.h"
+  1663 ;; Parameters:    Size  Location     Type
+  1664 ;;  address         2    3[COMMON] short 
+  1665 ;; Auto vars:     Size  Location     Type
+  1666 ;;		None
+  1667 ;; Return value:  Size  Location     Type
+  1668 ;;                  1    wreg      void 
+  1669 ;; Registers used:
+  1670 ;;		wreg
+  1671 ;; Tracked objects:
+  1672 ;;		On entry : 0/0
+  1673 ;;		On exit  : 0/0
+  1674 ;;		Unchanged: 0/0
+  1675 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1676 ;;      Params:         2       0       0       0       0
+  1677 ;;      Locals:         0       0       0       0       0
+  1678 ;;      Temps:          0       0       0       0       0
+  1679 ;;      Totals:         2       0       0       0       0
+  1680 ;;Total ram usage:        2 bytes
+  1681 ;; Hardware stack levels used:    1
+  1682 ;; Hardware stack levels required when called:    1
+  1683 ;; This function calls:
+  1684 ;;		Nothing
+  1685 ;; This function is called by:
+  1686 ;;		_main
+  1687 ;; This function uses a non-reentrant model
+  1688 ;;
+  1689                           
+  1690                           
+  1691                           ;psect for function _I2C_Slave_Init
+  1692  0253                     _I2C_Slave_Init:	
   1693                           
-  1694                           ;./I2C.h: 96:     SSPCON = 0x36;
-  1695  0256  3036               	movlw	54
-  1696  0257  1283               	bcf	3,5	;RP0=0, select bank0
-  1697  0258  1303               	bcf	3,6	;RP1=0, select bank0
-  1698  0259  0094               	movwf	20	;volatile
-  1699                           
-  1700                           ;./I2C.h: 97:     SSPSTAT = 0x80;
-  1701  025A  3080               	movlw	128
-  1702  025B  1683               	bsf	3,5	;RP0=1, select bank1
-  1703  025C  1303               	bcf	3,6	;RP1=0, select bank1
-  1704  025D  0094               	movwf	20	;volatile
-  1705                           
-  1706                           ;./I2C.h: 98:     SSPCON2 = 0x01;
-  1707  025E  3001               	movlw	1
-  1708  025F  0091               	movwf	17	;volatile
-  1709                           
-  1710                           ;./I2C.h: 99:     TRISC3 = 1;
-  1711  0260  1587               	bsf	7,3	;volatile
-  1712                           
-  1713                           ;./I2C.h: 100:     TRISC4 = 1;
-  1714  0261  1607               	bsf	7,4	;volatile
-  1715                           
-  1716                           ;./I2C.h: 101:     GIE = 1;
-  1717  0262  178B               	bsf	11,7	;volatile
+  1694                           ;./I2C.h: 93: void I2C_Slave_Init(short address);./I2C.h: 94: {;./I2C.h: 95:     SSPADD 
+      +                          = address;
+  1695                           
+  1696                           ;incstack = 0
+  1697                           ; Regs used in _I2C_Slave_Init: [wreg]
+  1698  0253  0873               	movf	I2C_Slave_Init@address,w
+  1699  0254  1683               	bsf	3,5	;RP0=1, select bank1
+  1700  0255  1303               	bcf	3,6	;RP1=0, select bank1
+  1701  0256  0093               	movwf	19	;volatile
+  1702                           
+  1703                           ;./I2C.h: 96:     SSPCON = 0x36;
+  1704  0257  3036               	movlw	54
+  1705  0258  1283               	bcf	3,5	;RP0=0, select bank0
+  1706  0259  1303               	bcf	3,6	;RP1=0, select bank0
+  1707  025A  0094               	movwf	20	;volatile
+  1708                           
+  1709                           ;./I2C.h: 97:     SSPSTAT = 0x80;
+  1710  025B  3080               	movlw	128
+  1711  025C  1683               	bsf	3,5	;RP0=1, select bank1
+  1712  025D  1303               	bcf	3,6	;RP1=0, select bank1
+  1713  025E  0094               	movwf	20	;volatile
+  1714                           
+  1715                           ;./I2C.h: 98:     SSPCON2 = 0x01;
+  1716  025F  3001               	movlw	1
+  1717  0260  0091               	movwf	17	;volatile
   1718                           
-  1719                           ;./I2C.h: 102:     PEIE = 1;
-  1720  0263  170B               	bsf	11,6	;volatile
+  1719                           ;./I2C.h: 99:     TRISC3 = 1;
+  1720  0261  1587               	bsf	7,3	;volatile
   1721                           
-  1722                           ;./I2C.h: 103:     SSPIF = 0;
-  1723  0264  1283               	bcf	3,5	;RP0=0, select bank0
-  1724  0265  1303               	bcf	3,6	;RP1=0, select bank0
-  1725  0266  118C               	bcf	12,3	;volatile
-  1726                           
-  1727                           ;./I2C.h: 104:     SSPIE = 1;
-  1728  0267  1683               	bsf	3,5	;RP0=1, select bank1
-  1729  0268  1303               	bcf	3,6	;RP1=0, select bank1
-  1730  0269  158C               	bsf	12,3	;volatile
-  1731  026A  0008               	return
-  1732  026B                     __end_of_I2C_Slave_Init:	
-  1733                           
-  1734                           	psect	text9
-  1735  0133                     __ptext9:	
-  1736 ;; *************** function _isr *****************
-  1737 ;; Defined at:
-  1738 ;;		line 32 in file "Esclavo3.c"
-  1739 ;; Parameters:    Size  Location     Type
-  1740 ;;		None
-  1741 ;; Auto vars:     Size  Location     Type
-  1742 ;;		None
-  1743 ;; Return value:  Size  Location     Type
-  1744 ;;                  1    wreg      void 
-  1745 ;; Registers used:
-  1746 ;;		wreg, status,2, status,0
-  1747 ;; Tracked objects:
-  1748 ;;		On entry : 0/0
-  1749 ;;		On exit  : 0/0
-  1750 ;;		Unchanged: 0/0
-  1751 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1752 ;;      Params:         0       0       0       0       0
-  1753 ;;      Locals:         0       0       0       0       0
-  1754 ;;      Temps:          3       0       0       0       0
-  1755 ;;      Totals:         3       0       0       0       0
-  1756 ;;Total ram usage:        3 bytes
-  1757 ;; Hardware stack levels used:    1
-  1758 ;; This function calls:
-  1759 ;;		Nothing
-  1760 ;; This function is called by:
-  1761 ;;		Interrupt level 1
-  1762 ;; This function uses a non-reentrant model
-  1763 ;;
-  1764                           
-  1765                           
-  1766                           ;psect for function _isr
-  1767  0133                     _isr:	
-  1768                           
-  1769                           ;Esclavo3.c: 34:     if (PIR1bits.SSPIF == 1) {
-  1770  0133  1283               	bcf	3,5	;RP0=0, select bank0
-  1771  0134  1303               	bcf	3,6	;RP1=0, select bank0
-  1772  0135  1D8C               	btfss	12,3	;volatile
-  1773  0136  2986               	goto	i1l119
+  1722                           ;./I2C.h: 100:     TRISC4 = 1;
+  1723  0262  1607               	bsf	7,4	;volatile
+  1724                           
+  1725                           ;./I2C.h: 101:     GIE = 1;
+  1726  0263  178B               	bsf	11,7	;volatile
+  1727                           
+  1728                           ;./I2C.h: 102:     PEIE = 1;
+  1729  0264  170B               	bsf	11,6	;volatile
+  1730                           
+  1731                           ;./I2C.h: 103:     SSPIF = 0;
+  1732  0265  1283               	bcf	3,5	;RP0=0, select bank0
+  1733  0266  1303               	bcf	3,6	;RP1=0, select bank0
+  1734  0267  118C               	bcf	12,3	;volatile
+  1735                           
+  1736                           ;./I2C.h: 104:     SSPIE = 1;
+  1737  0268  1683               	bsf	3,5	;RP0=1, select bank1
+  1738  0269  1303               	bcf	3,6	;RP1=0, select bank1
+  1739  026A  158C               	bsf	12,3	;volatile
+  1740  026B  0008               	return
+  1741  026C                     __end_of_I2C_Slave_Init:	
+  1742                           
+  1743                           	psect	text9
+  1744  0133                     __ptext9:	
+  1745 ;; *************** function _isr *****************
+  1746 ;; Defined at:
+  1747 ;;		line 33 in file "Esclavo3.c"
+  1748 ;; Parameters:    Size  Location     Type
+  1749 ;;		None
+  1750 ;; Auto vars:     Size  Location     Type
+  1751 ;;		None
+  1752 ;; Return value:  Size  Location     Type
+  1753 ;;                  1    wreg      void 
+  1754 ;; Registers used:
+  1755 ;;		wreg, status,2, status,0
+  1756 ;; Tracked objects:
+  1757 ;;		On entry : 0/0
+  1758 ;;		On exit  : 0/0
+  1759 ;;		Unchanged: 0/0
+  1760 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1761 ;;      Params:         0       0       0       0       0
+  1762 ;;      Locals:         0       0       0       0       0
+  1763 ;;      Temps:          3       0       0       0       0
+  1764 ;;      Totals:         3       0       0       0       0
+  1765 ;;Total ram usage:        3 bytes
+  1766 ;; Hardware stack levels used:    1
+  1767 ;; This function calls:
+  1768 ;;		Nothing
+  1769 ;; This function is called by:
+  1770 ;;		Interrupt level 1
+  1771 ;; This function uses a non-reentrant model
+  1772 ;;
+  1773                           
   1774                           
-  1775                           ;Esclavo3.c: 36:         SSPCONbits.CKP = 0;
-  1776  0137  1214               	bcf	20,4	;volatile
+  1775                           ;psect for function _isr
+  1776  0133                     _isr:	
   1777                           
-  1778                           ;Esclavo3.c: 38:         if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)) {
-  1779  0138  1B14               	btfsc	20,6	;volatile
-  1780  0139  293C               	goto	i1l1301
-  1781  013A  1F94               	btfss	20,7	;volatile
-  1782  013B  2943               	goto	i1l1309
-  1783  013C                     i1l1301:	
-  1784                           
-  1785                           ;Esclavo3.c: 39:             z = SSPBUF;
-  1786  013C  0813               	movf	19,w	;volatile
-  1787  013D  00F0               	movwf	??_isr
-  1788  013E  0870               	movf	??_isr,w
-  1789  013F  00B0               	movwf	_z
-  1790                           
-  1791                           ;Esclavo3.c: 40:             SSPCONbits.SSPOV = 0;
-  1792  0140  1314               	bcf	20,6	;volatile
+  1778                           ;Esclavo3.c: 35:     if (PIR1bits.SSPIF == 1) {
+  1779  0133  1283               	bcf	3,5	;RP0=0, select bank0
+  1780  0134  1303               	bcf	3,6	;RP1=0, select bank0
+  1781  0135  1D8C               	btfss	12,3	;volatile
+  1782  0136  2987               	goto	i1l121
+  1783                           
+  1784                           ;Esclavo3.c: 36:         SSPCONbits.CKP = 0;
+  1785  0137  1214               	bcf	20,4	;volatile
+  1786                           
+  1787                           ;Esclavo3.c: 38:         if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)) {
+  1788  0138  1B14               	btfsc	20,6	;volatile
+  1789  0139  293C               	goto	i1l1314
+  1790  013A  1F94               	btfss	20,7	;volatile
+  1791  013B  2943               	goto	i1l1322
+  1792  013C                     i1l1314:	
   1793                           
-  1794                           ;Esclavo3.c: 41:             SSPCONbits.WCOL = 0;
-  1795  0141  1394               	bcf	20,7	;volatile
-  1796                           
-  1797                           ;Esclavo3.c: 42:             SSPCONbits.CKP = 1;
-  1798  0142  1614               	bsf	20,4	;volatile
-  1799  0143                     i1l1309:	
-  1800                           
-  1801                           ;Esclavo3.c: 45:         if (!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
-  1802  0143  1683               	bsf	3,5	;RP0=1, select bank1
-  1803  0144  1303               	bcf	3,6	;RP1=0, select bank1
-  1804  0145  1E94               	btfss	20,5	;volatile
-  1805  0146  1914               	btfsc	20,2	;volatile
-  1806  0147  2960               	goto	i1l123
-  1807                           
-  1808                           ;Esclavo3.c: 47:             z = SSPBUF;
-  1809  0148  1283               	bcf	3,5	;RP0=0, select bank0
-  1810  0149  1303               	bcf	3,6	;RP1=0, select bank0
-  1811  014A  0813               	movf	19,w	;volatile
-  1812  014B  00F0               	movwf	??_isr
-  1813  014C  0870               	movf	??_isr,w
-  1814  014D  00B0               	movwf	_z
-  1815                           
-  1816                           ;Esclavo3.c: 49:             PIR1bits.SSPIF = 0;
-  1817  014E  118C               	bcf	12,3	;volatile
-  1818                           
-  1819                           ;Esclavo3.c: 50:             SSPCONbits.CKP = 1;
-  1820  014F  1614               	bsf	20,4	;volatile
-  1821  0150                     i1l124:	
-  1822                           ;Esclavo3.c: 51:             while (!SSPSTATbits.BF);
-  1823                           
-  1824  0150  1683               	bsf	3,5	;RP0=1, select bank1
-  1825  0151  1303               	bcf	3,6	;RP1=0, select bank1
-  1826  0152  1C14               	btfss	20,0	;volatile
-  1827  0153  2950               	goto	i1l124
-  1828                           
-  1829                           ;Esclavo3.c: 52:             var = SSPBUF;
-  1830  0154  1283               	bcf	3,5	;RP0=0, select bank0
-  1831  0155  1303               	bcf	3,6	;RP1=0, select bank0
-  1832  0156  0813               	movf	19,w	;volatile
-  1833  0157  00F0               	movwf	??_isr
-  1834  0158  0870               	movf	??_isr,w
-  1835  0159  00AF               	movwf	_var
-  1836                           
-  1837                           ;Esclavo3.c: 53:             _delay((unsigned long)((250)*(8000000/4000000.0)));
-  1838  015A  30A6               	movlw	166
-  1839  015B  00F0               	movwf	??_isr
-  1840  015C                     u112_27:	
-  1841  015C  0BF0               	decfsz	??_isr,f
-  1842  015D  295C               	goto	u112_27
-  1843  015E  0000               	nop
-  1844                           
-  1845                           ;Esclavo3.c: 55:         } else if (!SSPSTATbits.D_nA && SSPSTATbits.R_nW) {
-  1846  015F  2983               	goto	i1l127
-  1847  0160                     i1l123:	
-  1848  0160  1E94               	btfss	20,5	;volatile
-  1849  0161  1D14               	btfss	20,2	;volatile
-  1850  0162  2983               	goto	i1l127
-  1851                           
-  1852                           ;Esclavo3.c: 56:             z = SSPBUF;
-  1853  0163  1283               	bcf	3,5	;RP0=0, select bank0
-  1854  0164  1303               	bcf	3,6	;RP1=0, select bank0
-  1855  0165  0813               	movf	19,w	;volatile
-  1856  0166  00F0               	movwf	??_isr
-  1857  0167  0870               	movf	??_isr,w
-  1858  0168  00B0               	movwf	_z
+  1794                           ;Esclavo3.c: 39:             z = SSPBUF;
+  1795  013C  0813               	movf	19,w	;volatile
+  1796  013D  00F0               	movwf	??_isr
+  1797  013E  0870               	movf	??_isr,w
+  1798  013F  00B0               	movwf	_z
+  1799                           
+  1800                           ;Esclavo3.c: 40:             SSPCONbits.SSPOV = 0;
+  1801  0140  1314               	bcf	20,6	;volatile
+  1802                           
+  1803                           ;Esclavo3.c: 41:             SSPCONbits.WCOL = 0;
+  1804  0141  1394               	bcf	20,7	;volatile
+  1805                           
+  1806                           ;Esclavo3.c: 42:             SSPCONbits.CKP = 1;
+  1807  0142  1614               	bsf	20,4	;volatile
+  1808  0143                     i1l1322:	
+  1809                           
+  1810                           ;Esclavo3.c: 45:         if (!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
+  1811  0143  1683               	bsf	3,5	;RP0=1, select bank1
+  1812  0144  1303               	bcf	3,6	;RP1=0, select bank1
+  1813  0145  1E94               	btfss	20,5	;volatile
+  1814  0146  1914               	btfsc	20,2	;volatile
+  1815  0147  295F               	goto	i1l1334
+  1816                           
+  1817                           ;Esclavo3.c: 47:             z = SSPBUF;
+  1818  0148  1283               	bcf	3,5	;RP0=0, select bank0
+  1819  0149  1303               	bcf	3,6	;RP1=0, select bank0
+  1820  014A  0813               	movf	19,w	;volatile
+  1821  014B  00F0               	movwf	??_isr
+  1822  014C  0870               	movf	??_isr,w
+  1823  014D  00B0               	movwf	_z
+  1824                           
+  1825                           ;Esclavo3.c: 49:             PIR1bits.SSPIF = 0;
+  1826  014E  118C               	bcf	12,3	;volatile
+  1827                           
+  1828                           ;Esclavo3.c: 50:             SSPCONbits.CKP = 1;
+  1829  014F  1614               	bsf	20,4	;volatile
+  1830  0150                     i1l126:	
+  1831                           ;Esclavo3.c: 51:             while (!SSPSTATbits.BF);
+  1832                           
+  1833  0150  1683               	bsf	3,5	;RP0=1, select bank1
+  1834  0151  1303               	bcf	3,6	;RP1=0, select bank1
+  1835  0152  1C14               	btfss	20,0	;volatile
+  1836  0153  2950               	goto	i1l126
+  1837                           
+  1838                           ;Esclavo3.c: 52:             var = SSPBUF;
+  1839  0154  1283               	bcf	3,5	;RP0=0, select bank0
+  1840  0155  1303               	bcf	3,6	;RP1=0, select bank0
+  1841  0156  0813               	movf	19,w	;volatile
+  1842  0157  00F0               	movwf	??_isr
+  1843  0158  0870               	movf	??_isr,w
+  1844  0159  00AF               	movwf	_var
+  1845                           
+  1846                           ;Esclavo3.c: 54:             _delay((unsigned long)((250)*(8000000/4000000.0)));
+  1847  015A  30A6               	movlw	166
+  1848  015B  00F0               	movwf	??_isr
+  1849  015C                     u109_27:	
+  1850  015C  0BF0               	decfsz	??_isr,f
+  1851  015D  295C               	goto	u109_27
+  1852  015E  0000               	nop
+  1853  015F                     i1l1334:	
+  1854  015F  1683               	bsf	3,5	;RP0=1, select bank1
+  1855  0160  1303               	bcf	3,6	;RP1=0, select bank1
+  1856  0161  1E94               	btfss	20,5	;volatile
+  1857  0162  1D14               	btfss	20,2	;volatile
+  1858  0163  2984               	goto	i1l129
   1859                           
-  1860                           ;Esclavo3.c: 57:             BF = 0;
-  1861  0169  1683               	bsf	3,5	;RP0=1, select bank1
-  1862  016A  1303               	bcf	3,6	;RP1=0, select bank1
-  1863  016B  1014               	bcf	20,0	;volatile
-  1864                           
-  1865                           ;Esclavo3.c: 58:             if (var == 1) {
-  1866  016C  1283               	bcf	3,5	;RP0=0, select bank0
-  1867  016D  1303               	bcf	3,6	;RP1=0, select bank0
-  1868  016E  032F               	decf	_var,w
-  1869  016F  1D03               	btfss	3,2
-  1870  0170  2973               	goto	i1l1331
-  1871                           
-  1872                           ;Esclavo3.c: 59:                 SSPBUF = hum_int;
-  1873  0171  0879               	movf	_hum_int,w
-  1874  0172  0093               	movwf	19	;volatile
-  1875  0173                     i1l1331:	
-  1876                           
-  1877                           ;Esclavo3.c: 61:             if (var == 2) {
-  1878  0173  3002               	movlw	2
-  1879  0174  062F               	xorwf	_var,w
-  1880  0175  1D03               	btfss	3,2
-  1881  0176  2979               	goto	i1l1335
-  1882                           
-  1883                           ;Esclavo3.c: 62:                 SSPBUF = temp_int;
-  1884  0177  087A               	movf	_temp_int,w
-  1885  0178  0093               	movwf	19	;volatile
-  1886  0179                     i1l1335:	
-  1887                           
-  1888                           ;Esclavo3.c: 64:             SSPCONbits.CKP = 1;
-  1889  0179  1614               	bsf	20,4	;volatile
+  1860                           ;Esclavo3.c: 59:             z = SSPBUF;
+  1861  0164  1283               	bcf	3,5	;RP0=0, select bank0
+  1862  0165  1303               	bcf	3,6	;RP1=0, select bank0
+  1863  0166  0813               	movf	19,w	;volatile
+  1864  0167  00F0               	movwf	??_isr
+  1865  0168  0870               	movf	??_isr,w
+  1866  0169  00B0               	movwf	_z
+  1867                           
+  1868                           ;Esclavo3.c: 60:             BF = 0;
+  1869  016A  1683               	bsf	3,5	;RP0=1, select bank1
+  1870  016B  1303               	bcf	3,6	;RP1=0, select bank1
+  1871  016C  1014               	bcf	20,0	;volatile
+  1872                           
+  1873                           ;Esclavo3.c: 61:             if (var == 1) {
+  1874  016D  1283               	bcf	3,5	;RP0=0, select bank0
+  1875  016E  1303               	bcf	3,6	;RP1=0, select bank0
+  1876  016F  032F               	decf	_var,w
+  1877  0170  1D03               	btfss	3,2
+  1878  0171  2974               	goto	i1l1346
+  1879                           
+  1880                           ;Esclavo3.c: 62:                 SSPBUF = hum_int;
+  1881  0172  0879               	movf	_hum_int,w
+  1882  0173  0093               	movwf	19	;volatile
+  1883  0174                     i1l1346:	
+  1884                           
+  1885                           ;Esclavo3.c: 65:             if (var == 2) {
+  1886  0174  3002               	movlw	2
+  1887  0175  062F               	xorwf	_var,w
+  1888  0176  1D03               	btfss	3,2
+  1889  0177  297A               	goto	i1l1350
   1890                           
-  1891                           ;Esclavo3.c: 65:             _delay((unsigned long)((250)*(8000000/4000000.0)));
-  1892  017A  30A6               	movlw	166
-  1893  017B  00F0               	movwf	??_isr
-  1894  017C                     u113_27:	
-  1895  017C  0BF0               	decfsz	??_isr,f
-  1896  017D  297C               	goto	u113_27
-  1897  017E  0000               	nop
-  1898  017F                     i1l131:	
-  1899                           ;Esclavo3.c: 66:             while (SSPSTATbits.BF);
-  1900                           
-  1901  017F  1683               	bsf	3,5	;RP0=1, select bank1
-  1902  0180  1303               	bcf	3,6	;RP1=0, select bank1
-  1903  0181  1814               	btfsc	20,0	;volatile
-  1904  0182  297F               	goto	i1l131
-  1905  0183                     i1l127:	
-  1906                           
-  1907                           ;Esclavo3.c: 70:         PIR1bits.SSPIF = 0;
-  1908  0183  1283               	bcf	3,5	;RP0=0, select bank0
-  1909  0184  1303               	bcf	3,6	;RP1=0, select bank0
-  1910  0185  118C               	bcf	12,3	;volatile
-  1911  0186                     i1l119:	
-  1912                           ;Esclavo3.c: 71:     }
-  1913                           
-  1914                           
-  1915                           ;Esclavo3.c: 72:     if (PIR1bits.TMR1IF) {
-  1916  0186  1C0C               	btfss	12,0	;volatile
-  1917  0187  298F               	goto	i1l135
-  1918                           
-  1919                           ;Esclavo3.c: 73:         t1_count++;
-  1920  0188  3001               	movlw	1
-  1921  0189  00F0               	movwf	??_isr
-  1922  018A  0870               	movf	??_isr,w
-  1923  018B  07B5               	addwf	_t1_count,f
+  1891                           ;Esclavo3.c: 66:                 SSPBUF = temp_int;
+  1892  0178  087A               	movf	_temp_int,w
+  1893  0179  0093               	movwf	19	;volatile
+  1894  017A                     i1l1350:	
+  1895                           
+  1896                           ;Esclavo3.c: 70:             SSPCONbits.CKP = 1;
+  1897  017A  1614               	bsf	20,4	;volatile
+  1898                           
+  1899                           ;Esclavo3.c: 71:             _delay((unsigned long)((250)*(8000000/4000000.0)));
+  1900  017B  30A6               	movlw	166
+  1901  017C  00F0               	movwf	??_isr
+  1902  017D                     u110_27:	
+  1903  017D  0BF0               	decfsz	??_isr,f
+  1904  017E  297D               	goto	u110_27
+  1905  017F  0000               	nop
+  1906  0180                     i1l132:	
+  1907                           ;Esclavo3.c: 72:             while (SSPSTATbits.BF);
+  1908                           
+  1909  0180  1683               	bsf	3,5	;RP0=1, select bank1
+  1910  0181  1303               	bcf	3,6	;RP1=0, select bank1
+  1911  0182  1814               	btfsc	20,0	;volatile
+  1912  0183  2980               	goto	i1l132
+  1913  0184                     i1l129:	
+  1914                           ;Esclavo3.c: 74:         }
+  1915                           
+  1916                           
+  1917                           ;Esclavo3.c: 76:         PIR1bits.SSPIF = 0;
+  1918  0184  1283               	bcf	3,5	;RP0=0, select bank0
+  1919  0185  1303               	bcf	3,6	;RP1=0, select bank0
+  1920  0186  118C               	bcf	12,3	;volatile
+  1921  0187                     i1l121:	
+  1922                           ;Esclavo3.c: 77:     }
+  1923                           
   1924                           
-  1925                           ;Esclavo3.c: 74:         TMR1 = (0);
-  1926  018C  018E               	clrf	14	;volatile
-  1927  018D  018F               	clrf	15	;volatile
+  1925                           ;Esclavo3.c: 78:     if (PIR1bits.TMR1IF) {
+  1926  0187  1C0C               	btfss	12,0	;volatile
+  1927  0188  2990               	goto	i1l136
   1928                           
-  1929                           ;Esclavo3.c: 75:         PIR1bits.TMR1IF = 0;
-  1930  018E  100C               	bcf	12,0	;volatile
-  1931  018F                     i1l135:	
-  1932  018F  0872               	movf	??_isr+2,w
-  1933  0190  008A               	movwf	10
-  1934  0191  0E71               	swapf	(??_isr+1)^(0+4294967168),w
-  1935  0192  0083               	movwf	3
-  1936  0193  0EFE               	swapf	126,f
-  1937  0194  0E7E               	swapf	126,w
-  1938  0195  0009               	retfie
-  1939  0196                     __end_of_isr:	
-  1940  007E                     btemp	set	126	;btemp
-  1941  007E                     wtemp0	set	126
-  1942                           
-  1943                           	psect	intentry
-  1944  0004                     __pintentry:	
-  1945                           ;incstack = 0
-  1946                           ; Regs used in _isr: [wreg+status,2+status,0]
-  1947                           
-  1948  0004                     interrupt_function:	
-  1949  007E                     saved_w	set	btemp
-  1950  0004  00FE               	movwf	btemp
-  1951  0005  0E03               	swapf	3,w
-  1952  0006  00F1               	movwf	??_isr+1
-  1953  0007  080A               	movf	10,w
-  1954  0008  00F2               	movwf	??_isr+2
-  1955  0009  120A  118A  2933   	ljmp	_isr
+  1929                           ;Esclavo3.c: 79:         t1_count++;
+  1930  0189  3001               	movlw	1
+  1931  018A  00F0               	movwf	??_isr
+  1932  018B  0870               	movf	??_isr,w
+  1933  018C  07B5               	addwf	_t1_count,f
+  1934                           
+  1935                           ;Esclavo3.c: 80:         TMR1 = (0);
+  1936  018D  018E               	clrf	14	;volatile
+  1937  018E  018F               	clrf	15	;volatile
+  1938                           
+  1939                           ;Esclavo3.c: 81:         PIR1bits.TMR1IF = 0;
+  1940  018F  100C               	bcf	12,0	;volatile
+  1941  0190                     i1l136:	
+  1942  0190  0872               	movf	??_isr+2,w
+  1943  0191  008A               	movwf	10
+  1944  0192  0E71               	swapf	(??_isr+1)^(0+4294967168),w
+  1945  0193  0083               	movwf	3
+  1946  0194  0EFE               	swapf	126,f
+  1947  0195  0E7E               	swapf	126,w
+  1948  0196  0009               	retfie
+  1949  0197                     __end_of_isr:	
+  1950  007E                     btemp	set	126	;btemp
+  1951  007E                     wtemp0	set	126
+  1952                           
+  1953                           	psect	intentry
+  1954  0004                     __pintentry:	
+  1955                           ;incstack = 0
+  1956                           ; Regs used in _isr: [wreg+status,2+status,0]
+  1957                           
+  1958  0004                     interrupt_function:	
+  1959  007E                     saved_w	set	btemp
+  1960  0004  00FE               	movwf	btemp
+  1961  0005  0E03               	swapf	3,w
+  1962  0006  00F1               	movwf	??_isr+1
+  1963  0007  080A               	movf	10,w
+  1964  0008  00F2               	movwf	??_isr+2
+  1965  0009  120A  118A  2933   	ljmp	_isr
 
 
 Data Sizes:
@@ -2128,70 +2138,70 @@ DATA                 0      0      24      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.05 build -831301201 
-Symbol Table                                                                                   Mon Mar 11 08:28:37 2019
+Symbol Table                                                                                   Wed Mar 13 13:26:38 2019
 
                        _z 0030               __CFG_CP$OFF 0000               _SSPSTATbits 0094  
                       _BF 04A0                        fsr 0004      __size_of_dht11_begin 001A  
-    __size_of_dht11_check 0009                       l202 012C                       l232 01EC  
-                     l162 0279                       l146 00C4                       l180 01F8  
-                     l165 027D                       l168 027F                       l185 020C  
+    __size_of_dht11_check 0009                       l203 012C                       l233 01ED  
+                     l163 027A                       l147 00C4                       l181 01F9  
+                     l166 027E                       l169 0280                       l186 020D  
                      _GIE 005F                       _RE0 0048              __CFG_CPD$OFF 0000  
-                     u615 01A0                       u665 00CC                       _isr 0133  
-                     _var 002F                       indf 0000              __CFG_LVP$OFF 0000  
-                    l1261 01C9                      l1239 0206                      l1271 019A  
-                    l1265 01DB                      l1257 01B7                      l1283 00FD  
-                    l1507 00BE                      l1293 00C6                      l1287 0115  
-                    l1279 00E5                      l1465 0049                      l1493 00A9  
-                    l1497 00AA                      ?_isr 0070                      u1017 00E0  
-                    u1107 0242                      u1027 00F8                      u1117 024C  
-                    u1037 0110                      u1047 0127                      u1057 01B2  
-                    u1067 01C4                      u1077 01D6                      u1087 01E7  
-                    u1097 01FC                      _PEIE 005E                      _RCEN 048B  
-                    _TMR1 000E              __CFG_WRT$OFF 0000                      _main 001E  
-                    btemp 007E                      start 000C             __CFG_IESO$OFF 0000  
- __end_of_oscilator_begin 0279                     ??_isr 0070                     ?_main 0070  
-           __CFG_WDTE$OFF 0000                     _ANSEL 0188                     i1l131 017F  
-                   i1l123 0160                     i1l124 0150                     i1l135 018F  
-                   i1l127 0183                     i1l119 0186                     _PORTD 0008  
+                     u605 01A1                       u655 00CC                       u987 00E0  
+                     u997 00F8                       _isr 0133                       _var 002F  
+                     indf 0000              __CFG_LVP$OFF 0000                      l1300 0115  
+                    l1306 00C6                      l1252 0207                      l1270 01B8  
+                    l1274 01CA                      l1284 019B                      l1292 00E5  
+                    l1540 00BD                      l1532 00AD                      l1278 01DC  
+                    l1542 00BE                      l1296 00FD                      l1528 00AC  
+                    l1498 004B                      ?_isr 0070                      u1007 0110  
+                    u1017 0127                      u1027 01B3                      u1037 01C5  
+                    u1047 01D7                      u1057 01E8                      u1067 01FD  
+                    u1077 0243                      u1087 024D                      _PEIE 005E  
+                    _RCEN 048B                      _TMR1 000E              __CFG_WRT$OFF 0000  
+                    _main 001E                      btemp 007E                      start 000C  
+           __CFG_IESO$OFF 0000   __end_of_oscilator_begin 027A                     ??_isr 0070  
+                   ?_main 0070             __CFG_WDTE$OFF 0000                     _ANSEL 0188  
+                   i1l121 0187                     i1l132 0180                     i1l126 0150  
+                   i1l136 0190                     i1l129 0184                     _PORTD 0008  
                    _TRISD 0088                     _SSPIE 0463                     _SSPIF 0063  
           __CFG_FCMEN$OFF 0000                     _check 0032                     _state 002E  
                    _total 0031            __CFG_BOREN$OFF 0000                     pclath 000A  
                    status 0003                     wtemp0 007E            __CFG_MCLRE$OFF 0000  
          __initialization 000F              __end_of_main 00C6                    ??_main 0036  
-                  i1l1301 013C                    i1l1331 0173                    i1l1309 0143  
-                  i1l1335 0179                    u112_27 015C                    u113_27 017C  
-                  _SSPADD 0093                    _TRISA0 0428                    _TRISA1 0429  
-                  _TRISC3 043B                    _TRISC4 043C                    _SSPCON 0014  
-                  _SSPBUF 0013            __CFG_PWRTE$OFF 0000          ?_oscilator_begin 0070  
-          dht11_read@temp 002C          __end_of_full_rev 01F5                    saved_w 007E  
- __end_of__initialization 001A            __pcstackCOMMON 0070                _dht11_read 01F5  
- __size_of_I2C_Slave_Init 0019     I2C_Slave_Init@address 0073                __pbssBANK0 0020  
-      __size_of_full_step 006D                __pmaintext 001E             ??_dht11_begin 0073  
-           ??_dht11_check 0073                __pintentry 0004                   _SSPCON2 0091  
-                 _SSPSTAT 0094                 ?_full_rev 0073               ?_dht11_read 0070  
-           ?_timer1_begin 0073                   __ptext1 0218                   __ptext2 026B  
-                 __ptext3 00C6                   __ptext4 0196                   __ptext5 01F5  
-                 __ptext6 0279                   __ptext7 0238                   __ptext8 0252  
-                 __ptext9 0133       __end_of_dht11_begin 0252       __end_of_dht11_check 0282  
-               _T1CONbits 0010              __size_of_isr 0063                   _hum_dec 0033  
-                 _hum_int 0079         __end_of_full_step 0133                   clrloop0 0283  
-    end_of_initialization 001A                ??_full_rev 0075            _I2C_Slave_Init 0252  
-          ??_timer1_begin 0074                 _PORTAbits 0005       __size_of_dht11_read 0023  
-   timer1_begin@prescaler 0073    __end_of_I2C_Slave_Init 026B               _dht11_begin 0238  
-             _dht11_check 0279  __size_of_oscilator_begin 000E       start_initialization 000F  
-             __end_of_isr 0196  __CFG_FOSC$INTRC_NOCLKOUT 0000           ?_I2C_Slave_Init 0073  
-              full_step@i 0077               __pbssCOMMON 0077                 ___latbits 0002  
-           __pcstackBANK0 0036      __end_of_timer1_begin 0238               dht11_read@i 002D  
-       __size_of_full_rev 005F              ??_dht11_read 0073        timer1_begin@offset 0076  
-       ??_oscilator_begin 0073                 _full_step 00C6        __end_of_dht11_read 0218  
-       interrupt_function 0004                 clear_ram0 0282                  _PIE1bits 008C  
-                _PIR1bits 000C                wave_step@a 0028                wave_step@i 002A  
-              ?_full_step 0073       oscilator_begin@freq 0074              ?_dht11_begin 0070  
-            ?_dht11_check 0070                  _t1_count 0035                 full_rev@a 0024  
-               full_rev@i 0026     __size_of_timer1_begin 0020         __CFG_BOR4V$BOR40V 0000  
-        ??_I2C_Slave_Init 0075             __size_of_main 00A8                  _full_rev 0196  
-                _temp_dec 0034                  _temp_int 007A                 wave_rev@a 0020  
-               wave_rev@i 0022              _timer1_begin 0218                _INTCONbits 000B  
-             ??_full_step 0075                  intlevel1 0000                _OSCCONbits 008F  
-          full_step@steps 0073             full_rev@steps 0073           _oscilator_begin 026B  
-             _SSPCON2bits 0091                _SSPCONbits 0014  
+                  u110_27 017D                    i1l1322 0143                    i1l1314 013C  
+                  i1l1350 017A                    i1l1334 015F                    i1l1346 0174  
+                  u109_27 015C                    _SSPADD 0093                    _TRISA0 0428  
+                  _TRISA1 0429                    _TRISC3 043B                    _TRISC4 043C  
+                  _SSPCON 0014                    _SSPBUF 0013            __CFG_PWRTE$OFF 0000  
+        ?_oscilator_begin 0070            dht11_read@temp 002C          __end_of_full_rev 01F6  
+                  saved_w 007E   __end_of__initialization 001A            __pcstackCOMMON 0070  
+              _dht11_read 01F6   __size_of_I2C_Slave_Init 0019     I2C_Slave_Init@address 0073  
+              __pbssBANK0 0020        __size_of_full_step 006D                __pmaintext 001E  
+           ??_dht11_begin 0073             ??_dht11_check 0073                __pintentry 0004  
+                 _SSPCON2 0091                   _SSPSTAT 0094                 ?_full_rev 0073  
+             ?_dht11_read 0070             ?_timer1_begin 0073                   __ptext1 0219  
+                 __ptext2 026C                   __ptext3 00C6                   __ptext4 0197  
+                 __ptext5 01F6                   __ptext6 027A                   __ptext7 0239  
+                 __ptext8 0253                   __ptext9 0133       __end_of_dht11_begin 0253  
+     __end_of_dht11_check 0283                 _T1CONbits 0010              __size_of_isr 0064  
+                 _hum_dec 0033                   _hum_int 0079         __end_of_full_step 0133  
+                 clrloop0 0284      end_of_initialization 001A                ??_full_rev 0075  
+          _I2C_Slave_Init 0253            ??_timer1_begin 0074                 _PORTAbits 0005  
+     __size_of_dht11_read 0023     timer1_begin@prescaler 0073    __end_of_I2C_Slave_Init 026C  
+             _dht11_begin 0239               _dht11_check 027A  __size_of_oscilator_begin 000E  
+     start_initialization 000F               __end_of_isr 0197  __CFG_FOSC$INTRC_NOCLKOUT 0000  
+         ?_I2C_Slave_Init 0073                full_step@i 0077               __pbssCOMMON 0077  
+               ___latbits 0002             __pcstackBANK0 0036      __end_of_timer1_begin 0239  
+             dht11_read@i 002D         __size_of_full_rev 005F              ??_dht11_read 0073  
+      timer1_begin@offset 0076         ??_oscilator_begin 0073                 _full_step 00C6  
+      __end_of_dht11_read 0219         interrupt_function 0004                 clear_ram0 0283  
+                _PIE1bits 008C                  _PIR1bits 000C                wave_step@a 0028  
+              wave_step@i 002A                ?_full_step 0073       oscilator_begin@freq 0074  
+            ?_dht11_begin 0070              ?_dht11_check 0070                  _t1_count 0035  
+               full_rev@a 0024                 full_rev@i 0026     __size_of_timer1_begin 0020  
+       __CFG_BOR4V$BOR40V 0000          ??_I2C_Slave_Init 0075             __size_of_main 00A8  
+                _full_rev 0197                  _temp_dec 0034                  _temp_int 007A  
+               wave_rev@a 0020                 wave_rev@i 0022              _timer1_begin 0219  
+              _INTCONbits 000B               ??_full_step 0075                  intlevel1 0000  
+              _OSCCONbits 008F            full_step@steps 0073             full_rev@steps 0073  
+         _oscilator_begin 026C               _SSPCON2bits 0091                _SSPCONbits 0014  
