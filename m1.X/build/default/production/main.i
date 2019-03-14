@@ -3153,7 +3153,7 @@ void UART_Tx(unsigned char val)
     while(TXIF == 0);
     TXIF = 0;
     TXREG = val;
-    PORTDbits.RD2 = 1;
+
 }
 
 
@@ -3275,7 +3275,7 @@ void main(void)
 # 255 "main.c"
             PORTDbits.RD7 = 1;
             cual_dato = UART_Rx();
-
+         PORTDbits.RD2 = 1;
         if(cual_dato == 1U){
             UART_Tx(hum);
         }else if(cual_dato == 2U){
@@ -3292,6 +3292,11 @@ void main(void)
             UART_Tx(luz);
         }
             PORTDbits.RD7 = 0;
+
+            LCD8_clear();
+            if(t1_count<177){
+                LCD8_set_cursor(1,1);
+            LCD8_strWrite("Luz");
             if(luz<100){
             sprintf(show,"%d ",luz);
             LCD8_set_cursor(2,1);
@@ -3304,64 +3309,69 @@ void main(void)
             LCD8_strWrite(show);
             }
 
-            sprintf (show,"%d",puerta);
-            LCD8_set_cursor(1,1);
-            LCD8_strWrite(show);
 
-
-
+            LCD8_set_cursor(1,6);
+            LCD8_strWrite("Dist.");
              if(puerta <100){
-            sprintf(show,"%d ",puerta);
-            LCD8_set_cursor(1,1);
+            sprintf(show,"%dcm ",puerta);
+            LCD8_set_cursor(2,6);
             LCD8_strWrite(show);
             }
 
             if(puerta>99){
-            sprintf(show,"%d",puerta);
-            LCD8_set_cursor(1,1);
+            sprintf(show,"%dcm",puerta);
+            LCD8_set_cursor(2,6);
             LCD8_strWrite(show);
             }
 
+            LCD8_set_cursor(1,12);
+            LCD8_strWrite("Mov");
+            LCD8_set_cursor(2,12);
+            if (pir == 1){
+            LCD8_strWrite("Si");
+            }
+            else if (pir == 0){
+            LCD8_strWrite("No");
+            } else{
+               LCD8_strWrite("N/A");
+            }
+            }
+            if(t1_count>=177){
 
-
-            sprintf (show,"%d",pir);
-            LCD8_set_cursor(1,6);
-            LCD8_strWrite(show);
-
+            LCD8_set_cursor(1,1);
+            LCD8_strWrite("Hora");
             sprintf (show,"%d",hr);
-            LCD8_set_cursor(1,10);
+            LCD8_set_cursor(2,1);
             LCD8_strWrite(show);
-
             sprintf (show,":%d",minuto);
-            LCD8_set_cursor(1,11);
+            LCD8_set_cursor(2,2);
             LCD8_strWrite(show);
 
-            sprintf (show,"%d",hum);
-            LCD8_set_cursor(2,6);
-            LCD8_strWrite(show);
-
+            LCD8_set_cursor(1,7);
+            LCD8_strWrite("Hum + Temp");
             if(hum <100){
             sprintf(show,"%d ",hum);
-            LCD8_set_cursor(2,6);
+            LCD8_set_cursor(2,7);
             LCD8_strWrite(show);
             }
-
             if(hum>99){
             sprintf(show,"%d",hum);
-            LCD8_set_cursor(2,6);
+            LCD8_set_cursor(2,7);
             LCD8_strWrite(show);
             }
 
             if(temperatura <100){
-            sprintf(show,"%d ",temperatura);
-            LCD8_set_cursor(2,11);
+            sprintf(show,"%d C",temperatura);
+            LCD8_set_cursor(2,13);
+            LCD8_strWrite(show);
+            }
+            if(temperatura>99){
+            sprintf(show,"%dC",temperatura);
+            LCD8_set_cursor(2,13);
             LCD8_strWrite(show);
             }
 
-            if(temperatura>99){
-            sprintf(show,"%d",temperatura);
-            LCD8_set_cursor(2,11);
-            LCD8_strWrite(show);
+
             }
 
 

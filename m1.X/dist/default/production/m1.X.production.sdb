@@ -85,7 +85,7 @@
 "369
 [u S126 . 1 `S117 1 . 1 0 ]
 [v _PORTDbits PORTDbits `VES126  1 e 1 @8 ]
-[s S472 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S477 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -95,14 +95,14 @@
 `uc 1 GIE 1 0 :1:7 
 ]
 "482
-[s S481 . 1 `uc 1 . 1 0 :2:0 
+[s S486 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 TMR0IE 1 0 :1:5 
 ]
-[u S486 . 1 `S472 1 . 1 0 `S481 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES486  1 e 1 @11 ]
-[s S504 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S491 . 1 `S477 1 . 1 0 `S486 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES491  1 e 1 @11 ]
+[s S509 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -111,11 +111,11 @@
 `uc 1 ADIF 1 0 :1:6 
 ]
 "553
-[u S512 . 1 `S504 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES512  1 e 1 @12 ]
+[u S517 . 1 `S509 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES517  1 e 1 @12 ]
 "650
 [v _TMR1 TMR1 `VEus  1 e 2 @14 ]
-[s S429 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S434 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 TMR1CS 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 T1OSCEN 1 0 :1:3 
@@ -124,7 +124,7 @@
 `uc 1 T1GINV 1 0 :1:7 
 ]
 "700
-[s S437 . 1 `uc 1 . 1 0 :2:0 
+[s S442 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1INSYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T1CKPS0 1 0 :1:4 
@@ -132,11 +132,11 @@
 `uc 1 . 1 0 :1:6 
 `uc 1 T1GIV 1 0 :1:7 
 ]
-[s S445 . 1 `uc 1 . 1 0 :2:0 
+[s S450 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1SYNC 1 0 :1:2 
 ]
-[u S448 . 1 `S429 1 . 1 0 `S437 1 . 1 0 `S445 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES448  1 e 1 @16 ]
+[u S453 . 1 `S434 1 . 1 0 `S442 1 . 1 0 `S450 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES453  1 e 1 @16 ]
 "843
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 "850
@@ -185,7 +185,7 @@
 [v _TRISCbits TRISCbits `VES102  1 e 1 @135 ]
 "1602
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
-[s S523 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S528 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -194,8 +194,8 @@
 `uc 1 ADIE 1 0 :1:6 
 ]
 "1718
-[u S531 . 1 `S523 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES531  1 e 1 @140 ]
+[u S536 . 1 `S528 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES536  1 e 1 @140 ]
 [s S55 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
 `uc 1 HTS 1 0 :1:2 
@@ -313,7 +313,7 @@
 "110 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\m1.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"348
+"358
 } 0
 "500 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\doprnt.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
@@ -322,7 +322,7 @@
 "540
 [v sprintf@val val `ui  1 a 2 18 ]
 "507
-[v sprintf@c c `uc  1 a 1 20 ]
+[v sprintf@c c `uc  1 a 1 21 ]
 "516
 [v sprintf@prec prec `c  1 a 1 17 ]
 "520
@@ -333,7 +333,7 @@
 [v sprintf@sp sp `*.4uc  1 a 1 wreg ]
 [v sprintf@f f `*.24DCuc  1 p 1 9 ]
 "545
-[v sprintf@sp sp `*.4uc  1 a 1 21 ]
+[v sprintf@sp sp `*.4uc  1 a 1 20 ]
 "1560
 } 0
 "5 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\lwmod.c
@@ -476,13 +476,10 @@
 "55 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\m1.X/LCD8bit.h
 [v _LCD8_strWrite LCD8_strWrite `(v  1 e 1 0 ]
 {
-[v LCD8_strWrite@data data `*.4uc  1 a 1 wreg ]
 "56
-[v LCD8_strWrite@i i `uc  1 a 1 6 ]
+[v LCD8_strWrite@i i `uc  1 a 1 0 ]
 "55
-[v LCD8_strWrite@data data `*.4uc  1 a 1 wreg ]
-"57
-[v LCD8_strWrite@data data `*.4uc  1 a 1 7 ]
+[v LCD8_strWrite@data data `*.26uc  1 p 2 5 ]
 "59
 } 0
 "4

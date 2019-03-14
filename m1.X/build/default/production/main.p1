@@ -1304,9 +1304,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "98
 [; ;main.c: 98:     TXREG = val;
 [e = _TXREG _val ]
-"99
-[; ;main.c: 99:     PORTDbits.RD2 = 1;
-[e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
 "100
 [; ;main.c: 100: }
 [e :UE 178 ]
@@ -1560,6 +1557,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "256
 [; ;main.c: 256:             cual_dato = UART_Rx();
 [e = _cual_dato ( _UART_Rx ..  ]
+"257
+[; ;main.c: 257:          PORTDbits.RD2 = 1;
+[e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
 "258
 [; ;main.c: 258:         if(cual_dato == 1U){
 [e $ ! == -> _cual_dato `ui -> 1 `ui 190  ]
@@ -1640,208 +1640,271 @@ Version 4.0 HI-TECH Software Intermediate Code
 "273
 [; ;main.c: 273:             PORTDbits.RD7 = 0;
 [e = . . _PORTDbits 0 7 -> -> 0 `i `uc ]
-"274
-[; ;main.c: 274:             if(luz<100){
-[e $ ! < -> _luz `i -> 100 `i 203  ]
-{
 "275
-[; ;main.c: 275:             sprintf(show,"%d ",luz);
-[e ( _sprintf (1 , (. , &U _show :s 1C -> _luz `i ]
+[; ;main.c: 275:             LCD8_clear();
+[e ( _LCD8_clear ..  ]
 "276
-[; ;main.c: 276:             LCD8_set_cursor(2,1);
-[e ( _LCD8_set_cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
-"277
-[; ;main.c: 277:             LCD8_strWrite(show);
-[e ( _LCD8_strWrite (1 &U _show ]
-"278
-[; ;main.c: 278:             }
-}
-[e :U 203 ]
-"280
-[; ;main.c: 280:             if(luz>99){
-[e $ ! > -> _luz `i -> 99 `i 204  ]
+[; ;main.c: 276:             if(t1_count<177){
+[e $ ! < -> _t1_count `i -> 177 `i 203  ]
 {
-"281
-[; ;main.c: 281:             sprintf(show,"%d",luz);
+"277
+[; ;main.c: 277:                 LCD8_set_cursor(1,1);
+[e ( _LCD8_set_cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"278
+[; ;main.c: 278:             LCD8_strWrite("Luz");
+[e ( _LCD8_strWrite (1 :s 1C ]
+"279
+[; ;main.c: 279:             if(luz<100){
+[e $ ! < -> _luz `i -> 100 `i 204  ]
+{
+"280
+[; ;main.c: 280:             sprintf(show,"%d ",luz);
 [e ( _sprintf (1 , (. , &U _show :s 2C -> _luz `i ]
-"282
-[; ;main.c: 282:             LCD8_set_cursor(2,1);
+"281
+[; ;main.c: 281:             LCD8_set_cursor(2,1);
 [e ( _LCD8_set_cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
-"283
-[; ;main.c: 283:             LCD8_strWrite(show);
+"282
+[; ;main.c: 282:             LCD8_strWrite(show);
 [e ( _LCD8_strWrite (1 &U _show ]
-"284
-[; ;main.c: 284:             }
+"283
+[; ;main.c: 283:             }
 }
 [e :U 204 ]
+"285
+[; ;main.c: 285:             if(luz>99){
+[e $ ! > -> _luz `i -> 99 `i 205  ]
+{
 "286
-[; ;main.c: 286:             sprintf (show,"%d",puerta);
-[e ( _sprintf (1 , (. , &U _show :s 3C -> _puerta `i ]
+[; ;main.c: 286:             sprintf(show,"%d",luz);
+[e ( _sprintf (1 , (. , &U _show :s 3C -> _luz `i ]
 "287
-[; ;main.c: 287:             LCD8_set_cursor(1,1);
-[e ( _LCD8_set_cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;main.c: 287:             LCD8_set_cursor(2,1);
+[e ( _LCD8_set_cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
 "288
 [; ;main.c: 288:             LCD8_strWrite(show);
 [e ( _LCD8_strWrite (1 &U _show ]
-"292
-[; ;main.c: 292:              if(puerta <100){
-[e $ ! < -> _puerta `i -> 100 `i 205  ]
-{
-"293
-[; ;main.c: 293:             sprintf(show,"%d ",puerta);
-[e ( _sprintf (1 , (. , &U _show :s 4C -> _puerta `i ]
-"294
-[; ;main.c: 294:             LCD8_set_cursor(1,1);
-[e ( _LCD8_set_cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"295
-[; ;main.c: 295:             LCD8_strWrite(show);
-[e ( _LCD8_strWrite (1 &U _show ]
-"296
-[; ;main.c: 296:             }
+"289
+[; ;main.c: 289:             }
 }
 [e :U 205 ]
-"298
-[; ;main.c: 298:             if(puerta>99){
-[e $ ! > -> _puerta `i -> 99 `i 206  ]
+"292
+[; ;main.c: 292:             LCD8_set_cursor(1,6);
+[e ( _LCD8_set_cursor (2 , -> -> 1 `i `uc -> -> 6 `i `uc ]
+"293
+[; ;main.c: 293:             LCD8_strWrite("Dist.");
+[e ( _LCD8_strWrite (1 :s 4C ]
+"294
+[; ;main.c: 294:              if(puerta <100){
+[e $ ! < -> _puerta `i -> 100 `i 206  ]
 {
-"299
-[; ;main.c: 299:             sprintf(show,"%d",puerta);
+"295
+[; ;main.c: 295:             sprintf(show,"%dcm ",puerta);
 [e ( _sprintf (1 , (. , &U _show :s 5C -> _puerta `i ]
-"300
-[; ;main.c: 300:             LCD8_set_cursor(1,1);
-[e ( _LCD8_set_cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"301
-[; ;main.c: 301:             LCD8_strWrite(show);
+"296
+[; ;main.c: 296:             LCD8_set_cursor(2,6);
+[e ( _LCD8_set_cursor (2 , -> -> 2 `i `uc -> -> 6 `i `uc ]
+"297
+[; ;main.c: 297:             LCD8_strWrite(show);
 [e ( _LCD8_strWrite (1 &U _show ]
-"302
-[; ;main.c: 302:             }
+"298
+[; ;main.c: 298:             }
 }
 [e :U 206 ]
-"306
-[; ;main.c: 306:             sprintf (show,"%d",pir);
-[e ( _sprintf (1 , (. , &U _show :s 6C -> _pir `i ]
-"307
-[; ;main.c: 307:             LCD8_set_cursor(1,6);
-[e ( _LCD8_set_cursor (2 , -> -> 1 `i `uc -> -> 6 `i `uc ]
-"308
-[; ;main.c: 308:             LCD8_strWrite(show);
-[e ( _LCD8_strWrite (1 &U _show ]
-"310
-[; ;main.c: 310:             sprintf (show,"%d",hr);
-[e ( _sprintf (1 , (. , &U _show :s 7C -> _hr `i ]
-"311
-[; ;main.c: 311:             LCD8_set_cursor(1,10);
-[e ( _LCD8_set_cursor (2 , -> -> 1 `i `uc -> -> 10 `i `uc ]
-"312
-[; ;main.c: 312:             LCD8_strWrite(show);
-[e ( _LCD8_strWrite (1 &U _show ]
-"314
-[; ;main.c: 314:             sprintf (show,":%d",minuto);
-[e ( _sprintf (1 , (. , &U _show :s 8C -> _minuto `i ]
-"315
-[; ;main.c: 315:             LCD8_set_cursor(1,11);
-[e ( _LCD8_set_cursor (2 , -> -> 1 `i `uc -> -> 11 `i `uc ]
-"316
-[; ;main.c: 316:             LCD8_strWrite(show);
-[e ( _LCD8_strWrite (1 &U _show ]
-"318
-[; ;main.c: 318:             sprintf (show,"%d",hum);
-[e ( _sprintf (1 , (. , &U _show :s 9C -> _hum `i ]
-"319
-[; ;main.c: 319:             LCD8_set_cursor(2,6);
-[e ( _LCD8_set_cursor (2 , -> -> 2 `i `uc -> -> 6 `i `uc ]
-"320
-[; ;main.c: 320:             LCD8_strWrite(show);
-[e ( _LCD8_strWrite (1 &U _show ]
-"322
-[; ;main.c: 322:             if(hum <100){
-[e $ ! < -> _hum `i -> 100 `i 207  ]
+"300
+[; ;main.c: 300:             if(puerta>99){
+[e $ ! > -> _puerta `i -> 99 `i 207  ]
 {
-"323
-[; ;main.c: 323:             sprintf(show,"%d ",hum);
-[e ( _sprintf (1 , (. , &U _show :s 10C -> _hum `i ]
-"324
-[; ;main.c: 324:             LCD8_set_cursor(2,6);
+"301
+[; ;main.c: 301:             sprintf(show,"%dcm",puerta);
+[e ( _sprintf (1 , (. , &U _show :s 6C -> _puerta `i ]
+"302
+[; ;main.c: 302:             LCD8_set_cursor(2,6);
 [e ( _LCD8_set_cursor (2 , -> -> 2 `i `uc -> -> 6 `i `uc ]
-"325
-[; ;main.c: 325:             LCD8_strWrite(show);
+"303
+[; ;main.c: 303:             LCD8_strWrite(show);
 [e ( _LCD8_strWrite (1 &U _show ]
-"326
-[; ;main.c: 326:             }
+"304
+[; ;main.c: 304:             }
 }
 [e :U 207 ]
-"328
-[; ;main.c: 328:             if(hum>99){
-[e $ ! > -> _hum `i -> 99 `i 208  ]
+"306
+[; ;main.c: 306:             LCD8_set_cursor(1,12);
+[e ( _LCD8_set_cursor (2 , -> -> 1 `i `uc -> -> 12 `i `uc ]
+"307
+[; ;main.c: 307:             LCD8_strWrite("Mov");
+[e ( _LCD8_strWrite (1 :s 7C ]
+"308
+[; ;main.c: 308:             LCD8_set_cursor(2,12);
+[e ( _LCD8_set_cursor (2 , -> -> 2 `i `uc -> -> 12 `i `uc ]
+"309
+[; ;main.c: 309:             if (pir == 1){
+[e $ ! == -> _pir `i -> 1 `i 208  ]
 {
-"329
-[; ;main.c: 329:             sprintf(show,"%d",hum);
-[e ( _sprintf (1 , (. , &U _show :s 11C -> _hum `i ]
-"330
-[; ;main.c: 330:             LCD8_set_cursor(2,6);
-[e ( _LCD8_set_cursor (2 , -> -> 2 `i `uc -> -> 6 `i `uc ]
-"331
-[; ;main.c: 331:             LCD8_strWrite(show);
-[e ( _LCD8_strWrite (1 &U _show ]
-"332
-[; ;main.c: 332:             }
+"310
+[; ;main.c: 310:             LCD8_strWrite("Si");
+[e ( _LCD8_strWrite (1 :s 8C ]
+"311
+[; ;main.c: 311:             }
 }
+[e $U 209  ]
+"312
+[; ;main.c: 312:             else if (pir == 0){
 [e :U 208 ]
-"334
-[; ;main.c: 334:             if(temperatura <100){
-[e $ ! < -> _temperatura `i -> 100 `i 209  ]
+[e $ ! == -> _pir `i -> 0 `i 210  ]
 {
-"335
-[; ;main.c: 335:             sprintf(show,"%d ",temperatura);
-[e ( _sprintf (1 , (. , &U _show :s 12C -> _temperatura `i ]
-"336
-[; ;main.c: 336:             LCD8_set_cursor(2,11);
-[e ( _LCD8_set_cursor (2 , -> -> 2 `i `uc -> -> 11 `i `uc ]
-"337
-[; ;main.c: 337:             LCD8_strWrite(show);
-[e ( _LCD8_strWrite (1 &U _show ]
-"338
-[; ;main.c: 338:             }
+"313
+[; ;main.c: 313:             LCD8_strWrite("No");
+[e ( _LCD8_strWrite (1 :s 9C ]
+"314
+[; ;main.c: 314:             } else{
 }
-[e :U 209 ]
-"340
-[; ;main.c: 340:             if(temperatura>99){
-[e $ ! > -> _temperatura `i -> 99 `i 210  ]
-{
-"341
-[; ;main.c: 341:             sprintf(show,"%d",temperatura);
-[e ( _sprintf (1 , (. , &U _show :s 13C -> _temperatura `i ]
-"342
-[; ;main.c: 342:             LCD8_set_cursor(2,11);
-[e ( _LCD8_set_cursor (2 , -> -> 2 `i `uc -> -> 11 `i `uc ]
-"343
-[; ;main.c: 343:             LCD8_strWrite(show);
-[e ( _LCD8_strWrite (1 &U _show ]
-"344
-[; ;main.c: 344:             }
-}
+[e $U 211  ]
 [e :U 210 ]
+{
+"315
+[; ;main.c: 315:                LCD8_strWrite("N/A");
+[e ( _LCD8_strWrite (1 :s 10C ]
+"316
+[; ;main.c: 316:             }
+}
+[e :U 211 ]
+[e :U 209 ]
+"317
+[; ;main.c: 317:             }
+}
+[e :U 203 ]
+"318
+[; ;main.c: 318:             if(t1_count>=177){
+[e $ ! >= -> _t1_count `i -> 177 `i 212  ]
+{
+"320
+[; ;main.c: 320:             LCD8_set_cursor(1,1);
+[e ( _LCD8_set_cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"321
+[; ;main.c: 321:             LCD8_strWrite("Hora");
+[e ( _LCD8_strWrite (1 :s 11C ]
+"322
+[; ;main.c: 322:             sprintf (show,"%d",hr);
+[e ( _sprintf (1 , (. , &U _show :s 12C -> _hr `i ]
+"323
+[; ;main.c: 323:             LCD8_set_cursor(2,1);
+[e ( _LCD8_set_cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"324
+[; ;main.c: 324:             LCD8_strWrite(show);
+[e ( _LCD8_strWrite (1 &U _show ]
+"325
+[; ;main.c: 325:             sprintf (show,":%d",minuto);
+[e ( _sprintf (1 , (. , &U _show :s 13C -> _minuto `i ]
+"326
+[; ;main.c: 326:             LCD8_set_cursor(2,2);
+[e ( _LCD8_set_cursor (2 , -> -> 2 `i `uc -> -> 2 `i `uc ]
+"327
+[; ;main.c: 327:             LCD8_strWrite(show);
+[e ( _LCD8_strWrite (1 &U _show ]
+"329
+[; ;main.c: 329:             LCD8_set_cursor(1,7);
+[e ( _LCD8_set_cursor (2 , -> -> 1 `i `uc -> -> 7 `i `uc ]
+"330
+[; ;main.c: 330:             LCD8_strWrite("Hum + Temp");
+[e ( _LCD8_strWrite (1 :s 14C ]
+"331
+[; ;main.c: 331:             if(hum <100){
+[e $ ! < -> _hum `i -> 100 `i 213  ]
+{
+"332
+[; ;main.c: 332:             sprintf(show,"%d ",hum);
+[e ( _sprintf (1 , (. , &U _show :s 15C -> _hum `i ]
+"333
+[; ;main.c: 333:             LCD8_set_cursor(2,7);
+[e ( _LCD8_set_cursor (2 , -> -> 2 `i `uc -> -> 7 `i `uc ]
+"334
+[; ;main.c: 334:             LCD8_strWrite(show);
+[e ( _LCD8_strWrite (1 &U _show ]
+"335
+[; ;main.c: 335:             }
+}
+[e :U 213 ]
+"336
+[; ;main.c: 336:             if(hum>99){
+[e $ ! > -> _hum `i -> 99 `i 214  ]
+{
+"337
+[; ;main.c: 337:             sprintf(show,"%d",hum);
+[e ( _sprintf (1 , (. , &U _show :s 16C -> _hum `i ]
+"338
+[; ;main.c: 338:             LCD8_set_cursor(2,7);
+[e ( _LCD8_set_cursor (2 , -> -> 2 `i `uc -> -> 7 `i `uc ]
+"339
+[; ;main.c: 339:             LCD8_strWrite(show);
+[e ( _LCD8_strWrite (1 &U _show ]
+"340
+[; ;main.c: 340:             }
+}
+[e :U 214 ]
+"342
+[; ;main.c: 342:             if(temperatura <100){
+[e $ ! < -> _temperatura `i -> 100 `i 215  ]
+{
+"343
+[; ;main.c: 343:             sprintf(show,"%d C",temperatura);
+[e ( _sprintf (1 , (. , &U _show :s 17C -> _temperatura `i ]
+"344
+[; ;main.c: 344:             LCD8_set_cursor(2,13);
+[e ( _LCD8_set_cursor (2 , -> -> 2 `i `uc -> -> 13 `i `uc ]
+"345
+[; ;main.c: 345:             LCD8_strWrite(show);
+[e ( _LCD8_strWrite (1 &U _show ]
+"346
+[; ;main.c: 346:             }
+}
+[e :U 215 ]
 "347
-[; ;main.c: 347:     }
+[; ;main.c: 347:             if(temperatura>99){
+[e $ ! > -> _temperatura `i -> 99 `i 216  ]
+{
+"348
+[; ;main.c: 348:             sprintf(show,"%dC",temperatura);
+[e ( _sprintf (1 , (. , &U _show :s 18C -> _temperatura `i ]
+"349
+[; ;main.c: 349:             LCD8_set_cursor(2,13);
+[e ( _LCD8_set_cursor (2 , -> -> 2 `i `uc -> -> 13 `i `uc ]
+"350
+[; ;main.c: 350:             LCD8_strWrite(show);
+[e ( _LCD8_strWrite (1 &U _show ]
+"351
+[; ;main.c: 351:             }
+}
+[e :U 216 ]
+"354
+[; ;main.c: 354:             }
+}
+[e :U 212 ]
+"357
+[; ;main.c: 357:     }
 }
 [e :U 187 ]
 [e $U 188  ]
 [e :U 189 ]
-"348
-[; ;main.c: 348: }
+"358
+[; ;main.c: 358: }
 [e :UE 186 ]
 }
 [p f _sprintf 8388736 ]
-[a 8C 58 37 100 0 ]
-[a 2C 37 100 0 ]
+[a 1C 76 117 122 0 ]
+[a 7C 77 111 118 0 ]
+[a 14C 72 117 109 32 43 32 84 101 109 112 0 ]
+[a 9C 78 111 0 ]
+[a 6C 37 100 99 109 0 ]
+[a 8C 83 105 0 ]
+[a 13C 58 37 100 0 ]
 [a 3C 37 100 0 ]
-[a 5C 37 100 0 ]
-[a 6C 37 100 0 ]
-[a 7C 37 100 0 ]
-[a 9C 37 100 0 ]
-[a 11C 37 100 0 ]
-[a 13C 37 100 0 ]
-[a 1C 37 100 32 0 ]
-[a 4C 37 100 32 0 ]
-[a 10C 37 100 32 0 ]
-[a 12C 37 100 32 0 ]
+[a 12C 37 100 0 ]
+[a 16C 37 100 0 ]
+[a 11C 72 111 114 97 0 ]
+[a 18C 37 100 67 0 ]
+[a 17C 37 100 32 67 0 ]
+[a 10C 78 47 65 0 ]
+[a 4C 68 105 115 116 46 0 ]
+[a 5C 37 100 99 109 32 0 ]
+[a 2C 37 100 32 0 ]
+[a 15C 37 100 32 0 ]

@@ -2811,7 +2811,7 @@ void I2C_Slave_Init(short address)
 # 29 "Esclavo3.c" 2
 
 
-uint8_t temp_int, temp_dec, hum_int, hum_dec, check, total, z, var, state;
+uint8_t temp_int, temp_dec, hum_int, hum_dec, check, total, z, var, state,count;
 
 void __attribute__((picinterrupt(("")))) isr(void)
     {
@@ -2837,8 +2837,9 @@ void __attribute__((picinterrupt(("")))) isr(void)
             _delay((unsigned long)((250)*(8000000/4000000.0)));
 
 
-        } if (!SSPSTATbits.D_nA && SSPSTATbits.R_nW) {
-
+        }
+        if (!SSPSTATbits.D_nA && SSPSTATbits.R_nW) {
+PORTAbits.RA1 = 1;
             z = SSPBUF;
             BF = 0;
             if (var == 1) {
@@ -2853,7 +2854,7 @@ void __attribute__((picinterrupt(("")))) isr(void)
             SSPCONbits.CKP = 1;
             _delay((unsigned long)((250)*(8000000/4000000.0)));
             while (SSPSTATbits.BF);
-
+            PORTAbits.RA1 = 0;
         }
 
         PIR1bits.SSPIF = 0;
@@ -2861,6 +2862,26 @@ void __attribute__((picinterrupt(("")))) isr(void)
     if (PIR1bits.TMR1IF) {
         t1_count++;
         TMR1 = (0);
+
+        if (t1_count == 8) {
+            count++;
+
+            dht11_begin();
+            dht11_check();
+            hum_int = dht11_read();
+            hum_dec = dht11_read();
+            temp_int = dht11_read();
+            temp_dec = dht11_read();
+            check = dht11_read();
+            total = hum_int + hum_dec + temp_int + temp_dec;
+            if(count >1){
+
+            }
+            t1_count = 0;
+        }
+
+
+
         PIR1bits.TMR1IF = 0;
     }
     }
@@ -2873,6 +2894,8 @@ void main(void)
     TRISA1 = 0;
     ANSEL = 0;
     state = 0;
+    TRISE = 0;
+    PORTE = 0;
 
     hum_int = 0U;
     PORTAbits.RA1 = 0;
@@ -2881,36 +2904,20 @@ void main(void)
     I2C_Slave_Init(0x40);
     PORTD = 0;
     while (1) {
-        PORTAbits.RA1 = 0;
-        if (t1_count >= 10) {
-            PORTAbits.RA1 = 1;
-            dht11_begin();
-            dht11_check();
-            hum_int = dht11_read();
-            hum_dec = dht11_read();
-            temp_int = dht11_read();
-            temp_dec = dht11_read();
-            check = dht11_read();
-            total = hum_int + hum_dec + temp_int + temp_dec;
 
-            if (hum_int > 45) {
-                if (state == 0) {
-                    full_rev(1605U);
-                    state = 1U;
-                    PORTD = 0;
-                }
-                else {
-                    PORTD = 0;
-                }
-            }
-            if (state) {
-                full_step(1605U);
-                state = 0;
+        if (hum_int > 85) {
+            if (state == 0) {
+                full_rev(1605U);
+                state = 1U;
                 PORTD = 0;
-
+            } else {
+                PORTD = 0;
             }
-             t1_count = 0;
-
+        }
+        if (hum_int <= 85 && state) {
+            full_step(1605U);
+            state = 0;
+            PORTD = 0;
         }
 
         if (temp_int > 25) {
