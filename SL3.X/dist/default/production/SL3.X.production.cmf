@@ -11,27 +11,27 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\jmoli\AppData\Local\Temp\sf6o.o
+$C:\Users\jmoli\AppData\Local\Temp\sb84.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 0 2007 2007 2 2
 $dist/default/production\SL3.X.production.o
 cinit CODE 0 F F 12 2
-text1 CODE 0 242 242 20 2
-text2 CODE 0 297 297 14 2
-text3 CODE 0 DA DA 77 2
-text4 CODE 0 151 151 67 2
-text5 CODE 0 262 262 1B 2
-text6 CODE 0 21 21 B9 2
-text7 CODE 0 21E 21E 24 2
-text8 CODE 0 2AB 2AB 9 2
-text9 CODE 0 27D 27D 1A 2
-maintext CODE 0 1B8 1B8 66 2
+text1 CODE 0 23A 23A 20 2
+text2 CODE 0 28F 28F 14 2
+text3 CODE 0 D3 D3 77 2
+text4 CODE 0 14A 14A 67 2
+text5 CODE 0 25A 25A 1B 2
+text6 CODE 0 21 21 B2 2
+text7 CODE 0 216 216 24 2
+text8 CODE 0 2A3 2A3 9 2
+text9 CODE 0 275 275 1A 2
+maintext CODE 0 1B1 1B1 65 2
 cstackCOMMON COMMON 1 77 77 7 1
 cstackBANK0 BANK0 1 34 34 5 1
 intentry CODE 0 4 4 8 2
 bssBANK0 BANK0 1 20 20 14 1
-clrtext CODE 0 2B4 2B4 8 2
+clrtext CODE 0 2AC 2AC 8 2
 bssCOMMON COMMON 1 70 70 7 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -48,22 +48,22 @@ BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
 CONST 3-3 2
-CONST 2BC-1FFF 2
+CONST 2B4-1FFF 2
 ENTRY 3-3 2
-ENTRY 2BC-1FFF 2
+ENTRY 2B4-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
 CODE 3-3 2
-CODE 2BC-1FFF 2
+CODE 2B4-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-10F 1
 SFR3 180-18F 1
 EEDATA 2100-21FF 2
 STRCODE 3-3 2
-STRCODE 2BC-1FFF 2
+STRCODE 2B4-1FFF 2
 STRING 3-3 2
-STRING 2BC-1FFF 2
+STRING 2B4-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -78,196 +78,192 @@ STRING 2BC-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\SL3.X.production.o
-F cinit CODE >991:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-F cinit CODE >994:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-F cinit CODE >1080:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-10 cinit CODE >1081:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-11 cinit CODE >1082:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-12 cinit CODE >1083:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-13 cinit CODE >1084:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-14 cinit CODE >1085:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-15 cinit CODE >1086:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-16 cinit CODE >1089:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-17 cinit CODE >1090:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-18 cinit CODE >1091:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-19 cinit CODE >1092:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-1A cinit CODE >1093:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-1D cinit CODE >1099:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-1D cinit CODE >1101:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-1E cinit CODE >1102:C:\Users\jmoli\AppData\Local\Temp\sf6o.
+F cinit CODE >990:C:\Users\jmoli\AppData\Local\Temp\sb84.
+F cinit CODE >993:C:\Users\jmoli\AppData\Local\Temp\sb84.
+F cinit CODE >1079:C:\Users\jmoli\AppData\Local\Temp\sb84.
+10 cinit CODE >1080:C:\Users\jmoli\AppData\Local\Temp\sb84.
+11 cinit CODE >1081:C:\Users\jmoli\AppData\Local\Temp\sb84.
+12 cinit CODE >1082:C:\Users\jmoli\AppData\Local\Temp\sb84.
+13 cinit CODE >1083:C:\Users\jmoli\AppData\Local\Temp\sb84.
+14 cinit CODE >1084:C:\Users\jmoli\AppData\Local\Temp\sb84.
+15 cinit CODE >1085:C:\Users\jmoli\AppData\Local\Temp\sb84.
+16 cinit CODE >1088:C:\Users\jmoli\AppData\Local\Temp\sb84.
+17 cinit CODE >1089:C:\Users\jmoli\AppData\Local\Temp\sb84.
+18 cinit CODE >1090:C:\Users\jmoli\AppData\Local\Temp\sb84.
+19 cinit CODE >1091:C:\Users\jmoli\AppData\Local\Temp\sb84.
+1A cinit CODE >1092:C:\Users\jmoli\AppData\Local\Temp\sb84.
+1D cinit CODE >1098:C:\Users\jmoli\AppData\Local\Temp\sb84.
+1D cinit CODE >1100:C:\Users\jmoli\AppData\Local\Temp\sb84.
+1E cinit CODE >1101:C:\Users\jmoli\AppData\Local\Temp\sb84.
 4 intentry CODE >33:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-27D text9 CODE >12:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
-27D text9 CODE >14:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
-280 text9 CODE >15:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
-283 text9 CODE >16:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
-28C text9 CODE >17:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
-28F text9 CODE >18:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
-293 text9 CODE >19:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
-296 text9 CODE >20:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
-2AB text8 CODE >23:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
-2AB text8 CODE >25:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
-2AF text8 CODE >26:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
-2B1 text8 CODE >27:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
-21E text7 CODE >30:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
-21E text7 CODE >33:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
-223 text7 CODE >35:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
-227 text7 CODE >36:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
-22C text7 CODE >37:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
-230 text7 CODE >39:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
-232 text7 CODE >40:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
-233 text7 CODE >42:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
-239 text7 CODE >43:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
-23B text7 CODE >44:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
-240 text7 CODE >45:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
-241 text7 CODE >46:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+275 text9 CODE >12:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+275 text9 CODE >14:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+278 text9 CODE >15:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+27B text9 CODE >16:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+284 text9 CODE >17:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+287 text9 CODE >18:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+28B text9 CODE >19:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+28E text9 CODE >20:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+2A3 text8 CODE >23:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+2A3 text8 CODE >25:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+2A7 text8 CODE >26:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+2A9 text8 CODE >27:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+216 text7 CODE >30:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+216 text7 CODE >33:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+21B text7 CODE >35:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+21F text7 CODE >36:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+224 text7 CODE >37:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+228 text7 CODE >39:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+22A text7 CODE >40:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+22B text7 CODE >42:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+231 text7 CODE >43:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+233 text7 CODE >44:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+238 text7 CODE >45:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+239 text7 CODE >46:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
 21 text6 CODE >33:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
 21 text6 CODE >35:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-25 text6 CODE >36:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-26 text6 CODE >38:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-2A text6 CODE >39:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-2E text6 CODE >40:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-2F text6 CODE >41:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-30 text6 CODE >42:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-31 text6 CODE >45:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-36 text6 CODE >47:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-3C text6 CODE >49:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-3D text6 CODE >50:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-3E text6 CODE >51:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-42 text6 CODE >52:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-48 text6 CODE >54:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-4D text6 CODE >58:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-52 text6 CODE >59:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-55 text6 CODE >60:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-59 text6 CODE >61:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-5C text6 CODE >62:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-5F text6 CODE >63:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-63 text6 CODE >66:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-67 text6 CODE >67:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-6A text6 CODE >71:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-6C text6 CODE >72:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-71 text6 CODE >73:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-75 text6 CODE >74:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-78 text6 CODE >75:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-78 text6 CODE >77:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-7A text6 CODE >78:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-7A text6 CODE >79:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-7C text6 CODE >80:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-80 text6 CODE >81:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-82 text6 CODE >83:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-86 text6 CODE >84:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-8A text6 CODE >86:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-8F text6 CODE >87:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-94 text6 CODE >88:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-9E text6 CODE >89:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-A8 text6 CODE >90:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-B2 text6 CODE >91:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-BC text6 CODE >92:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-C6 text6 CODE >93:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-D1 text6 CODE >97:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-D2 text6 CODE >102:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-D3 text6 CODE >104:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-262 text5 CODE >93:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
-262 text5 CODE >95:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
-268 text5 CODE >96:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
-26C text5 CODE >97:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
-270 text5 CODE >98:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
-272 text5 CODE >99:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
-273 text5 CODE >100:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
-274 text5 CODE >101:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
-275 text5 CODE >102:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
-276 text5 CODE >103:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
-279 text5 CODE >104:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
-27C text5 CODE >105:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
-151 text4 CODE >69:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-151 text4 CODE >72:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-155 text4 CODE >73:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-15D text4 CODE >75:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-163 text4 CODE >76:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-167 text4 CODE >77:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-169 text4 CODE >78:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-174 text4 CODE >80:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-17B text4 CODE >81:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-17D text4 CODE >82:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-188 text4 CODE >84:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-18F text4 CODE >85:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-191 text4 CODE >86:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-19C text4 CODE >88:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-1A2 text4 CODE >89:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-1A4 text4 CODE >90:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-1AF text4 CODE >91:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-1AF text4 CODE >92:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-1B7 text4 CODE >73:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-DA text3 CODE >9:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-DA text3 CODE >12:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-E4 text3 CODE >14:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-EE text3 CODE >15:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-F0 text3 CODE >16:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-FB text3 CODE >18:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-108 text3 CODE >19:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-10A text3 CODE >20:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-115 text3 CODE >22:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-122 text3 CODE >23:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-124 text3 CODE >24:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-12F text3 CODE >26:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-13B text3 CODE >27:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-13D text3 CODE >28:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-148 text3 CODE >29:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-148 text3 CODE >30:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
-297 text2 CODE >9:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/Oscilator.h
-29A text2 CODE >10:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/Oscilator.h
-2A8 text2 CODE >11:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/Oscilator.h
-2A9 text2 CODE >12:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/Oscilator.h
-2AA text2 CODE >13:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/Oscilator.h
-242 text1 CODE >8:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
-245 text1 CODE >10:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
-246 text1 CODE >11:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
-247 text1 CODE >12:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
-24F text1 CODE >13:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
-250 text1 CODE >14:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
-251 text1 CODE >15:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
-252 text1 CODE >17:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
-253 text1 CODE >18:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
-254 text1 CODE >19:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
-257 text1 CODE >20:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
-258 text1 CODE >21:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
-261 text1 CODE >22:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
-1B8 maintext CODE >106:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-1B8 maintext CODE >108:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-1BE maintext CODE >109:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-1C1 maintext CODE >110:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-1C4 maintext CODE >111:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-1C7 maintext CODE >112:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-1CA maintext CODE >113:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-1CD maintext CODE >114:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-1D0 maintext CODE >115:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-1D3 maintext CODE >117:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-1D4 maintext CODE >118:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-1D5 maintext CODE >120:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-1DF maintext CODE >121:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-1EA maintext CODE >122:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-1ED maintext CODE >125:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-1F1 maintext CODE >126:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-1F4 maintext CODE >127:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-1FD maintext CODE >128:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-201 maintext CODE >129:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-202 maintext CODE >134:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-209 maintext CODE >135:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-212 maintext CODE >136:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-215 maintext CODE >137:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-216 maintext CODE >140:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-21A maintext CODE >141:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-21B maintext CODE >142:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-21C maintext CODE >143:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
-2B4 clrtext CODE >1067:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-2B4 clrtext CODE >1068:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-2B5 clrtext CODE >1069:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-2B5 clrtext CODE >1070:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-2B6 clrtext CODE >1071:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-2B7 clrtext CODE >1072:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-2B8 clrtext CODE >1073:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-2B9 clrtext CODE >1074:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-2BA clrtext CODE >1075:C:\Users\jmoli\AppData\Local\Temp\sf6o.
-2BB clrtext CODE >1076:C:\Users\jmoli\AppData\Local\Temp\sf6o.
+25 text6 CODE >37:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+26 text6 CODE >39:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+2A text6 CODE >40:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+2E text6 CODE >41:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+2F text6 CODE >42:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+30 text6 CODE >43:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+31 text6 CODE >46:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+36 text6 CODE >48:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+3C text6 CODE >50:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+3D text6 CODE >51:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+3E text6 CODE >52:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+42 text6 CODE >53:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+48 text6 CODE >55:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+4D text6 CODE >59:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+52 text6 CODE >60:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+55 text6 CODE >61:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+59 text6 CODE >62:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+5C text6 CODE >63:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+5F text6 CODE >64:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+63 text6 CODE >67:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+67 text6 CODE >68:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+6A text6 CODE >72:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+6C text6 CODE >73:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+71 text6 CODE >74:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+75 text6 CODE >76:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+75 text6 CODE >78:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+78 text6 CODE >80:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+78 text6 CODE >81:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+7A text6 CODE >82:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+7E text6 CODE >83:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+80 text6 CODE >85:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+84 text6 CODE >87:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+89 text6 CODE >88:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+8E text6 CODE >89:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+98 text6 CODE >90:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+A2 text6 CODE >91:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+AC text6 CODE >92:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+B6 text6 CODE >93:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+C0 text6 CODE >94:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+CB text6 CODE >100:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+CC text6 CODE >102:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+25A text5 CODE >93:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
+25A text5 CODE >95:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
+260 text5 CODE >96:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
+264 text5 CODE >97:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
+268 text5 CODE >98:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
+26A text5 CODE >99:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
+26B text5 CODE >100:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
+26C text5 CODE >101:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
+26D text5 CODE >102:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
+26E text5 CODE >103:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
+271 text5 CODE >104:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
+274 text5 CODE >105:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
+14A text4 CODE >69:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+14A text4 CODE >72:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+14E text4 CODE >73:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+156 text4 CODE >75:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+15C text4 CODE >76:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+160 text4 CODE >77:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+162 text4 CODE >78:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+16D text4 CODE >80:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+174 text4 CODE >81:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+176 text4 CODE >82:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+181 text4 CODE >84:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+188 text4 CODE >85:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+18A text4 CODE >86:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+195 text4 CODE >88:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+19B text4 CODE >89:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+19D text4 CODE >90:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+1A8 text4 CODE >91:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+1A8 text4 CODE >92:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+1B0 text4 CODE >73:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+D3 text3 CODE >9:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+D3 text3 CODE >12:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+DD text3 CODE >14:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+E7 text3 CODE >15:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+E9 text3 CODE >16:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+F4 text3 CODE >18:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+101 text3 CODE >19:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+103 text3 CODE >20:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+10E text3 CODE >22:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+11B text3 CODE >23:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+11D text3 CODE >24:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+128 text3 CODE >26:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+134 text3 CODE >27:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+136 text3 CODE >28:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+141 text3 CODE >29:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+141 text3 CODE >30:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+28F text2 CODE >9:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/Oscilator.h
+292 text2 CODE >10:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/Oscilator.h
+2A0 text2 CODE >11:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/Oscilator.h
+2A1 text2 CODE >12:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/Oscilator.h
+2A2 text2 CODE >13:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/Oscilator.h
+23A text1 CODE >8:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
+23D text1 CODE >10:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
+23E text1 CODE >11:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
+23F text1 CODE >12:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
+247 text1 CODE >13:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
+248 text1 CODE >14:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
+249 text1 CODE >15:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
+24A text1 CODE >17:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
+24B text1 CODE >18:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
+24C text1 CODE >19:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
+24F text1 CODE >20:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
+250 text1 CODE >21:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
+259 text1 CODE >22:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
+1B1 maintext CODE >104:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+1B1 maintext CODE >106:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+1B7 maintext CODE >107:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+1BA maintext CODE >108:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+1BD maintext CODE >109:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+1C0 maintext CODE >110:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+1C3 maintext CODE >111:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+1C6 maintext CODE >112:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+1C9 maintext CODE >113:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+1CC maintext CODE >116:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+1CD maintext CODE >118:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+1D7 maintext CODE >119:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+1E2 maintext CODE >120:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+1E5 maintext CODE >123:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+1E9 maintext CODE >124:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+1EC maintext CODE >125:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+1F5 maintext CODE >126:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+1F9 maintext CODE >127:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+1FA maintext CODE >133:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+201 maintext CODE >134:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+20A maintext CODE >135:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+20D maintext CODE >136:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+20E maintext CODE >139:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+212 maintext CODE >140:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+213 maintext CODE >141:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+214 maintext CODE >142:C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+2AC clrtext CODE >1066:C:\Users\jmoli\AppData\Local\Temp\sb84.
+2AC clrtext CODE >1067:C:\Users\jmoli\AppData\Local\Temp\sb84.
+2AD clrtext CODE >1068:C:\Users\jmoli\AppData\Local\Temp\sb84.
+2AD clrtext CODE >1069:C:\Users\jmoli\AppData\Local\Temp\sb84.
+2AE clrtext CODE >1070:C:\Users\jmoli\AppData\Local\Temp\sb84.
+2AF clrtext CODE >1071:C:\Users\jmoli\AppData\Local\Temp\sb84.
+2B0 clrtext CODE >1072:C:\Users\jmoli\AppData\Local\Temp\sb84.
+2B1 clrtext CODE >1073:C:\Users\jmoli\AppData\Local\Temp\sb84.
+2B2 clrtext CODE >1074:C:\Users\jmoli\AppData\Local\Temp\sb84.
+2B3 clrtext CODE >1075:C:\Users\jmoli\AppData\Local\Temp\sb84.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -295,22 +291,22 @@ __Hstrings 0 0 ABS 0 strings -
 _PEIE 5E 0 ABS 0 - dist/default/production\SL3.X.production.o
 _RCEN 48B 0 ABS 0 - dist/default/production\SL3.X.production.o
 _TMR1 E 0 ABS 0 - dist/default/production\SL3.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\jmoli\AppData\Local\Temp\sf6o.o
-_main 370 0 CODE 0 maintext dist/default/production\SL3.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\jmoli\AppData\Local\Temp\sb84.o
+_main 362 0 CODE 0 maintext dist/default/production\SL3.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\SL3.X.production.o
-start 18 0 CODE 0 init C:\Users\jmoli\AppData\Local\Temp\sf6o.o
+start 18 0 CODE 0 init C:\Users\jmoli\AppData\Local\Temp\sb84.o
 __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production\SL3.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\SL3.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 full_rev@a 22 0 BANK0 1 bssBANK0 dist/default/production\SL3.X.production.o
 full_rev@i 24 0 BANK0 1 bssBANK0 dist/default/production\SL3.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\jmoli\AppData\Local\Temp\sf6o.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\jmoli\AppData\Local\Temp\sf6o.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\jmoli\AppData\Local\Temp\sf6o.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\jmoli\AppData\Local\Temp\sf6o.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\jmoli\AppData\Local\Temp\sf6o.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\jmoli\AppData\Local\Temp\sf6o.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\jmoli\AppData\Local\Temp\sb84.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\jmoli\AppData\Local\Temp\sb84.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\jmoli\AppData\Local\Temp\sb84.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\jmoli\AppData\Local\Temp\sb84.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\jmoli\AppData\Local\Temp\sb84.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\jmoli\AppData\Local\Temp\sb84.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\SL3.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\SL3.X.production.o
@@ -318,16 +314,16 @@ __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
 _SSPCONbits 14 0 ABS 0 - dist/default/production\SL3.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-_timer1_begin 484 0 CODE 0 text1 dist/default/production\SL3.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\jmoli\AppData\Local\Temp\sf6o.o
-___stacklo 0 0 ABS 0 - C:\Users\jmoli\AppData\Local\Temp\sf6o.o
-__end_of_dht11_begin 52E 0 CODE 0 text9 dist/default/production\SL3.X.production.o
-__end_of_dht11_check 568 0 CODE 0 text8 dist/default/production\SL3.X.production.o
-_I2C_Slave_Init 4C4 0 CODE 0 text5 dist/default/production\SL3.X.production.o
+_timer1_begin 474 0 CODE 0 text1 dist/default/production\SL3.X.production.o
+___stackhi 0 0 ABS 0 - C:\Users\jmoli\AppData\Local\Temp\sb84.o
+___stacklo 0 0 ABS 0 - C:\Users\jmoli\AppData\Local\Temp\sb84.o
+__end_of_dht11_begin 51E 0 CODE 0 text9 dist/default/production\SL3.X.production.o
+__end_of_dht11_check 558 0 CODE 0 text8 dist/default/production\SL3.X.production.o
+_I2C_Slave_Init 4B4 0 CODE 0 text5 dist/default/production\SL3.X.production.o
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\SL3.X.production.o
 __CFG_MCLRE$OFF 0 0 ABS 0 - dist/default/production\SL3.X.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\SL3.X.production.o
-clear_ram0 568 0 CODE 0 clrtext dist/default/production\SL3.X.production.o
+clear_ram0 558 0 CODE 0 clrtext dist/default/production\SL3.X.production.o
 __pcstackBANK0 34 0 BANK0 1 cstackBANK0 dist/default/production\SL3.X.production.o
 _SSPADD 93 0 ABS 0 - dist/default/production\SL3.X.production.o
 _SSPBUF 13 0 ABS 0 - dist/default/production\SL3.X.production.o
@@ -342,19 +338,19 @@ __size_of_full_rev 0 0 ABS 0 - dist/default/production\SL3.X.production.o
 wave_rev@a 70 0 COMMON 1 bssCOMMON dist/default/production\SL3.X.production.o
 wave_rev@i 20 0 BANK0 1 bssBANK0 dist/default/production\SL3.X.production.o
 timer1_begin@offset 37 0 BANK0 1 cstackBANK0 dist/default/production\SL3.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\jmoli\AppData\Local\Temp\sf6o.o
+___int_sp 0 0 STACK 2 stack C:\Users\jmoli\AppData\Local\Temp\sb84.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
 __Hbank3 0 0 ABS 0 bank3 -
 __Hcinit 42 0 CODE 0 cinit -
-__end_of_I2C_Slave_Init 4FA 0 CODE 0 text5 dist/default/production\SL3.X.production.o
+__end_of_I2C_Slave_Init 4EA 0 CODE 0 text5 dist/default/production\SL3.X.production.o
 __Hidloc 0 0 IDLOC 0 idloc -
 __Hstack 0 0 STACK 2 stack -
 __Hmaintext 0 0 ABS 0 maintext -
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 4012 0 CONFIG 0 config -
-__end_of_timer1_begin 4C4 0 CODE 0 text1 dist/default/production\SL3.X.production.o
+__end_of_timer1_begin 4B4 0 CODE 0 text1 dist/default/production\SL3.X.production.o
 __Lbank0 0 0 ABS 0 bank0 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 ABS 0 bank2 -
@@ -392,26 +388,26 @@ __S3 0 0 ABS 0 - -
 _isr 42 0 CODE 0 text6 dist/default/production\SL3.X.production.o
 _var 76 0 COMMON 1 bssCOMMON dist/default/production\SL3.X.production.o
 __CFG_BOR4V$BOR40V 0 0 ABS 0 - dist/default/production\SL3.X.production.o
-_full_rev 2A2 0 CODE 0 text4 dist/default/production\SL3.X.production.o
+_full_rev 294 0 CODE 0 text4 dist/default/production\SL3.X.production.o
 saved_w 7E 0 ABS 0 - dist/default/production\SL3.X.production.o
 __CFG_FOSC$INTRC_NOCLKOUT 0 0 ABS 0 - dist/default/production\SL3.X.production.o
 full_rev@steps 34 0 BANK0 1 cstackBANK0 dist/default/production\SL3.X.production.o
 _hum_dec 2F 0 BANK0 1 bssBANK0 dist/default/production\SL3.X.production.o
 _hum_int 30 0 BANK0 1 bssBANK0 dist/default/production\SL3.X.production.o
-__end_of_full_step 2A2 0 CODE 0 text3 dist/default/production\SL3.X.production.o
-__end_of_oscilator_begin 556 0 CODE 0 text2 dist/default/production\SL3.X.production.o
-__end_of_full_rev 370 0 CODE 0 text4 dist/default/production\SL3.X.production.o
+__end_of_full_step 294 0 CODE 0 text3 dist/default/production\SL3.X.production.o
+__end_of_oscilator_begin 546 0 CODE 0 text2 dist/default/production\SL3.X.production.o
+__end_of_full_rev 362 0 CODE 0 text4 dist/default/production\SL3.X.production.o
 __size_of_full_step 0 0 ABS 0 - dist/default/production\SL3.X.production.o
-__end_of_isr 1B4 0 CODE 0 text6 dist/default/production\SL3.X.production.o
+__end_of_isr 1A6 0 CODE 0 text6 dist/default/production\SL3.X.production.o
 __size_of_dht11_begin 0 0 ABS 0 - dist/default/production\SL3.X.production.o
 __size_of_dht11_check 0 0 ABS 0 - dist/default/production\SL3.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\jmoli\AppData\Local\Temp\sf6o.o
-_dht11_read 43C 0 CODE 0 text7 dist/default/production\SL3.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\jmoli\AppData\Local\Temp\sb84.o
+_dht11_read 42C 0 CODE 0 text7 dist/default/production\SL3.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
-_full_step 1B4 0 CODE 0 text3 dist/default/production\SL3.X.production.o
+_full_step 1A6 0 CODE 0 text3 dist/default/production\SL3.X.production.o
 _PIE1bits 8C 0 ABS 0 - dist/default/production\SL3.X.production.o
-__pmaintext 370 0 CODE 0 maintext dist/default/production\SL3.X.production.o
+__pmaintext 362 0 CODE 0 maintext dist/default/production\SL3.X.production.o
 _temp_dec 31 0 BANK0 1 bssBANK0 dist/default/production\SL3.X.production.o
 _temp_int 32 0 BANK0 1 bssBANK0 dist/default/production\SL3.X.production.o
 dht11_read@i 75 0 COMMON 1 bssCOMMON dist/default/production\SL3.X.production.o
@@ -421,14 +417,14 @@ __CFG_CP$OFF 0 0 ABS 0 - dist/default/production\SL3.X.production.o
 I2C_Slave_Init@address 34 0 BANK0 1 cstackBANK0 dist/default/production\SL3.X.production.o
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\SL3.X.production.o
 oscilator_begin@freq 35 0 BANK0 1 cstackBANK0 dist/default/production\SL3.X.production.o
-_oscilator_begin 52E 0 CODE 0 text2 dist/default/production\SL3.X.production.o
+_oscilator_begin 51E 0 CODE 0 text2 dist/default/production\SL3.X.production.o
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\SL3.X.production.o
 timer1_begin@prescaler 34 0 BANK0 1 cstackBANK0 dist/default/production\SL3.X.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
-__end_of_dht11_read 484 0 CODE 0 text7 dist/default/production\SL3.X.production.o
+__end_of_dht11_read 474 0 CODE 0 text7 dist/default/production\SL3.X.production.o
 __pbssCOMMON 70 0 COMMON 1 bssCOMMON dist/default/production\SL3.X.production.o
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 _PIR1bits C 0 ABS 0 - dist/default/production\SL3.X.production.o
@@ -440,15 +436,15 @@ __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 6 0 CODE 0 reset_vec -
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
 _SSPCON2bits 91 0 ABS 0 - dist/default/production\SL3.X.production.o
-__ptext1 484 0 CODE 0 text1 dist/default/production\SL3.X.production.o
-__ptext2 52E 0 CODE 0 text2 dist/default/production\SL3.X.production.o
-__ptext3 1B4 0 CODE 0 text3 dist/default/production\SL3.X.production.o
-__ptext4 2A2 0 CODE 0 text4 dist/default/production\SL3.X.production.o
-__ptext5 4C4 0 CODE 0 text5 dist/default/production\SL3.X.production.o
+__ptext1 474 0 CODE 0 text1 dist/default/production\SL3.X.production.o
+__ptext2 51E 0 CODE 0 text2 dist/default/production\SL3.X.production.o
+__ptext3 1A6 0 CODE 0 text3 dist/default/production\SL3.X.production.o
+__ptext4 294 0 CODE 0 text4 dist/default/production\SL3.X.production.o
+__ptext5 4B4 0 CODE 0 text5 dist/default/production\SL3.X.production.o
 __ptext6 42 0 CODE 0 text6 dist/default/production\SL3.X.production.o
-__ptext7 43C 0 CODE 0 text7 dist/default/production\SL3.X.production.o
-__ptext8 556 0 CODE 0 text8 dist/default/production\SL3.X.production.o
-__ptext9 4FA 0 CODE 0 text9 dist/default/production\SL3.X.production.o
+__ptext7 42C 0 CODE 0 text7 dist/default/production\SL3.X.production.o
+__ptext8 546 0 CODE 0 text8 dist/default/production\SL3.X.production.o
+__ptext9 4EA 0 CODE 0 text9 dist/default/production\SL3.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
@@ -458,13 +454,13 @@ __size_of_I2C_Slave_Init 0 0 ABS 0 - dist/default/production\SL3.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
 _t1_count 33 0 BANK0 1 bssBANK0 dist/default/production\SL3.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext -
-_dht11_begin 4FA 0 CODE 0 text9 dist/default/production\SL3.X.production.o
-_dht11_check 556 0 CODE 0 text8 dist/default/production\SL3.X.production.o
+_dht11_begin 4EA 0 CODE 0 text9 dist/default/production\SL3.X.production.o
+_dht11_check 546 0 CODE 0 text8 dist/default/production\SL3.X.production.o
 __pcstackCOMMON 77 0 COMMON 1 cstackCOMMON dist/default/production\SL3.X.production.o
 _SSPCON2 91 0 ABS 0 - dist/default/production\SL3.X.production.o
 _SSPSTAT 94 0 ABS 0 - dist/default/production\SL3.X.production.o
 __Hend_init 1E 0 CODE 0 end_init -
-__end_of_main 43C 0 CODE 0 maintext dist/default/production\SL3.X.production.o
+__end_of_main 42C 0 CODE 0 maintext dist/default/production\SL3.X.production.o
 _ANSEL 188 0 ABS 0 - dist/default/production\SL3.X.production.o
 _PORTD 8 0 ABS 0 - dist/default/production\SL3.X.production.o
 _PORTE 9 0 ABS 0 - dist/default/production\SL3.X.production.o
@@ -475,7 +471,6 @@ _TRISE 89 0 ABS 0 - dist/default/production\SL3.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 _check 2E 0 BANK0 1 bssBANK0 dist/default/production\SL3.X.production.o
-_count 2A 0 BANK0 1 bssBANK0 dist/default/production\SL3.X.production.o
 interrupt_function 8 0 CODE 0 intentry dist/default/production\SL3.X.production.o
 __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\SL3.X.production.o
 _state 2B 0 BANK0 1 bssBANK0 dist/default/production\SL3.X.production.o
@@ -515,7 +510,7 @@ wave_step@i 26 0 BANK0 1 bssBANK0 dist/default/production\SL3.X.production.o
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-intentry 0 4 8 2B8 2
+intentry 0 4 8 2B0 2
 reset_vec 0 0 0 3 2
 bssBANK0 1 20 20 19 1
 bssCOMMON 1 70 70 E 1

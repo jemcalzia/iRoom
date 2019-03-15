@@ -3169,7 +3169,7 @@ void main(void)
     setup();
 
     while (1){
-        PORTDbits.RD2 =0;
+
 
         counter++;
 
@@ -3246,6 +3246,7 @@ void main(void)
             I2C_Master_Stop();
             _delay((unsigned long)((10)*(8000000/4000.0)));
 # 199 "main.c"
+            PORTDbits.RD2 = 1;
             I2C_Master_Start();
             I2C_Master_Write(0x40);
             I2C_Master_Write(0x1);
@@ -3272,10 +3273,12 @@ void main(void)
             temperatura = I2C_Master_Read(0);
             I2C_Master_Stop();
             _delay((unsigned long)((10)*(8000000/4000.0)));
-# 255 "main.c"
+            PORTDbits.RD2 =0;
+# 257 "main.c"
             PORTDbits.RD7 = 1;
+
             cual_dato = UART_Rx();
-         PORTDbits.RD2 = 1;
+
         if(cual_dato == 1U){
             UART_Tx(hum);
         }else if(cual_dato == 2U){

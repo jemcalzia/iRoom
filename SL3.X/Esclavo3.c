@@ -33,6 +33,7 @@ uint8_t temp_int, temp_dec, hum_int, hum_dec, check, total, z, var, state,count;
 void __interrupt() isr(void)
     {
     if (PIR1bits.SSPIF == 1) {
+ 
         SSPCONbits.CKP = 0;
 
         if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)) {
@@ -71,19 +72,19 @@ prueba = 1;
             SSPCONbits.CKP = 1;
             __delay_us(250);
             while (SSPSTATbits.BF);
-            prueba = 0;
+           
         }
 
         PIR1bits.SSPIF = 0;
+        
     }
     if (PIR1bits.TMR1IF) {
         t1_count++;
         TMR1 = OFFSET; // Se reinicia el timer 1 
         
-        if (t1_count == 8) {
-            count++;
+        if (t1_count == 19) {
            
-            dht11_begin();
+           dht11_begin();
             dht11_check();
             hum_int = dht11_read();
             hum_dec = dht11_read();
@@ -91,10 +92,7 @@ prueba = 1;
             temp_dec = dht11_read();
             check = dht11_read();
             total = hum_int + hum_dec + temp_int + temp_dec;
-            if(count >1){
-               
-            }
-            t1_count = 0;
+           
         }
         
         
@@ -114,7 +112,7 @@ void main(void)
     TRISE = 0; 
     PORTE = 0; 
 
-    hum_int = 0U;
+    
     prueba = 0;
 
     timer1_begin(OFFSET, PRESCALER);
@@ -130,6 +128,7 @@ void main(void)
             } else {
                 PORTD = 0;
             }
+            
         }
         if (hum_int <= 85 && state) {
             full_step(1605U);

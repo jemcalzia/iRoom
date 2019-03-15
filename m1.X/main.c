@@ -112,7 +112,7 @@ void main(void)
     setup();
     //prueba = 1;
     while (1){
-        prueba =0;
+       
         
         counter++;
         //Slave 1: Obstaculo + Luz
@@ -123,7 +123,7 @@ void main(void)
             __delay_ms(10);
             
             
-            
+             
             I2C_Master_Start();
             I2C_Master_Write(0x21);
             puerta = I2C_Master_Read(0);
@@ -188,7 +188,7 @@ void main(void)
             I2C_Master_Write(hr); 
             I2C_Master_Stop();
             __delay_ms(10);
-            
+           
            
             /*
             LCD8_set_cursor(1,6);
@@ -196,6 +196,7 @@ void main(void)
             __delay_ms(1000);
             */
         //Slave 3: humedad + temp
+            prueba = 1;
             I2C_Master_Start();
             I2C_Master_Write(0x40);
             I2C_Master_Write(0x1); 
@@ -222,7 +223,8 @@ void main(void)
             temperatura = I2C_Master_Read(0);
             I2C_Master_Stop();
             __delay_ms(10);
-       
+            prueba =0;
+        
            /* if (t1_count<150){
                 sprintf(show,"%d",hr);
                 LCD8_set_cursor(2,1);
@@ -253,8 +255,9 @@ void main(void)
            
             //UART:
             Signal = 1;
+           
             cual_dato = UART_Rx();
-         prueba = 1;
+        
         if(cual_dato == 1U){
             UART_Tx(hum);//cambiar
         }else if(cual_dato == 2U){

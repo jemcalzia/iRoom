@@ -27,7 +27,7 @@
 [v _dht11_read dht11_read `(uc  1 e 1 0 ]
 "33 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
 [v _isr isr `II(v  1 e 1 0 ]
-"106
+"104
 [v _main main `(v  1 e 1 0 ]
 "9 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
 [v _full_step full_step `(v  1 e 1 0 ]
@@ -245,13 +245,12 @@
 [v _z z `uc  1 e 1 0 ]
 [v _var var `uc  1 e 1 0 ]
 [v _state state `uc  1 e 1 0 ]
-[v _count count `uc  1 e 1 0 ]
 "6 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
 [v _t1_count t1_count `uc  1 e 1 0 ]
-"106 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+"104 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
 [v _main main `(v  1 e 1 0 ]
 {
-"146
+"145
 } 0
 "8 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
 [v _timer1_begin timer1_begin `(v  1 e 1 0 ]
@@ -297,7 +296,7 @@
 "33 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"104
+"102
 } 0
 "30 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
 [v _dht11_read dht11_read `(uc  1 e 1 0 ]
