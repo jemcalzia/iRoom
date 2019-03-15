@@ -1,0 +1,314 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F887 ]
+[d frameptr 6 ]
+"31 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
+[v _I2C_Master_Wait I2C_Master_Wait `(v  1 e 1 0 ]
+"93
+[v _I2C_Slave_Init I2C_Slave_Init `(v  1 e 1 0 ]
+"9 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/Oscilator.h
+[v _oscilator_begin oscilator_begin `(v  1 e 1 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\__lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"12 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+[v _dht11_begin dht11_begin `(v  1 e 1 0 ]
+"23
+[v _dht11_check dht11_check `(v  1 e 1 0 ]
+"30
+[v _dht11_read dht11_read `(uc  1 e 1 0 ]
+"32 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+[v _isr isr `II(v  1 e 1 0 ]
+"79
+[v _main main `(v  1 e 1 0 ]
+"9 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+[v _full_step full_step `(v  1 e 1 0 ]
+"69
+[v _full_rev full_rev `(v  1 e 1 0 ]
+"8 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
+[v _timer1_begin timer1_begin `(v  1 e 1 0 ]
+[s S328 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+"183 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f887.h
+[u S337 . 1 `S328 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES337  1 e 1 @5 ]
+"352
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+[s S425 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"482
+[s S434 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 TMR0IE 1 0 :1:5 
+]
+[u S439 . 1 `S425 1 . 1 0 `S434 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES439  1 e 1 @11 ]
+[s S81 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+]
+"553
+[u S89 . 1 `S81 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES89  1 e 1 @12 ]
+"650
+[v _TMR1 TMR1 `VEus  1 e 2 @14 ]
+[s S382 . 1 `uc 1 TMR1ON 1 0 :1:0 
+`uc 1 TMR1CS 1 0 :1:1 
+`uc 1 nT1SYNC 1 0 :1:2 
+`uc 1 T1OSCEN 1 0 :1:3 
+`uc 1 T1CKPS 1 0 :2:4 
+`uc 1 TMR1GE 1 0 :1:6 
+`uc 1 T1GINV 1 0 :1:7 
+]
+"700
+[s S390 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T1INSYNC 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 T1CKPS0 1 0 :1:4 
+`uc 1 T1CKPS1 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 T1GIV 1 0 :1:7 
+]
+[s S398 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T1SYNC 1 0 :1:2 
+]
+[u S401 . 1 `S382 1 . 1 0 `S390 1 . 1 0 `S398 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES401  1 e 1 @16 ]
+"843
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
+"850
+[v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
+[s S100 . 1 `uc 1 SSPM 1 0 :4:0 
+`uc 1 CKP 1 0 :1:4 
+`uc 1 SSPEN 1 0 :1:5 
+`uc 1 SSPOV 1 0 :1:6 
+`uc 1 WCOL 1 0 :1:7 
+]
+"870
+[s S106 . 1 `uc 1 SSPM0 1 0 :1:0 
+`uc 1 SSPM1 1 0 :1:1 
+`uc 1 SSPM2 1 0 :1:2 
+`uc 1 SSPM3 1 0 :1:3 
+]
+[u S111 . 1 `S100 1 . 1 0 `S106 1 . 1 0 ]
+[v _SSPCONbits SSPCONbits `VES111  1 e 1 @20 ]
+"1602
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+[s S468 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+]
+"1718
+[u S476 . 1 `S468 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES476  1 e 1 @140 ]
+[s S22 . 1 `uc 1 SCS 1 0 :1:0 
+`uc 1 LTS 1 0 :1:1 
+`uc 1 HTS 1 0 :1:2 
+`uc 1 OSTS 1 0 :1:3 
+`uc 1 IRCF 1 0 :3:4 
+]
+"1882
+[s S28 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 IRCF0 1 0 :1:4 
+`uc 1 IRCF1 1 0 :1:5 
+`uc 1 IRCF2 1 0 :1:6 
+]
+[u S33 . 1 `S22 1 . 1 0 `S28 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES33  1 e 1 @143 ]
+"1979
+[v _SSPCON2 SSPCON2 `VEuc  1 e 1 @145 ]
+[s S54 . 1 `uc 1 SEN 1 0 :1:0 
+`uc 1 RSEN 1 0 :1:1 
+`uc 1 PEN 1 0 :1:2 
+`uc 1 RCEN 1 0 :1:3 
+`uc 1 ACKEN 1 0 :1:4 
+`uc 1 ACKDT 1 0 :1:5 
+`uc 1 ACKSTAT 1 0 :1:6 
+`uc 1 GCEN 1 0 :1:7 
+]
+"1996
+[u S63 . 1 `S54 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES63  1 e 1 @145 ]
+"2048
+[v _SSPADD SSPADD `VEuc  1 e 1 @147 ]
+"2177
+[v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
+[s S126 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+"2231
+[s S135 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D 1 0 :1:5 
+]
+[s S140 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 I2C_READ 1 0 :1:2 
+`uc 1 I2C_START 1 0 :1:3 
+`uc 1 I2C_STOP 1 0 :1:4 
+`uc 1 I2C_DATA 1 0 :1:5 
+]
+[s S146 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nW 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nA 1 0 :1:5 
+]
+[s S151 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nWRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nADDRESS 1 0 :1:5 
+]
+[s S156 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D_A 1 0 :1:5 
+]
+[s S161 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 READ_WRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 DATA_ADDRESS 1 0 :1:5 
+]
+[u S166 . 1 `S126 1 . 1 0 `S135 1 . 1 0 `S140 1 . 1 0 `S146 1 . 1 0 `S151 1 . 1 0 `S156 1 . 1 0 `S161 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES166  1 e 1 @148 ]
+"3387
+[v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
+"3641
+[v _BF BF `VEb  1 e 0 @1184 ]
+"3896
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"4040
+[v _PEIE PEIE `VEb  1 e 0 @94 ]
+"4166
+[v _RCEN RCEN `VEb  1 e 0 @1163 ]
+"4205
+[v _RE0 RE0 `VEb  1 e 0 @72 ]
+"4274
+[v _SSPIE SSPIE `VEb  1 e 0 @1123 ]
+"4277
+[v _SSPIF SSPIF `VEb  1 e 0 @99 ]
+"4400
+[v _TRISA0 TRISA0 `VEb  1 e 0 @1064 ]
+"4403
+[v _TRISA1 TRISA1 `VEb  1 e 0 @1065 ]
+"4457
+[v _TRISC3 TRISC3 `VEb  1 e 0 @1083 ]
+"4460
+[v _TRISC4 TRISC4 `VEb  1 e 0 @1084 ]
+"30 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+[v _temp_int temp_int `uc  1 e 1 0 ]
+[v _temp_dec temp_dec `uc  1 e 1 0 ]
+[v _hum_int hum_int `uc  1 e 1 0 ]
+[v _hum_dec hum_dec `uc  1 e 1 0 ]
+[v _check check `uc  1 e 1 0 ]
+[v _total total `uc  1 e 1 0 ]
+[v _z z `uc  1 e 1 0 ]
+[v _var var `uc  1 e 1 0 ]
+[v _state state `uc  1 e 1 0 ]
+"6 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
+[v _t1_count t1_count `uc  1 e 1 0 ]
+"79 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+[v _main main `(v  1 e 1 0 ]
+{
+"123
+} 0
+"8 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\timer1.c
+[v _timer1_begin timer1_begin `(v  1 e 1 0 ]
+{
+[v timer1_begin@offset offset `uc  1 a 1 wreg ]
+[v timer1_begin@offset offset `uc  1 a 1 wreg ]
+[v timer1_begin@prescaler prescaler `uc  1 p 1 3 ]
+"10
+[v timer1_begin@offset offset `uc  1 a 1 6 ]
+"22
+} 0
+"9 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/Oscilator.h
+[v _oscilator_begin oscilator_begin `(v  1 e 1 0 ]
+{
+[v oscilator_begin@freq freq `uc  1 a 1 wreg ]
+[v oscilator_begin@freq freq `uc  1 a 1 wreg ]
+[v oscilator_begin@freq freq `uc  1 a 1 4 ]
+"13
+} 0
+"9 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\stepper.c
+[v _full_step full_step `(v  1 e 1 0 ]
+{
+[v full_step@steps steps `ui  1 p 2 3 ]
+"11
+[v full_step@i i `ui  1 s 2 i ]
+"35
+} 0
+"69
+[v _full_rev full_rev `(v  1 e 1 0 ]
+{
+[v full_rev@steps steps `ui  1 p 2 3 ]
+"71
+[v full_rev@i i `ui  1 s 2 i ]
+[v full_rev@a a `ui  1 s 2 a ]
+"97
+} 0
+"30 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\dht11_h.c
+[v _dht11_read dht11_read `(uc  1 e 1 0 ]
+{
+"32
+[v dht11_read@i i `uc  1 s 1 i ]
+[v dht11_read@temp temp `uc  1 s 1 temp ]
+"46
+} 0
+"23
+[v _dht11_check dht11_check `(v  1 e 1 0 ]
+{
+"28
+} 0
+"12
+[v _dht11_begin dht11_begin `(v  1 e 1 0 ]
+{
+"20
+} 0
+"93 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X/I2C.h
+[v _I2C_Slave_Init I2C_Slave_Init `(v  1 e 1 0 ]
+{
+[v I2C_Slave_Init@address address `s  1 p 2 3 ]
+"105
+} 0
+"32 C:\Users\jmoli\Documents\UVG\2019\1erSemestre\Digital\Proyectos\iRoom\iRoom\SL3.X\Esclavo3.c
+[v _isr isr `II(v  1 e 1 0 ]
+{
+"77
+} 0
